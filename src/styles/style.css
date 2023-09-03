@@ -1,0 +1,92 @@
+body {
+    width: 100vw;
+    margin: 0;
+}
+#root {
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
+}
+
+/* -------------------*/
+/*      HEADER        */
+/* ------------------ */
+
+/* -------------------*/
+/*      MAIN          */
+/* ------------------ */
+main {
+    display: flex;
+    width: 100%;
+    gap: 50px;
+}
+/*  -- SECTION: FORM --  */
+/*  -- PERSONAL DATA FORM --  */
+/*  -- WORK/EDUCATIONAL EXPERIENCE FORM --  */
+section.form #we,
+section.form #ee {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+section.form .we-entry,
+section.form .ee-entry {
+    display: flex;
+    gap: 30px;
+    justify-content: space-between;
+}
+section.form .we-info,
+section.form .ee-info {
+    display: flex;
+    flex-direction: column;
+}
+/*  -- SECTION: DISPLAY --  */
+section.display {
+    width: 60%;
+    height: 60vw;
+    display: flex;
+    box-shadow: 5px 5px 5px grey;
+}
+section.display aside {
+    width: 33%;
+    background-color: #F5F3EE;
+}
+section.display .content {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    gap: 30px;
+    width: 70%;
+}
+/*  -- SECTION: DISPLAY PERSONAL DATA --  */
+section.display #pd-d-header h2 {
+    letter-spacing: 1px;
+}
+section.display #pd-d-header h2 span:first-of-type{
+    font-weight: bold;
+}
+section.display #pd-d-info ul{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+section.display #pd-d-info ul li{
+    display: flex;
+}
+section.display #pd-d-info ul li span{
+    flex: 1;
+}
+/* -------------------*/
+/*      FOOTER        */
+/* ------------------ */
+/* -------------------*/
+/*      GENERAL        */
+/* ------------------ */
+h1,
+h2,
+h3 {
+    margin: 0;
+    font-weight: normal;
+}
