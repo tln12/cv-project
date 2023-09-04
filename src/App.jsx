@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 // import './App.css';
 import './styles/style.css';
 import PersonalDataForm from './components/personal-data/PersonalDataForm';
@@ -17,23 +18,25 @@ function App() {
     postcode: '12345',
     city: 'Leipzig',
     phone: '0123456789',
-    email: 'email@example.com'
+    email: 'email@example.com',
   });
   // Educational Experience
-  const [education, setEducation] = useState({ 
-    0: {
-      startingData: 'ed1',
-      endDate: 'ed1',
-      schoolName: 'ed1',
-      titleOfStudy: 'ed1'
+  const [education, setEducation] = useState([
+    {
+      startingDate: '10/2010',
+      endDate: '04/2015',
+      schoolName: 'RWTH Aachen University',
+      titleOfStudy: 'Mechanical Engineering',
+      id: uuidv4()
     },
-    1: {
-      startingData: 'ed2',
-      endDate: 'ed2',
-      schoolName: 'ed2',
-      titleOfStudy: 'ed2'
+    {
+      startingDate: '10/2023',
+      endDate: '04/2026',
+      schoolName: 'HTW Berlin',
+      titleOfStudy: 'Graphic Design',
+      id: uuidv4()
     }
-   });
+  ]);
     
   function handleChange(e) {
     let property = e.target.id;

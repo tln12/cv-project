@@ -67,14 +67,12 @@ section.display #pd-d-header h2 {
 section.display #pd-d-header h2 span:first-of-type{
     font-weight: bold;
 }
-section.display #pd-d-info ul{
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-}
-section.display #pd-d-info ul li{
+section.display #pd-d-info ul li,
+section.display #ee-d-info ul li
+{
     display: flex;
 }
+section.display #pd-d-info ul li span,
 section.display #pd-d-info ul li span{
     flex: 1;
 }
@@ -86,7 +84,13 @@ section.display #pd-d-info ul li span{
 /* ------------------ */
 h1,
 h2,
-h3 {
+h3,
+h4 {
     margin: 0;
     font-weight: normal;
+}
+ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
 }
