@@ -1,0 +1,27 @@
+* {
+    --padding-control: 15px;
+    /* border all radius */
+    --bar-control: 10px;
+}
+#ee-control {
+    box-shadow: 5px 5px 5px grey;
+    border-radius: var(--bar-control);
+    padding: var(--padding-control);
+}
+#ee-control .ee-c-info {
+    display: flex;
+    flex-direction: column;
+}
+#ee-control .ee-c-entry {
+    padding: var(--padding-control);
+    background-color: white;
+    border-radius: var(--bar-control);
+    border-color: #F5F3EE;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+#ee-control .ee-c-tools {
+    display: flex;
+    gap: 10px;
+}
