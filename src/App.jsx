@@ -4,8 +4,8 @@ import { v4 as uuidv4 } from 'uuid';
 import './styles/style.css';
 import PersonalDataForm from './components/personal-data/PersonalDataForm';
 import PersonalDataDisplay from './components/personal-data/PersonalDataDisplay';
-import EducationalExperienceControl from './components/educational-experience/EducationalExperienceControl';
-import EducationalExperienceDisplay from './components/educational-experience/EducationalExperienceDisplay';
+import EExperienceControl from './components/educational-experience/EExperienceControl';
+import EExperienceDisplay from './components/educational-experience/EExperienceDisplay';
 import WorkExperienceForm from './components/work-experience/WorkExperienceForm.jsx';
 
 function App() {
@@ -108,7 +108,7 @@ function App() {
             handleSubmit={e => handleSubmit(e)}
             handleEdit={() => handleEdit()}
           />
-          <EducationalExperienceControl 
+          <EExperienceControl 
             education={education}
             handleChange={handleChangeEducation}
           />
@@ -118,7 +118,7 @@ function App() {
           <aside></aside>
           <div className='content'> 
             <PersonalDataDisplay personalData={personalData}/>
-            <EducationalExperienceDisplay education={education} />
+            <EExperienceDisplay education={education} />
           </div>
         </section>
       </main>

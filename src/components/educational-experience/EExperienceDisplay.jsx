@@ -1,5 +1,5 @@
 
-export default function EducationalExperienceDisplay({ education }) {
+export default function EExperienceDisplay({ education }) {
     const edcuationEntries = education.map(element => {
         return (
             <li key={element.id}>

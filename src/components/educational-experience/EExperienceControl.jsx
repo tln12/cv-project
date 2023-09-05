@@ -51,7 +51,7 @@ function EEForm({ education, handleChange, handleReturn }) {
     );
 }
 
-export default function EducationalExperienceControl({ education, handleChange }) {
+export default function EExperienceControl({ education, handleChange }) {
     const [editForm, setEditForm] = useState(false);
     const [editId, setEditId] = useState('');
     let content = <EEList education={education} handleEdit={(e) => handleEdit(e)}/>;
