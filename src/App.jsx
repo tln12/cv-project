@@ -64,6 +64,24 @@ function App() {
     saveBtn.setAttribute('hidden', true);
   }
 
+  function handleChangeEducation(e) {
+    const idOfChangedEntry = e.target.closest('form').attributes['data-id'].value;
+    let property = e.target.id;
+    const regex = /-[a-z]/g;
+    const matches = [...new Set(property.match(regex))];
+    // replace hyphen separated ids with camel case, e.g. first-name-test -> firstNameTest
+    matches.forEach(match =>{
+      property = property.replaceAll(match, match[1].toUpperCase());
+    });
+    const changedEntry = education.find(element => element.id == idOfChangedEntry);
+    const newEducation = education.map((entry, index) => {
+      if(index == education.indexOf(changedEntry)) {
+        return {...changedEntry, [property]: e.target.value};
+      } else return entry;
+    });
+    setEducation(newEducation);
+  };
+
   function handleEdit() {
     const editBtn = document.getElementById('edit');
     const saveBtn = document.getElementById('save');
@@ -92,6 +110,7 @@ function App() {
           />
           <EducationalExperienceControl 
             education={education}
+            handleChange={handleChangeEducation}
           />
           <WorkExperienceForm />
         </section>
