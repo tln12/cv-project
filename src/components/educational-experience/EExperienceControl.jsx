@@ -19,7 +19,7 @@ function EEListElement({ entry, handleEdit }) {
     );
 }
 
-function EEList({ education, handleEdit, handleCreateEntry }) {
+function EEList({ education, handleCreateEntry, handleEdit }) {
     let educationEntries = education.map(entry => {
         return(
             <EEListElement 
@@ -61,35 +61,29 @@ function EEForm({ education, handleChange, handleReturn, mode }) {
 }
 
 
-export default function EExperienceControl({ education, handleChange, controlStatus, handleCreateEntry }) {
+export default function EExperienceControl({ education, handleChange, controlStatus, handleCreateEntry, handleEdit }) {
     const [editForm, setEditForm] = useState(false);
     const [editId, setEditId] = useState('');
     let content;
-
+    
+    // mode determines whether EEList or EEForm is rendered
     if(controlStatus.mode == 'list') {
-        content = <EEList education={education} handleEdit={(e) => handleEdit(e)} handleCreateEntry={handleCreateEntry}/>;
+        content = <EEList education={education} handleEdit={handleEdit} handleCreateEntry={handleCreateEntry}/>;
     } else if (controlStatus.mode == 'create') {
         content = <EEForm 
-                    education={controlStatus.object} 
+                    education={education.find(element => element.id == controlStatus.targetId)} 
+                    handleChange={handleChange}
+                    handleReturn={() => handleReturn()}
+                    mode={controlStatus.mode}
+                    />;
+    } else if (controlStatus.mode == 'edit') {
+        content = <EEForm 
+                    education={education.find(element => element.id == controlStatus.targetId)} 
                     handleChange={handleChange}
                     handleReturn={() => handleReturn()}
                     mode={controlStatus.mode}
                     />;
     }
-    if(editForm) {
-        content = <EEForm 
-                    education={education.find(element => element.id == editId)} 
-                    handleChange={handleChange}
-                    handleReturn={() => handleReturn()}
-                    mode={''}
-                    />;
-    }
-
-    const handleEdit = e => {
-        const found = education.find(element => element.id == e.target.attributes['data-id'].value);
-        setEditId(found.id);
-        setEditForm(true);
-    };
 
     const handleReturn = () => {
         setEditForm(false);

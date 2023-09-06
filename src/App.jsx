@@ -37,8 +37,8 @@ function App() {
       id: uuidv4()
     }
   ]);
-  const [educationControlStatus, setEducationControlStatus] = useState({mode: 'list', object: {}});
-    
+  const [educationControlStatus, setEducationControlStatus] = useState({mode: 'list', targetId: ''});
+
   function handleChange(e) {
     let property = e.target.id;
     const regex = /-[a-z]/g;
@@ -65,6 +65,11 @@ function App() {
     saveBtn.setAttribute('hidden', true);
   }
 
+  /**
+   * Handles changes in the input field of the forms. Updates the input's values and the education entry data.
+   * 
+   * @param {*} e 
+   */
   function handleChangeEducation(e) {
     const idOfChangedEntry = e.target.closest('form').attributes['data-id'].value;
     let property = e.target.id;
@@ -81,12 +86,21 @@ function App() {
       } else return entry;
     });
     setEducation(newEducation);
+    setEducationControlStatus({mode : 'edit', targetId: changedEntry.id});
   };
 
   function handleCreateEntry() {
     const newEntry = { startingDate: '', endDate: '', schoolName: '', titleOfStudy: '', id: uuidv4() };
     setEducation([...education, newEntry]);
-    setEducationControlStatus({mode: 'create', object: newEntry});
+    setEducationControlStatus({mode: 'create', targetId: newEntry.id});
+  }
+
+  /**
+   * Handles a click on the edit icon. Opens the form and fills input with corresponding education entry.
+   */
+  function handleEditEducation(e) {
+    const targetObject = education.find(element => element.id == e.target.attributes['data-id'].value);
+    setEducationControlStatus({mode: 'edit', targetId: targetObject.id});
   }
 
   function handleEdit() {
@@ -119,7 +133,7 @@ function App() {
             education={education}
             handleChange={handleChangeEducation}
             handleCreateEntry={() => handleCreateEntry()}
-            handleEdit2={e => handleEditEducation}
+            handleEdit={e => handleEditEducation(e)}
             controlStatus={educationControlStatus}
           />
           <WorkExperienceForm />
