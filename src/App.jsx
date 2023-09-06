@@ -37,6 +37,7 @@ function App() {
       id: uuidv4()
     }
   ]);
+  const [educationControlStatus, setEducationControlStatus] = useState({mode: 'list', object: {}});
     
   function handleChange(e) {
     let property = e.target.id;
@@ -82,6 +83,12 @@ function App() {
     setEducation(newEducation);
   };
 
+  function handleCreateEntry() {
+    const newEntry = { startingDate: '', endDate: '', schoolName: '', titleOfStudy: '', id: uuidv4() };
+    setEducation([...education, newEntry]);
+    setEducationControlStatus({mode: 'create', object: newEntry});
+  }
+
   function handleEdit() {
     const editBtn = document.getElementById('edit');
     const saveBtn = document.getElementById('save');
@@ -111,6 +118,9 @@ function App() {
           <EExperienceControl 
             education={education}
             handleChange={handleChangeEducation}
+            handleCreateEntry={() => handleCreateEntry()}
+            handleEdit2={e => handleEditEducation}
+            controlStatus={educationControlStatus}
           />
           <WorkExperienceForm />
         </section>

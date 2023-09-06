@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './EExperience.css';
+import { v4 as uuidv4 } from 'uuid';
 
 function EEListElement({ entry, handleEdit }) {
     return(
@@ -18,7 +19,7 @@ function EEListElement({ entry, handleEdit }) {
     );
 }
 
-function EEList({ education, handleEdit }) {
+function EEList({ education, handleEdit, handleCreateEntry }) {
     let educationEntries = education.map(entry => {
         return(
             <EEListElement 
@@ -28,13 +29,20 @@ function EEList({ education, handleEdit }) {
             />
         );
     });
-    return <ul>{educationEntries}</ul>;
+    return (
+        <>
+            <ul>{educationEntries}</ul>
+            <button onClick={handleCreateEntry}>
+                <span className="material-symbols-outlined ">add</span>
+            </button>
+        </>
+    );
 }
 
-function EEForm({ education, handleChange, handleReturn }) {
+function EEForm({ education, handleChange, handleReturn, mode }) {
     return(
         <form className="ee-entry" data-id={education.id}>
-            <span className="material-symbols-outlined" onClick={handleReturn}>arrow_back</span>
+            {mode != 'create' && <span className="material-symbols-outlined" onClick={handleReturn}>arrow_back</span>}
             <div className="ee-date">
                 <input id="starting-date" placeholder='starting date' value={education.startingDate} onChange={handleChange}></input>
                 <span>-</span>
@@ -46,21 +54,34 @@ function EEForm({ education, handleChange, handleReturn }) {
                 <label>Title of Study</label>
                 <input id="title-of-study" value={education.titleOfStudy} onChange={handleChange}></input>
             </div>
+            {mode == 'create' && <button type='submit'><span className="material-symbols-outlined" onClick={handleReturn}>close</span></button>}
             <button type='submit'><span className="material-symbols-outlined" onClick={handleReturn}>check</span></button>
         </form>
     );
 }
 
-export default function EExperienceControl({ education, handleChange }) {
+
+export default function EExperienceControl({ education, handleChange, controlStatus, handleCreateEntry }) {
     const [editForm, setEditForm] = useState(false);
     const [editId, setEditId] = useState('');
-    let content = <EEList education={education} handleEdit={(e) => handleEdit(e)}/>;
+    let content;
 
+    if(controlStatus.mode == 'list') {
+        content = <EEList education={education} handleEdit={(e) => handleEdit(e)} handleCreateEntry={handleCreateEntry}/>;
+    } else if (controlStatus.mode == 'create') {
+        content = <EEForm 
+                    education={controlStatus.object} 
+                    handleChange={handleChange}
+                    handleReturn={() => handleReturn()}
+                    mode={controlStatus.mode}
+                    />;
+    }
     if(editForm) {
         content = <EEForm 
                     education={education.find(element => element.id == editId)} 
                     handleChange={handleChange}
                     handleReturn={() => handleReturn()}
+                    mode={''}
                     />;
     }
 
