@@ -100,6 +100,12 @@ function App() {
     setEducationControlStatus({render: 'form', mode:'create', targetId: newEntry.id});
   }
 
+  function handleDeleteEntry(e) {
+    const targetId = e.target.closest('li').attributes['data-id'].value;
+    const newEducation = education.filter(entry => entry.id != targetId);
+    setEducation(newEducation);
+  }
+
   /**
    * Handles a click on the edit icon. Opens the form and fills input with corresponding education entry.
    */
@@ -144,6 +150,7 @@ function App() {
             handleCreateEntry={() => handleCreateEntry()}
             handleSubmit={e => handleSubmitEducation(e)}
             handleEdit={e => handleEditEducation(e)}
+            handleDeleteEntry={e => handleDeleteEntry(e)}
             controlStatus={educationControlStatus}
             handleReturn={handleReturn}
           />

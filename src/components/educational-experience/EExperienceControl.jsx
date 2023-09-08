@@ -2,15 +2,15 @@ import { useState } from 'react';
 import './EExperience.css';
 import { v4 as uuidv4 } from 'uuid';
 
-function EEListElement({ entry, handleEdit }) {
+function EEListElement({ entry, handleEdit, handleDeleteEntry }) {
     return(
-        <li className='ee-c-entry'>
+        <li className='ee-c-entry' data-id={entry.id}>
             <div className='ee-c-info'>
                 <span>{entry.schoolName}</span>
                 <span>{entry.titleOfStudy}</span>
             </div>
             <div className="ee-c-tools">
-                <span className="material-symbols-outlined">delete</span>
+                <span className="material-symbols-outlined" onClick={handleDeleteEntry}>delete</span>
                 <span className="material-symbols-outlined" data-id={entry.id} onClick={handleEdit}>edit</span>
                 <span className="material-symbols-outlined">visibility</span>
                 <span className="material-symbols-outlined ">drag_handle</span>
@@ -19,13 +19,14 @@ function EEListElement({ entry, handleEdit }) {
     );
 }
 
-function EEList({ education, handleCreateEntry, handleEdit }) {
+function EEList({ education, handleCreateEntry, handleDeleteEntry, handleEdit }) {
     let educationEntries = education.map(entry => {
         return(
             <EEListElement 
                 key={entry.id} 
                 entry={entry}
                 handleEdit={handleEdit}
+                handleDeleteEntry={handleDeleteEntry}
             />
         );
     });
@@ -61,7 +62,7 @@ function EEForm({ educationEntry, handleChange, handleReturn, mode, handleSubmit
 }
 
 export default function EExperienceControl(props) {
-    const { education, handleEdit, handleCreateEntry, controlStatus, handleChange, handleReturn, handleSubmit } = props;
+    const { education, handleEdit, handleCreateEntry, controlStatus, handleChange, handleReturn, handleSubmit, handleDeleteEntry } = props;
     let content;
     
     // render determines whether EEList or EEForm is rendered
@@ -70,6 +71,7 @@ export default function EExperienceControl(props) {
                     education={education}
                     handleEdit={handleEdit} 
                     handleCreateEntry={handleCreateEntry}
+                    handleDeleteEntry={handleDeleteEntry}
                     />;
     } else if (controlStatus.render == 'form') {
         content = <EEForm 
