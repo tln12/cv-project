@@ -65,6 +65,11 @@ function App() {
     saveBtn.setAttribute('hidden', true);
   }
 
+  function handleSubmitEducation(e) {
+    e.preventDefault();
+    setEducationControlStatus({render: 'list', mode:'', targetId: ''});
+  }
+
   /**
    * Handles changes in the input field of the forms. Updates the input's values and the education entry data.
    * 
@@ -137,6 +142,7 @@ function App() {
             education={education}
             handleChange={handleChangeEducation}
             handleCreateEntry={() => handleCreateEntry()}
+            handleSubmit={e => handleSubmitEducation(e)}
             handleEdit={e => handleEditEducation(e)}
             controlStatus={educationControlStatus}
             handleReturn={handleReturn}

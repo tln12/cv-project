@@ -39,38 +39,44 @@ function EEList({ education, handleCreateEntry, handleEdit }) {
     );
 }
 
-function EEForm({ education, handleChange, handleReturn, mode }) {
+function EEForm({ educationEntry, handleChange, handleReturn, mode, handleSubmit }) {
     return(
-        <form className="ee-entry" data-id={education.id}>
+        <form className="ee-entry" data-id={educationEntry.id} onSubmit={handleSubmit}>
             {mode == 'edit' && <span className="material-symbols-outlined" onClick={handleReturn}>arrow_back</span>}
             <div className="ee-date">
-                <input id="starting-date" placeholder='starting date' value={education.startingDate} onChange={handleChange}></input>
+                <input id="starting-date" placeholder='starting date' value={educationEntry.startingDate} onChange={handleChange}></input>
                 <span>-</span>
-                <input id="end-date" placeholder='end date' value={education.endDate} onChange={handleChange}></input>
+                <input id="end-date" placeholder='end date' value={educationEntry.endDate} onChange={handleChange}></input>
             </div>
             <div className="ee-info">
                 <label>School Name</label>
-                <input id="school-name" value={education.schoolName} onChange={handleChange}></input>
+                <input id="school-name" value={educationEntry.schoolName} onChange={handleChange}></input>
                 <label>Title of Study</label>
-                <input id="title-of-study" value={education.titleOfStudy} onChange={handleChange}></input>
+                <input id="title-of-study" value={educationEntry.titleOfStudy} onChange={handleChange}></input>
             </div>
             {mode == 'create' && <button type='submit'><span className="material-symbols-outlined" onClick={handleReturn}>close</span></button>}
-            <button type='submit'><span className="material-symbols-outlined" onClick={handleReturn}>check</span></button>
+            <button type='submit'><span className="material-symbols-outlined">check</span></button>
         </form>
     );
 }
 
-export default function EExperienceControl({ education, handleChange, controlStatus, handleCreateEntry, handleEdit, handleReturn }) {
+export default function EExperienceControl(props) {
+    const { education, handleEdit, handleCreateEntry, controlStatus, handleChange, handleReturn, handleSubmit } = props;
     let content;
     
     // render determines whether EEList or EEForm is rendered
     if(controlStatus.render == 'list') {
-        content = <EEList education={education} handleEdit={handleEdit} handleCreateEntry={handleCreateEntry}/>;
+        content = <EEList 
+                    education={education}
+                    handleEdit={handleEdit} 
+                    handleCreateEntry={handleCreateEntry}
+                    />;
     } else if (controlStatus.render == 'form') {
         content = <EEForm 
-                    education={education.find(element => element.id == controlStatus.targetId)} 
+                    educationEntry={education.find(element => element.id == controlStatus.targetId)} 
                     handleChange={handleChange}
                     handleReturn={handleReturn}
+                    handleSubmit={handleSubmit}
                     mode={controlStatus.mode}
                     />;
     }
