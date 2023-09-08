@@ -86,13 +86,13 @@ function App() {
       } else return entry;
     });
     setEducation(newEducation);
-    setEducationControlStatus({mode : 'edit', targetId: changedEntry.id});
+    setEducationControlStatus({mode : 'form', targetId: changedEntry.id});
   };
 
   function handleCreateEntry() {
     const newEntry = { startingDate: '', endDate: '', schoolName: '', titleOfStudy: '', id: uuidv4() };
     setEducation([...education, newEntry]);
-    setEducationControlStatus({mode: 'create', targetId: newEntry.id});
+    setEducationControlStatus({mode: 'form', targetId: newEntry.id});
   }
 
   /**
@@ -100,7 +100,7 @@ function App() {
    */
   function handleEditEducation(e) {
     const targetObject = education.find(element => element.id == e.target.attributes['data-id'].value);
-    setEducationControlStatus({mode: 'edit', targetId: targetObject.id});
+    setEducationControlStatus({mode: 'form', targetId: targetObject.id});
   }
 
   function handleEdit() {

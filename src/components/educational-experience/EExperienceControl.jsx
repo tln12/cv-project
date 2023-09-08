@@ -60,7 +60,6 @@ function EEForm({ education, handleChange, handleReturn, mode }) {
     );
 }
 
-
 export default function EExperienceControl({ education, handleChange, controlStatus, handleCreateEntry, handleEdit }) {
     const [editForm, setEditForm] = useState(false);
     const [editId, setEditId] = useState('');
@@ -69,14 +68,7 @@ export default function EExperienceControl({ education, handleChange, controlSta
     // mode determines whether EEList or EEForm is rendered
     if(controlStatus.mode == 'list') {
         content = <EEList education={education} handleEdit={handleEdit} handleCreateEntry={handleCreateEntry}/>;
-    } else if (controlStatus.mode == 'create') {
-        content = <EEForm 
-                    education={education.find(element => element.id == controlStatus.targetId)} 
-                    handleChange={handleChange}
-                    handleReturn={() => handleReturn()}
-                    mode={controlStatus.mode}
-                    />;
-    } else if (controlStatus.mode == 'edit') {
+    } else if (controlStatus.mode == 'form') {
         content = <EEForm 
                     education={education.find(element => element.id == controlStatus.targetId)} 
                     handleChange={handleChange}
