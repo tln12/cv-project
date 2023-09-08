@@ -61,8 +61,6 @@ function EEForm({ education, handleChange, handleReturn, mode }) {
 }
 
 export default function EExperienceControl({ education, handleChange, controlStatus, handleCreateEntry, handleEdit, handleReturn }) {
-    const [editForm, setEditForm] = useState(false);
-    const [editId, setEditId] = useState('');
     let content;
     
     // render determines whether EEList or EEForm is rendered
