@@ -42,7 +42,7 @@ function EEList({ education, handleCreateEntry, handleEdit }) {
 function EEForm({ education, handleChange, handleReturn, mode }) {
     return(
         <form className="ee-entry" data-id={education.id}>
-            {mode != 'create' && <span className="material-symbols-outlined" onClick={handleReturn}>arrow_back</span>}
+            {mode == 'edit' && <span className="material-symbols-outlined" onClick={handleReturn}>arrow_back</span>}
             <div className="ee-date">
                 <input id="starting-date" placeholder='starting date' value={education.startingDate} onChange={handleChange}></input>
                 <span>-</span>
@@ -60,27 +60,22 @@ function EEForm({ education, handleChange, handleReturn, mode }) {
     );
 }
 
-export default function EExperienceControl({ education, handleChange, controlStatus, handleCreateEntry, handleEdit }) {
+export default function EExperienceControl({ education, handleChange, controlStatus, handleCreateEntry, handleEdit, handleReturn }) {
     const [editForm, setEditForm] = useState(false);
     const [editId, setEditId] = useState('');
     let content;
     
-    // mode determines whether EEList or EEForm is rendered
-    if(controlStatus.mode == 'list') {
+    // render determines whether EEList or EEForm is rendered
+    if(controlStatus.render == 'list') {
         content = <EEList education={education} handleEdit={handleEdit} handleCreateEntry={handleCreateEntry}/>;
-    } else if (controlStatus.mode == 'form') {
+    } else if (controlStatus.render == 'form') {
         content = <EEForm 
                     education={education.find(element => element.id == controlStatus.targetId)} 
                     handleChange={handleChange}
-                    handleReturn={() => handleReturn()}
+                    handleReturn={handleReturn}
                     mode={controlStatus.mode}
                     />;
     }
-
-    const handleReturn = () => {
-        setEditForm(false);
-        setEditId('');
-    };
 
     return(
         <section id="ee-control">

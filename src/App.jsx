@@ -37,7 +37,7 @@ function App() {
       id: uuidv4()
     }
   ]);
-  const [educationControlStatus, setEducationControlStatus] = useState({mode: 'list', targetId: ''});
+  const [educationControlStatus, setEducationControlStatus] = useState({render: 'list', mode:'', targetId: ''});
 
   function handleChange(e) {
     let property = e.target.id;
@@ -86,13 +86,13 @@ function App() {
       } else return entry;
     });
     setEducation(newEducation);
-    setEducationControlStatus({mode : 'form', targetId: changedEntry.id});
+    setEducationControlStatus({...educationControlStatus, targetId: changedEntry.id});
   };
 
   function handleCreateEntry() {
     const newEntry = { startingDate: '', endDate: '', schoolName: '', titleOfStudy: '', id: uuidv4() };
     setEducation([...education, newEntry]);
-    setEducationControlStatus({mode: 'form', targetId: newEntry.id});
+    setEducationControlStatus({render: 'form', mode:'create', targetId: newEntry.id});
   }
 
   /**
@@ -100,7 +100,11 @@ function App() {
    */
   function handleEditEducation(e) {
     const targetObject = education.find(element => element.id == e.target.attributes['data-id'].value);
-    setEducationControlStatus({mode: 'form', targetId: targetObject.id});
+    setEducationControlStatus({render: 'form', mode:'edit', targetId: targetObject.id});
+  }
+
+  function handleReturn() {
+    setEducationControlStatus({render: 'list', mode:'', targetId: ''});
   }
 
   function handleEdit() {
@@ -135,6 +139,7 @@ function App() {
             handleCreateEntry={() => handleCreateEntry()}
             handleEdit={e => handleEditEducation(e)}
             controlStatus={educationControlStatus}
+            handleReturn={handleReturn}
           />
           <WorkExperienceForm />
         </section>
