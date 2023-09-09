@@ -41,7 +41,7 @@ function EEList({ education, handleCreateEntry, handleDeleteEntry, handleEdit, h
     );
 }
 
-function EEForm({ educationEntry, handleChange, handleReturn, mode, handleSubmit }) {
+function EEForm({ educationEntry, handleChange, handleReturn, mode, handleSubmit, handleDeleteEntry }) {
     return(
         <form className="ee-entry" data-id={educationEntry.id} onSubmit={handleSubmit}>
             {mode == 'edit' && <span className="material-symbols-outlined" onClick={handleReturn}>arrow_back</span>}
@@ -56,7 +56,7 @@ function EEForm({ educationEntry, handleChange, handleReturn, mode, handleSubmit
                 <label>Title of Study</label>
                 <input id="title-of-study" value={educationEntry.titleOfStudy} onChange={handleChange}></input>
             </div>
-            {mode == 'create' && <button type='submit'><span className="material-symbols-outlined" onClick={handleReturn}>close</span></button>}
+            {mode == 'create' && <button type='button' onClick={handleDeleteEntry}><span className="material-symbols-outlined">close</span></button>}
             <button type='submit'><span className="material-symbols-outlined">check</span></button>
         </form>
     );
@@ -83,6 +83,7 @@ export default function EExperienceControl(props) {
                     handleChange={handleChange}
                     handleReturn={handleReturn}
                     handleSubmit={handleSubmit}
+                    handleDeleteEntry={handleDeleteEntry}
                     mode={controlStatus.mode}
                     />;
     }

@@ -101,11 +101,19 @@ function App() {
     setEducation([...education, newEntry]);
     setEducationControlStatus({render: 'form', mode:'create', targetId: newEntry.id});
   }
-
+  /**
+   * Bound to delete-button of entries in list view and cancel-button of form view in creation mode.
+   * 
+   * @param {*} e 
+   */
   function handleDeleteEntry(e) {
-    const targetId = e.target.closest('li').attributes['data-id'].value;
+    let targetId = educationControlStatus.targetId;
+    if(educationControlStatus.render == 'list') {
+      targetId = e.target.closest('li').attributes['data-id'].value;
+    }
     const newEducation = education.filter(entry => entry.id != targetId);
     setEducation(newEducation);
+    setEducationControlStatus({ render: 'list', mode: '', targetId: ''});
   }
 
   /**
