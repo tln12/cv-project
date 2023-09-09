@@ -27,14 +27,16 @@ function App() {
       endDate: '04/2015',
       schoolName: 'RWTH Aachen University',
       titleOfStudy: 'Mechanical Engineering',
-      id: uuidv4()
+      id: uuidv4(),
+      hidden: false
     },
     {
       startingDate: '10/2023',
       endDate: '04/2026',
       schoolName: 'HTW Berlin',
       titleOfStudy: 'Graphic Design',
-      id: uuidv4()
+      id: uuidv4(),
+      hidden: false
     }
   ]);
   const [educationControlStatus, setEducationControlStatus] = useState({render: 'list', mode:'', targetId: ''});
@@ -113,6 +115,16 @@ function App() {
     const targetObject = education.find(element => element.id == e.target.attributes['data-id'].value);
     setEducationControlStatus({render: 'form', mode:'edit', targetId: targetObject.id});
   }
+  function handleToggleVisibility(e) {
+    const targetId = e.target.closest('li').attributes['data-id'].value;
+    const newEducation = education.map(entry => {
+      if(entry.id == targetId) {
+        entry.hidden = !entry.hidden;
+      } 
+      return entry;
+    });
+    setEducation(newEducation);  
+  }
 
   function handleReturn() {
     setEducationControlStatus({render: 'list', mode:'', targetId: ''});
@@ -151,6 +163,7 @@ function App() {
             handleSubmit={e => handleSubmitEducation(e)}
             handleEdit={e => handleEditEducation(e)}
             handleDeleteEntry={e => handleDeleteEntry(e)}
+            handleToggleVisibility={e => handleToggleVisibility(e)}
             controlStatus={educationControlStatus}
             handleReturn={handleReturn}
           />

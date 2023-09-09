@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './EExperience.css';
 import { v4 as uuidv4 } from 'uuid';
 
-function EEListElement({ entry, handleEdit, handleDeleteEntry }) {
+function EEListElement({ entry, handleEdit, handleDeleteEntry, handleToggleVisibility }) {
     return(
         <li className='ee-c-entry' data-id={entry.id}>
             <div className='ee-c-info'>
@@ -12,14 +12,14 @@ function EEListElement({ entry, handleEdit, handleDeleteEntry }) {
             <div className="ee-c-tools">
                 <span className="material-symbols-outlined" onClick={handleDeleteEntry}>delete</span>
                 <span className="material-symbols-outlined" data-id={entry.id} onClick={handleEdit}>edit</span>
-                <span className="material-symbols-outlined">visibility</span>
+                <span className="material-symbols-outlined" onClick={handleToggleVisibility}>{entry.hidden? 'visibility_off' : 'visibility'}</span>
                 <span className="material-symbols-outlined ">drag_handle</span>
             </div>
         </li>
     );
 }
 
-function EEList({ education, handleCreateEntry, handleDeleteEntry, handleEdit }) {
+function EEList({ education, handleCreateEntry, handleDeleteEntry, handleEdit, handleToggleVisibility }) {
     let educationEntries = education.map(entry => {
         return(
             <EEListElement 
@@ -27,6 +27,7 @@ function EEList({ education, handleCreateEntry, handleDeleteEntry, handleEdit })
                 entry={entry}
                 handleEdit={handleEdit}
                 handleDeleteEntry={handleDeleteEntry}
+                handleToggleVisibility={handleToggleVisibility}
             />
         );
     });
@@ -62,7 +63,9 @@ function EEForm({ educationEntry, handleChange, handleReturn, mode, handleSubmit
 }
 
 export default function EExperienceControl(props) {
-    const { education, handleEdit, handleCreateEntry, controlStatus, handleChange, handleReturn, handleSubmit, handleDeleteEntry } = props;
+    const { education, handleEdit, handleCreateEntry, 
+            controlStatus, handleChange, handleReturn,
+            handleSubmit, handleDeleteEntry, handleToggleVisibility } = props;
     let content;
     
     // render determines whether EEList or EEForm is rendered
@@ -72,6 +75,7 @@ export default function EExperienceControl(props) {
                     handleEdit={handleEdit} 
                     handleCreateEntry={handleCreateEntry}
                     handleDeleteEntry={handleDeleteEntry}
+                    handleToggleVisibility={handleToggleVisibility}
                     />;
     } else if (controlStatus.render == 'form') {
         content = <EEForm 
