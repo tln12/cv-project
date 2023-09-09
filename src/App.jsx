@@ -108,7 +108,7 @@ function App() {
    * Handles a click on the edit icon. Opens the form and fills input with corresponding education entry.
    */
   function handleEditEducation(e) {
-    const targetObject = education.find(element => element.id == e.target.attributes['data-id'].value);
+    const targetObject = education.find(entry => entry.id == e.target.closest('li').attributes['data-id'].value);
     setFormData(targetObject);
     setEducationControlStatus({render: 'form', mode:'edit'});
   }

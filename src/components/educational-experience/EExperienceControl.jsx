@@ -11,7 +11,7 @@ function EEListElement({ entry, handleEdit, handleDeleteEntry, handleToggleVisib
             </div>
             <div className="ee-c-tools">
                 <span className="material-symbols-outlined" onClick={handleDeleteEntry}>delete</span>
-                <span className="material-symbols-outlined" data-id={entry.id} onClick={handleEdit}>edit</span>
+                <span className="material-symbols-outlined" onClick={handleEdit}>edit</span>
                 <span className="material-symbols-outlined" onClick={handleToggleVisibility}>{entry.hidden? 'visibility_off' : 'visibility'}</span>
                 <span className="material-symbols-outlined ">drag_handle</span>
             </div>
