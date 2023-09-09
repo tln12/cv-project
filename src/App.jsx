@@ -40,7 +40,7 @@ function App() {
     }
   ]);
   const [formData, setFormData] = useState('empty');
-  const [educationControlStatus, setEducationControlStatus] = useState({render: 'list', mode:'', targetId: ''});
+  const [educationControlStatus, setEducationControlStatus] = useState({render: 'list', mode:''});
   function handleChange(e) {
     let property = e.target.id;
     const regex = /-[a-z]/g;
@@ -72,7 +72,7 @@ function App() {
     const newEducation = education.map(entry => entry.id == formData.id ? formData : entry);
     setEducation(newEducation);
     setFormData('empty');
-    setEducationControlStatus({render: 'list', mode:'', targetId: ''});
+    setEducationControlStatus({render: 'list', mode:''});
   }
 
   /**
@@ -95,13 +95,13 @@ function App() {
     const newEntry = { startingDate: '', endDate: '', schoolName: '', titleOfStudy: '', id: uuidv4() };
     setFormData(newEntry);
     setEducation([...education, newEntry]);
-    setEducationControlStatus({render: 'form', mode:'create', targetId: newEntry.id});
+    setEducationControlStatus({render: 'form', mode:'create'});
   }
   function handleDeleteEntry(e) {
     const targetId = e.target.closest('li').attributes['data-id'].value;
     const newEducation = education.filter(entry => entry.id != targetId);
     setEducation(newEducation);
-    setEducationControlStatus({ render: 'list', mode: '', targetId: ''});
+    setEducationControlStatus({ render: 'list', mode: ''});
   }
 
   /**
@@ -110,7 +110,7 @@ function App() {
   function handleEditEducation(e) {
     const targetObject = education.find(element => element.id == e.target.attributes['data-id'].value);
     setFormData(targetObject);
-    setEducationControlStatus({render: 'form', mode:'edit', targetId: targetObject.id});
+    setEducationControlStatus({render: 'form', mode:'edit'});
   }
   function handleToggleVisibility(e) {
     const targetId = e.target.closest('li').attributes['data-id'].value;
@@ -124,7 +124,7 @@ function App() {
   }
 
   function handleReturn() {
-    setEducationControlStatus({render: 'list', mode:'', targetId: ''});
+    setEducationControlStatus({render: 'list', mode:''});
   }
 
   function handleEdit() {
