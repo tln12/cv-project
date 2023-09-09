@@ -41,7 +41,6 @@ function App() {
   ]);
   const [formData, setFormData] = useState('empty');
   const [educationControlStatus, setEducationControlStatus] = useState({render: 'list', mode:'', targetId: ''});
-  console.log(formData);
   function handleChange(e) {
     let property = e.target.id;
     const regex = /-[a-z]/g;
@@ -70,7 +69,7 @@ function App() {
 
   function handleSubmitEducation(e) {
     e.preventDefault();
-    const newEducation = education.map(entry => entry.id == educationControlStatus.targetId ? formData : entry);
+    const newEducation = education.map(entry => entry.id == formData.id ? formData : entry);
     setEducation(newEducation);
     setFormData('empty');
     setEducationControlStatus({render: 'list', mode:'', targetId: ''});
@@ -98,16 +97,8 @@ function App() {
     setEducation([...education, newEntry]);
     setEducationControlStatus({render: 'form', mode:'create', targetId: newEntry.id});
   }
-  /**
-   * Bound to delete-button of entries in list view and cancel-button of form view in creation mode.
-   * 
-   * @param {*} e 
-   */
   function handleDeleteEntry(e) {
-    let targetId = educationControlStatus.targetId;
-    if(educationControlStatus.render == 'list') {
-      targetId = e.target.closest('li').attributes['data-id'].value;
-    }
+    const targetId = e.target.closest('li').attributes['data-id'].value;
     const newEducation = education.filter(entry => entry.id != targetId);
     setEducation(newEducation);
     setEducationControlStatus({ render: 'list', mode: '', targetId: ''});
