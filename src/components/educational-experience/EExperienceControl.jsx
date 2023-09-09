@@ -65,7 +65,7 @@ function EEForm({ educationEntry, handleChange, handleReturn, mode, handleSubmit
 export default function EExperienceControl(props) {
     const { education, handleEdit, handleCreateEntry, 
             controlStatus, handleChange, handleReturn,
-            handleSubmit, handleDeleteEntry, handleToggleVisibility } = props;
+            handleSubmit, handleDeleteEntry, handleToggleVisibility, formData } = props;
     let content;
     
     // render determines whether EEList or EEForm is rendered
@@ -79,7 +79,7 @@ export default function EExperienceControl(props) {
                     />;
     } else if (controlStatus.render == 'form') {
         content = <EEForm 
-                    educationEntry={education.find(element => element.id == controlStatus.targetId)} 
+                    educationEntry={formData} 
                     handleChange={handleChange}
                     handleReturn={handleReturn}
                     handleSubmit={handleSubmit}

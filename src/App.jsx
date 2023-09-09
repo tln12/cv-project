@@ -39,8 +39,9 @@ function App() {
       hidden: false
     }
   ]);
+  const [formData, setFormData] = useState('empty');
   const [educationControlStatus, setEducationControlStatus] = useState({render: 'list', mode:'', targetId: ''});
-
+  console.log(formData);
   function handleChange(e) {
     let property = e.target.id;
     const regex = /-[a-z]/g;
@@ -69,6 +70,9 @@ function App() {
 
   function handleSubmitEducation(e) {
     e.preventDefault();
+    const newEducation = education.map(entry => entry.id == educationControlStatus.targetId ? formData : entry);
+    setEducation(newEducation);
+    setFormData('empty');
     setEducationControlStatus({render: 'list', mode:'', targetId: ''});
   }
 
@@ -78,7 +82,6 @@ function App() {
    * @param {*} e 
    */
   function handleChangeEducation(e) {
-    const idOfChangedEntry = e.target.closest('form').attributes['data-id'].value;
     let property = e.target.id;
     const regex = /-[a-z]/g;
     const matches = [...new Set(property.match(regex))];
@@ -86,18 +89,12 @@ function App() {
     matches.forEach(match =>{
       property = property.replaceAll(match, match[1].toUpperCase());
     });
-    const changedEntry = education.find(element => element.id == idOfChangedEntry);
-    const newEducation = education.map((entry, index) => {
-      if(index == education.indexOf(changedEntry)) {
-        return {...changedEntry, [property]: e.target.value};
-      } else return entry;
-    });
-    setEducation(newEducation);
-    setEducationControlStatus({...educationControlStatus, targetId: changedEntry.id});
+    setFormData({...formData, [property]: e.target.value});
   };
 
   function handleCreateEntry() {
     const newEntry = { startingDate: '', endDate: '', schoolName: '', titleOfStudy: '', id: uuidv4() };
+    setFormData(newEntry);
     setEducation([...education, newEntry]);
     setEducationControlStatus({render: 'form', mode:'create', targetId: newEntry.id});
   }
@@ -121,6 +118,7 @@ function App() {
    */
   function handleEditEducation(e) {
     const targetObject = education.find(element => element.id == e.target.attributes['data-id'].value);
+    setFormData(targetObject);
     setEducationControlStatus({render: 'form', mode:'edit', targetId: targetObject.id});
   }
   function handleToggleVisibility(e) {
@@ -166,6 +164,7 @@ function App() {
           />
           <EExperienceControl 
             education={education}
+            formData={formData}
             handleChange={handleChangeEducation}
             handleCreateEntry={() => handleCreateEntry()}
             handleSubmit={e => handleSubmitEducation(e)}
