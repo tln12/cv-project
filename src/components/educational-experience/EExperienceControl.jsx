@@ -41,20 +41,20 @@ function EEList({ education, handleCreateEntry, handleDeleteEntry, handleEdit, h
     );
 }
 
-function EEForm({ educationEntry, handleChange, handleReturn, mode, handleSubmit }) {
+function EEForm({ formData, handleChange, handleReturn, mode, handleSubmit }) {
     return(
-        <form className="ee-entry" data-id={educationEntry.id} onSubmit={handleSubmit}>
+        <form className="ee-entry" data-id={formData.id} onSubmit={handleSubmit}>
             {mode == 'edit' && <span className="material-symbols-outlined" onClick={handleReturn}>arrow_back</span>}
             <div className="ee-date">
-                <input id="starting-date" placeholder='starting date' value={educationEntry.startingDate} onChange={handleChange}></input>
+                <input id="starting-date" placeholder='starting date' value={formData.startingDate} onChange={handleChange}></input>
                 <span>-</span>
-                <input id="end-date" placeholder='end date' value={educationEntry.endDate} onChange={handleChange}></input>
+                <input id="end-date" placeholder='end date' value={formData.endDate} onChange={handleChange}></input>
             </div>
             <div className="ee-info">
                 <label>School Name</label>
-                <input id="school-name" value={educationEntry.schoolName} onChange={handleChange}></input>
+                <input id="school-name" value={formData.schoolName} onChange={handleChange}></input>
                 <label>Title of Study</label>
-                <input id="title-of-study" value={educationEntry.titleOfStudy} onChange={handleChange}></input>
+                <input id="title-of-study" value={formData.titleOfStudy} onChange={handleChange}></input>
             </div>
             {mode == 'create' && <button type='button'><span className="material-symbols-outlined">close</span></button>}
             <button type='submit'><span className="material-symbols-outlined">check</span></button>
@@ -79,7 +79,7 @@ export default function EExperienceControl(props) {
                     />;
     } else if (controlStatus.render == 'form') {
         content = <EEForm 
-                    educationEntry={formData} 
+                    formData={formData} 
                     handleChange={handleChange}
                     handleReturn={handleReturn}
                     handleSubmit={handleSubmit}
