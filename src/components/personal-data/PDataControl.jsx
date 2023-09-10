@@ -1,8 +1,8 @@
 import './PData.css';
 
-function PDataForm({ personalData, handleChange, handleEdit, handleSubmit }) {
+function PDataForm({ personalData, handleChange }) {
     return(
-    <form id='pd-c-form' onSubmit={handleSubmit}>
+    <form id='pd-c-form'>
         <div id="pd-c-full-name">
             <label htmlFor='first-name'>
                 <span>first name</span>
@@ -43,13 +43,11 @@ function PDataForm({ personalData, handleChange, handleEdit, handleSubmit }) {
                 <input id='email' onChange={handleChange} value={personalData.email}></input>
             </label>
         </div>
-        <button id='edit' type="button" onClick={handleEdit} hidden>Edit</button>
-        <button id="save" type='submit'>Save</button>
     </form>
     );
 }
 
-export default function PDataControl({ personalData, handleChange, handleEdit, handleSubmit }) {
+export default function PDataControl({ personalData, handleChange }) {
     return(
         <section id='pd-control'>
             <h2 className="section-title">
@@ -59,8 +57,6 @@ export default function PDataControl({ personalData, handleChange, handleEdit, h
             <PDataForm 
                 personalData={personalData}
                 handleChange={handleChange}
-                handleEdit={handleEdit}
-                handleSubmit={handleSubmit}
             />
         </section>
     );

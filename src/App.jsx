@@ -55,33 +55,6 @@ function App() {
     setPersonalData({...personalData, [property]: e.target.value});
   }
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    const editBtn = document.getElementById('edit');
-    const saveBtn = document.getElementById('save');
-    const inputs = document.querySelectorAll('.pd-entry input');
-    // disable input fields
-    for(const input of inputs) {
-        input.setAttribute('disabled', true);
-    }
-    // show edit button and hide save button
-    editBtn.removeAttribute('hidden');
-    saveBtn.setAttribute('hidden', true);
-  }
-
-  function handleEdit() {
-    const editBtn = document.getElementById('edit');
-    const saveBtn = document.getElementById('save');
-    const inputs = document.querySelectorAll('.pd-entry input');
-    // enable input fields
-    for(const input of inputs) {
-        input.removeAttribute('disabled');
-    }
-    // hide edit button and show save button
-    editBtn.setAttribute('hidden', true);
-    saveBtn.removeAttribute('hidden');
-  }
-
   /**************************
    *  EDUCATIONAL EXPERIENCE
    *************************/
@@ -192,8 +165,6 @@ function App() {
           <PDataControl
             personalData={personalData}
             handleChange={e => handleChange(e)}
-            handleSubmit={e => handleSubmit(e)}
-            handleEdit={() => handleEdit()}
           />
           <EExperienceControl 
             education={education}
