@@ -3,7 +3,7 @@ import './PData.css';
 function PDataForm({ personalData, handleChange }) {
     return(
     <form id='pd-c-form'>
-        <div id="pd-c-full-name">
+        <div>
             <label htmlFor='first-name'>
                 <span>first name</span>
                 <input id='first-name' onChange={handleChange} value={personalData.firstName}></input>

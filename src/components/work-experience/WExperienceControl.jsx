@@ -1,7 +1,8 @@
+import { useState } from 'react';
 
-export default function WorkExperienceFormEntry() {
+function WExperienceForm() {
     return(
-        <form className="we-entry">
+        <form className="we-c-form">
             <div className="we-date">
                 <input placeholder='starting date'></input>
                 <span>-</span>
@@ -24,5 +25,15 @@ export default function WorkExperienceFormEntry() {
                 </div>
             </div>
         </form>
+    );
+}
+
+export default function WExperienceControl() {
+    return(
+        <div id='we-control'>
+            <h2>Work Experience</h2>
+            <WExperienceForm />
+            <button>Add Entry</button>
+        </div>
     );
 }

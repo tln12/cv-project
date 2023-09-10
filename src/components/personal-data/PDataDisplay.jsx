@@ -1,5 +1,3 @@
-
-
 export default function PDataDisplay({ personalData }) {
     const {firstName, lastName, street, houseNr, postcode, city, phone , email} = personalData;
     return(

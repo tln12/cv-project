@@ -6,10 +6,11 @@ import PDataControl from './components/personal-data/PDataControl';
 import PDataDisplay from './components/personal-data/PDataDisplay';
 import EExperienceControl from './components/educational-experience/EExperienceControl';
 import EExperienceDisplay from './components/educational-experience/EExperienceDisplay';
-import WorkExperienceForm from './components/work-experience/WorkExperienceForm.jsx';
+import WExperienceControl from './components/work-experience/WExperienceControl.jsx';
+import WExperienceDisplay from './components/work-experience/WExperienceDisplay';
 
 function App() {
-  // Personal Data
+  // PERSONAL DATA
   const [personalData, setPersonalData] = useState({
     firstName : 'Max',
     lastName: 'Mustermann',
@@ -43,6 +44,22 @@ function App() {
   const [formData, setFormData] = useState('empty');  
   const [educationControlStatus, setEducationControlStatus] = useState({render: 'list', mode:''});
 
+  // WORK EXPERIENCE
+  const [work, setWork] = useState([
+    {
+      startingDate: '10/2010',
+      endDate: '04/2015',
+      companyName: 'Panda Delivery',
+      positionTitle: 'Warehouse Support',
+      description: 'blablibl and I did this to blasd so thats work yay',
+      id: uuidv4(),
+      hidden: false
+    }
+  ]);
+
+  /**************************
+   *  PERSONAL DATA
+   *************************/
   function handleChange(e) {
     let property = e.target.id;
     const regex = /-[a-z]/g;
@@ -178,13 +195,14 @@ function App() {
             controlStatus={educationControlStatus}
             handleReturn={handleReturn}
           />
-          <WorkExperienceForm />
+          <WExperienceControl />
         </section>
         <section className='display'>
           <aside></aside>
           <div className='content'> 
             <PDataDisplay personalData={personalData}/>
             <EExperienceDisplay education={education} />
+            <WExperienceDisplay work={work}/>
           </div>
         </section>
       </main>

@@ -26,26 +26,7 @@ main {
     width: 100%;
     gap: 50px;
 }
-/*  -- SECTION: FORM --  */
-/*  -- PERSONAL DATA FORM --  */
-/*  -- WORK/EDUCATIONAL EXPERIENCE FORM --  */
-section.form #we,
-section.form #ee {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-section.form .we-entry,
-section.form .ee-entry {
-    display: flex;
-    gap: 30px;
-    justify-content: space-between;
-}
-section.form .we-info,
-section.form .ee-info {
-    display: flex;
-    flex-direction: column;
-}
+
 /*  -- SECTION: DISPLAY --  */
 section.display {
     width: 60%;
