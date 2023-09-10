@@ -1,6 +1,10 @@
 body {
     width: 100vw;
     margin: 0;
+    /* background-color: #F5F3EE; */
+    background-color: white;
+    --side-font-color: rgb(111, 111, 111);
+    --shadow-color: rgb(235, 235, 235);
 }
 #root {
     font-family: sans-serif;
@@ -47,7 +51,7 @@ section.display {
     width: 60%;
     height: 60vw;
     display: flex;
-    box-shadow: 5px 5px 5px grey;
+    box-shadow: 5px 5px 5px var(--shadow-color);
 }
 section.display aside {
     width: 33%;
@@ -93,4 +97,22 @@ ul {
     margin: 0;
     padding: 0;
     list-style-type: none;
+}
+span.material-symbols-outlined {
+    padding: 3px;
+    cursor: default;
+    border-radius: var(--bar-control);
+    color: var(--side-color);
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 300,
+    'GRAD' -25,
+    'opsz' 20
+}
+.material-symbols-outlined:hover {
+    background-color: var(--shadow-color);
+}
+button {
+    border: none;
+    background-color: white;
 }

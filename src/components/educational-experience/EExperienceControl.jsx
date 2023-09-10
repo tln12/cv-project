@@ -6,7 +6,7 @@ function EEListElement({ entry, handleEdit, handleDeleteEntry, handleToggleVisib
     return(
         <li className='ee-c-entry' data-id={entry.id}>
             <div className='ee-c-info'>
-                <span>{entry.schoolName}</span>
+                <h4>{entry.schoolName}</h4>
                 <span>{entry.titleOfStudy}</span>
             </div>
             <div className="ee-c-tools">
@@ -34,28 +34,33 @@ function EEList({ education, handleCreateEntry, handleDeleteEntry, handleEdit, h
     return (
         <>
             <ul>{educationEntries}</ul>
-            <button onClick={handleCreateEntry}>
-                <span className="material-symbols-outlined ">add</span>
-            </button>
+            <span className="material-symbols-outlined" onClick={handleCreateEntry}>add</span>
         </>
     );
 }
 
 function EEForm({ formData, handleChange, handleReturn, mode, handleSubmit }) {
     return(
-        <form className="ee-entry" data-id={formData.id} onSubmit={handleSubmit}>
+        <form className="ee-c-form" data-id={formData.id} onSubmit={handleSubmit}>
             {mode == 'edit' && <span className="material-symbols-outlined" onClick={handleReturn}>arrow_back</span>}
-            <div className="ee-date">
-                <input id="starting-date" placeholder='starting date' value={formData.startingDate} onChange={handleChange}></input>
-                <span>-</span>
-                <input id="end-date" placeholder='end date' value={formData.endDate} onChange={handleChange}></input>
+            <div className="ee-c-date">
+                <label>
+                    <span>starting date</span>
+                    <input type="date" id="starting-date" placeholder='starting date' value={formData.startingDate} onChange={handleChange}></input>
+                </label>
+                <label>
+                    <span>end date</span>
+                    <input type="date" id="end-date" placeholder='end date' value={formData.endDate} onChange={handleChange}></input>
+                </label>
             </div>
-            <div className="ee-info">
-                <label>School Name</label>
+            <label>
+                <span>school name</span>
                 <input id="school-name" value={formData.schoolName} onChange={handleChange}></input>
-                <label>Title of Study</label>
+            </label>
+            <label>
+                <span>title of study</span>
                 <input id="title-of-study" value={formData.titleOfStudy} onChange={handleChange}></input>
-            </div>
+            </label>
             {mode == 'create' && <button type='button' onClick={handleReturn}><span className="material-symbols-outlined">close</span></button>}
             <button type='submit'><span className="material-symbols-outlined">check</span></button>
         </form>
@@ -89,7 +94,10 @@ export default function EExperienceControl(props) {
 
     return(
         <section id="ee-control">
-            <h2 >Education</h2>
+            <h2 className='section-title'>
+                <span>Education</span>
+                <span className="material-symbols-outlined ">arrow_drop_down</span>
+            </h2>
             {content}
         </section>
     );

@@ -1,27 +1,75 @@
 * {
-    --padding-control: 15px;
+    --padding-lr-control: 20px;
+    --padding-tb-list-control: 5px;
+    --padding-tb-form-control: 15px;
     /* border all radius */
     --bar-control: 10px;
 }
 #ee-control {
-    box-shadow: 5px 5px 5px grey;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
     border-radius: var(--bar-control);
-    padding: var(--padding-control);
+    border: solid var(--side-font-color);
+}
+#ee-control h2.section-title{
+    padding: 15px var(--padding-lr-control);
+    display: flex;
+    justify-content: space-between;
+}
+#ee-control > .material-symbols-outlined{
+    margin: 10px;
+    text-align: center;
+    width: 100px;
+    align-self: center;
+    border: solid transparent;
+    background-color: var(--shadow-color);
+}
+#ee-control > .material-symbols-outlined:hover{
+    border: solid var(--side-font-color);
+}
+/*********
+*   LIST
+**********/
+#ee-control .ee-c-entry {
+    padding: var(--padding-tb-list-control) var(--padding-lr-control);
+    border-style: solid;
+    border-color: var(--side-font-color) transparent;
+    margin-bottom: -1px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
 }
 #ee-control .ee-c-info {
     display: flex;
     flex-direction: column;
 }
-#ee-control .ee-c-entry {
-    padding: var(--padding-control);
-    background-color: white;
-    border-radius: var(--bar-control);
-    border-color: #F5F3EE;
-    margin-bottom: 10px;
-    display: flex;
-    justify-content: space-between;
-}
 #ee-control .ee-c-tools {
+    align-self: center;
     display: flex;
     gap: 10px;
+}
+/**********
+*   FORM
+**********/
+#ee-control .ee-c-form {
+    display: flex;
+    flex-direction: column;
+    padding: var(--padding-tb-form-control) var(--padding-lr-control);
+    gap: 10px;
+}
+#ee-control .ee-c-form .ee-c-date {
+    display: flex;
+    gap: 50px;
+}
+#ee-control .ee-c-form label {
+    display: flex;
+    flex-direction: column;
+    flex: 2;
+}
+#ee-control .ee-c-form label>span{
+    color: var(--side-font-color);
+}
+#ee-control .ee-c-form button[type='submit'] {
+    align-self: flex-end;
 }
