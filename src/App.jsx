@@ -41,7 +41,7 @@ function App() {
   ]);
   const [formData, setFormData] = useState('empty');
   const [educationControlStatus, setEducationControlStatus] = useState({render: 'list', mode:''});
-  
+
   function handleChange(e) {
     let property = e.target.id;
     const regex = /-[a-z]/g;
@@ -144,7 +144,14 @@ function App() {
   }
 
   function handleReturn() {
-    setEducationControlStatus({render: 'list', mode:''});
+    if(education.includes(formData)) {
+      setEducationControlStatus({render: 'list', mode:''});
+    } else {
+      if(confirm('Discard changes?')) {
+        setEducationControlStatus({render: 'list', mode:''});
+        setFormData('empty');
+      }
+    }
   }
 
   return (
