@@ -12,20 +12,21 @@
     border-radius: var(--bar-control);
     border: solid var(--side-font-color);
 }
-#ee-control h2.section-title{
+#ee-control .section-title{
     padding: 15px var(--padding-lr-control);
     display: flex;
     justify-content: space-between;
 }
-#ee-control > .material-symbols-outlined{
+#ee-control .ee-c-add{
     margin: 10px;
-    text-align: center;
     width: 100px;
+    text-align: center;
     align-self: center;
     border: solid transparent;
+    border-radius: var(--bar-control);
     background-color: var(--shadow-color);
 }
-#ee-control > .material-symbols-outlined:hover{
+#ee-control .ee-c-add:hover{
     border: solid var(--side-font-color);
 }
 /*********
@@ -33,9 +34,8 @@
 **********/
 #ee-control .ee-c-entry {
     padding: var(--padding-tb-list-control) var(--padding-lr-control);
-    border-style: solid;
-    border-color: var(--side-font-color) transparent;
-    margin-bottom: -1px;
+    border: 1px solid var(--side-font-color);
+    margin: -1px;
     display: flex;
     justify-content: space-between;
     gap: 10px;
@@ -58,6 +58,9 @@
     padding: var(--padding-tb-form-control) var(--padding-lr-control);
     gap: 10px;
 }
+#ee-control .ee-c-return {
+    text-align: start;
+}
 #ee-control .ee-c-form .ee-c-date {
     display: flex;
     gap: 50px;
@@ -70,6 +73,18 @@
 #ee-control .ee-c-form label>span{
     color: var(--side-font-color);
 }
-#ee-control .ee-c-form button[type='submit'] {
+#ee-control .ee-c-form .ee-c-submit {
     align-self: flex-end;
+    display: flex;
+    gap: 10px;
+}
+#ee-control .ee-c-form .ee-c-submit .material-symbols-outlined{
+    align-self: flex-end;
+    text-align: center;
+    width: 50px;
+    border: solid transparent;
+    background-color: var(--shadow-color);
+}
+#ee-control .ee-c-form .ee-c-submit .material-symbols-outlined:hover{
+    border: solid var(--side-font-color);
 }

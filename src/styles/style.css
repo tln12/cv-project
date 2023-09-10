@@ -98,7 +98,9 @@ ul {
     padding: 0;
     list-style-type: none;
 }
-span.material-symbols-outlined {
+.material-symbols-outlined {
+    border: none;
+    background-color: white;
     padding: 3px;
     cursor: default;
     border-radius: var(--bar-control);
@@ -111,8 +113,4 @@ span.material-symbols-outlined {
 }
 .material-symbols-outlined:hover {
     background-color: var(--shadow-color);
-}
-button {
-    border: none;
-    background-color: white;
 }

@@ -10,10 +10,10 @@ function EEListElement({ entry, handleEdit, handleDeleteEntry, handleToggleVisib
                 <span>{entry.titleOfStudy}</span>
             </div>
             <div className="ee-c-tools">
-                <span className="material-symbols-outlined" onClick={handleDeleteEntry}>delete</span>
-                <span className="material-symbols-outlined" onClick={handleEdit}>edit</span>
-                <span className="material-symbols-outlined" onClick={handleToggleVisibility}>{entry.hidden? 'visibility_off' : 'visibility'}</span>
-                <span className="material-symbols-outlined ">drag_handle</span>
+                <button className="material-symbols-outlined" onClick={handleDeleteEntry}>delete</button>
+                <button className="material-symbols-outlined" onClick={handleEdit} >edit</button>
+                <button className="material-symbols-outlined" onClick={handleToggleVisibility}>{entry.hidden? 'visibility_off' : 'visibility'}</button>
+                <button className="material-symbols-outlined ">drag_handle</button>
             </div>
         </li>
     );
@@ -34,7 +34,7 @@ function EEList({ education, handleCreateEntry, handleDeleteEntry, handleEdit, h
     return (
         <>
             <ul>{educationEntries}</ul>
-            <span className="material-symbols-outlined" onClick={handleCreateEntry}>add</span>
+            <button className='ee-c-add material-symbols-outlined' onClick={handleCreateEntry} >add</button>
         </>
     );
 }
@@ -42,7 +42,7 @@ function EEList({ education, handleCreateEntry, handleDeleteEntry, handleEdit, h
 function EEForm({ formData, handleChange, handleReturn, mode, handleSubmit }) {
     return(
         <form className="ee-c-form" data-id={formData.id} onSubmit={handleSubmit}>
-            {mode == 'edit' && <span className="material-symbols-outlined" onClick={handleReturn}>arrow_back</span>}
+            {mode == 'edit' && <button className="ee-c-return material-symbols-outlined" onClick={handleReturn}>arrow_back</button>}
             <div className="ee-c-date">
                 <label>
                     <span>starting date</span>
@@ -61,8 +61,10 @@ function EEForm({ formData, handleChange, handleReturn, mode, handleSubmit }) {
                 <span>title of study</span>
                 <input id="title-of-study" value={formData.titleOfStudy} onChange={handleChange}></input>
             </label>
-            {mode == 'create' && <button type='button' onClick={handleReturn}><span className="material-symbols-outlined">close</span></button>}
-            <button type='submit'><span className="material-symbols-outlined">check</span></button>
+            <div className='ee-c-submit'>
+                {mode == 'create' && <button className="material-symbols-outlined" type='button' onClick={handleReturn}>close</button>}
+                <button className="material-symbols-outlined" type='submit'>check</button>
+            </div>
         </form>
     );
 }
