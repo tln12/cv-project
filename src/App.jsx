@@ -80,7 +80,7 @@ function App() {
     editBtn.setAttribute('hidden', true);
     saveBtn.removeAttribute('hidden');
   }
-
+  console.log(education);
   /*****************
    *  EDUCATION
    ****************/
@@ -116,7 +116,7 @@ function App() {
   }
 
   function handleCreateEntry() {
-    const newEntry = { startingDate: '', endDate: '', schoolName: '', titleOfStudy: '', id: uuidv4() };
+    const newEntry = { startingDate: '', endDate: '', schoolName: '', titleOfStudy: '', id: uuidv4(), hidden: false };
     setFormData(newEntry);
     setEducationControlStatus({render: 'form', mode:'create'});
   }
