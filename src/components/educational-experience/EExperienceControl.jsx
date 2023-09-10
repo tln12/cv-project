@@ -98,7 +98,7 @@ export default function EExperienceControl(props) {
         <section id="ee-control">
             <h2 className='section-title'>
                 <span>Education</span>
-                <span className="material-symbols-outlined ">arrow_drop_down</span>
+                <button className="material-symbols-outlined ">arrow_drop_down</button>
             </h2>
             {content}
         </section>

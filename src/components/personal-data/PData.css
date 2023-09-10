@@ -1,0 +1,40 @@
+* {
+    --padding-lr-control: 20px;
+    --padding-tb-list-control: 5px;
+    --padding-tb-form-control: 15px;
+    /* border all radius */
+    --bar-control: 10px;
+}
+#pd-control {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--bar-control);
+    border: solid var(--side-font-color);
+}
+#pd-control .section-title{
+    padding: 15px var(--padding-lr-control);
+    display: flex;
+    justify-content: space-between;
+}
+#pd-control #pd-c-form {
+    padding: var(--padding-tb-form-control) var(--padding-lr-control);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-top: solid var(--side-font-color);
+}
+#pd-control #pd-c-form label>span{
+    color: var(--side-font-color);
+}
+#pd-control #pd-c-form div{
+    display: flex;
+    justify-content: space-between;
+}
+#pd-control #pd-c-form div label{
+    display: flex;
+    flex-direction: column;
+}
+#pd-control #pd-c-form >div label{
+    /* flex: 1; */
+}

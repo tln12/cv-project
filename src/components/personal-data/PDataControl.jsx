@@ -1,37 +1,67 @@
+import './PData.css';
 
-export default function PDataControl({ personalData, handleChange, handleEdit, handleSubmit}) {
+function PDataForm({ personalData, handleChange, handleEdit, handleSubmit }) {
     return(
-        <div id='pd'>
-            <h2>Personal Data</h2>
-            <form className='pd-entry' onSubmit={handleSubmit}>
-                <fieldset>
-                    <legend>Name</legend>
-                    <label htmlFor='first-name'>First Name</label>
-                    <input id='first-name' onChange={handleChange} value={personalData.firstName}></input>
-                    <label htmlFor='last-name'>Last Name</label>
-                    <input id='last-name' onChange={handleChange} value={personalData.lastName}></input>
-                </fieldset>
-                <fieldset>
-                    <legend htmlFor="address">Address</legend>
-                    <label htmlFor='street'>Street</label>
-                    <input id="street" onChange={handleChange} value={personalData.street}></input>
-                    <label htmlFor='house-nr'>Nr.</label>
-                    <input id="house-nr" onChange={handleChange} value={personalData.houseNr}></input>
-                    <label htmlFor='postcode'>Postcode</label>
-                    <input id='postcode' onChange={handleChange} value={personalData.postcode}></input>
-                    <label htmlFor='city'>City</label>
-                    <input id='city' onChange={handleChange} value={personalData.city}></input>
-                </fieldset>
-                <fieldset>
-                    <legend>Contact</legend>
-                    <label htmlFor='phone'>Phone</label>
-                    <input id='phone' onChange={handleChange} value={personalData.phone}></input>
-                    <label htmlFor='email'>E-Mail</label>
-                    <input id='email' onChange={handleChange} value={personalData.email}></input>
-                </fieldset>
-                <button id='edit' type="button" onClick={handleEdit} hidden>Edit</button>
-                <button id="save" type='submit'>Save</button>
-            </form>
+    <form id='pd-c-form' onSubmit={handleSubmit}>
+        <div id="pd-c-full-name">
+            <label htmlFor='first-name'>
+                <span>first name</span>
+                <input id='first-name' onChange={handleChange} value={personalData.firstName}></input>
+            </label>
+            <label htmlFor='last-name'>
+                <span>last name</span>
+                <input id='last-name' onChange={handleChange} value={personalData.lastName}></input>
+            </label>
         </div>
+        <div>
+            <label htmlFor='street'>
+                <span>street</span>
+                <input id="street" onChange={handleChange} value={personalData.street}></input>
+            </label>
+            <label htmlFor='house-nr'>
+                <span>house no.</span>
+                <input id="house-nr" onChange={handleChange} value={personalData.houseNr}></input>
+            </label>
+        </div>
+        <div>
+            <label htmlFor='postcode'>
+                <span>postcode</span>
+                <input id='postcode' onChange={handleChange} value={personalData.postcode}></input>
+            </label>
+            <label htmlFor='city'>
+                <span>city</span>
+                <input id='city' onChange={handleChange} value={personalData.city}></input>
+            </label>
+        </div>
+        <div>
+            <label htmlFor='phone'>
+                <span>phone</span>
+                <input id='phone' onChange={handleChange} value={personalData.phone}></input>
+            </label>
+            <label htmlFor='email'>
+                <span>e-mail</span>
+                <input id='email' onChange={handleChange} value={personalData.email}></input>
+            </label>
+        </div>
+        <button id='edit' type="button" onClick={handleEdit} hidden>Edit</button>
+        <button id="save" type='submit'>Save</button>
+    </form>
+    );
+}
+
+export default function PDataControl({ personalData, handleChange, handleEdit, handleSubmit }) {
+    return(
+        <section id='pd-control'>
+            <h2 className="section-title">
+                <span>Personal Data</span>
+                <button className="material-symbols-outlined ">arrow_drop_down</button>
+            </h2>
+            <PDataForm 
+                personalData={personalData}
+                handleChange={handleChange}
+                handleEdit={handleEdit}
+                handleSubmit={handleSubmit}
+            />
+        </section>
     );
 }
