@@ -1,5 +1,5 @@
 
-export default function PersonalDataForm({ personalData, handleChange, handleEdit, handleSubmit}) {
+export default function PDataControl({ personalData, handleChange, handleEdit, handleSubmit}) {
     return(
         <div id='pd'>
             <h2>Personal Data</h2>

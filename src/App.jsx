@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 // import './App.css';
 import './styles/style.css';
-import PersonalDataForm from './components/personal-data/PersonalDataForm';
-import PersonalDataDisplay from './components/personal-data/PersonalDataDisplay';
+import PDataControl from './components/personal-data/PDataControl';
+import PDataDisplay from './components/personal-data/PDataDisplay';
 import EExperienceControl from './components/educational-experience/EExperienceControl';
 import EExperienceDisplay from './components/educational-experience/EExperienceDisplay';
 import WorkExperienceForm from './components/work-experience/WorkExperienceForm.jsx';
@@ -189,7 +189,7 @@ function App() {
       </header>
       <main>
         <section className='form'>
-          <PersonalDataForm
+          <PDataControl
             personalData={personalData}
             handleChange={e => handleChange(e)}
             handleSubmit={e => handleSubmit(e)}
@@ -212,7 +212,7 @@ function App() {
         <section className='display'>
           <aside></aside>
           <div className='content'> 
-            <PersonalDataDisplay personalData={personalData}/>
+            <PDataDisplay personalData={personalData}/>
             <EExperienceDisplay education={education} />
           </div>
         </section>
