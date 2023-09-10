@@ -103,7 +103,13 @@ function App() {
 
   function handleSubmitEducation(e) {
     e.preventDefault();
-    const newEducation = education.map(entry => entry.id == formData.id ? formData : entry);
+    let newEducation = '';
+    // differentiate between 'create' form data and 'edit' form data
+    if(educationControlStatus.mode == 'edit') {
+      newEducation = education.map(entry => entry.id == formData.id ? formData : entry);
+    } else if(educationControlStatus.mode == 'create') {
+      newEducation = [...education, formData];
+    }
     setEducation(newEducation);
     setFormData('empty');
     setEducationControlStatus({render: 'list', mode:''});
@@ -112,7 +118,6 @@ function App() {
   function handleCreateEntry() {
     const newEntry = { startingDate: '', endDate: '', schoolName: '', titleOfStudy: '', id: uuidv4() };
     setFormData(newEntry);
-    setEducation([...education, newEntry]);
     setEducationControlStatus({render: 'form', mode:'create'});
   }
 
