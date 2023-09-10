@@ -57,6 +57,7 @@
     flex-direction: column;
     padding: var(--padding-tb-form-control) var(--padding-lr-control);
     gap: 10px;
+    border-top: solid var(--side-font-color);
 }
 #ee-control .ee-c-return {
     text-align: start;
