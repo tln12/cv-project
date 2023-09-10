@@ -20,7 +20,7 @@ function App() {
     phone: '0123456789',
     email: 'email@example.com',
   });
-  // Educational Experience
+  // EDUCATIONAL EXPERIENCE
   const [education, setEducation] = useState([
     {
       startingDate: '10/2010',
@@ -39,7 +39,8 @@ function App() {
       hidden: false
     }
   ]);
-  const [formData, setFormData] = useState('empty');
+  // helper variable to fill forms with copy of corresponding education entry
+  const [formData, setFormData] = useState('empty');  
   const [educationControlStatus, setEducationControlStatus] = useState({render: 'list', mode:''});
 
   function handleChange(e) {
@@ -80,13 +81,13 @@ function App() {
     editBtn.setAttribute('hidden', true);
     saveBtn.removeAttribute('hidden');
   }
-  console.log(education);
-  /*****************
-   *  EDUCATION
-   ****************/
+
+  /**************************
+   *  EDUCATIONAL EXPERIENCE
+   *************************/
 
   /**
-   * Handles changes in the input field of the forms. Updates the input's values and the education entry data.
+   * Handles changes in the input field of the forms. Updates formData.
    * 
    * @param {*} e 
    */
@@ -101,6 +102,11 @@ function App() {
     setFormData({...formData, [property]: e.target.value});
   };
 
+  /**
+   * Handles click on check icon. Replaces corresponding education entry with values of formData.
+   * 
+   * @param {*} e 
+   */
   function handleSubmitEducation(e) {
     e.preventDefault();
     let newEducation = '';
@@ -115,12 +121,20 @@ function App() {
     setEducationControlStatus({render: 'list', mode:''});
   }
 
+  /**
+   * Handles click on create entry icon. Renders view for 'create'-form and fills with formData.
+   */
   function handleCreateEntry() {
     const newEntry = { startingDate: '', endDate: '', schoolName: '', titleOfStudy: '', id: uuidv4(), hidden: false };
     setFormData(newEntry);
     setEducationControlStatus({render: 'form', mode:'create'});
   }
 
+  /**
+   * Handles click on delete icon from list entries. Deletes entry from education.
+   * 
+   * @param {*} e 
+   */
   function handleDeleteEntry(e) {
     const targetId = e.target.closest('li').attributes['data-id'].value;
     const newEducation = education.filter(entry => entry.id != targetId);
@@ -129,7 +143,7 @@ function App() {
   }
 
   /**
-   * Handles a click on the edit icon. Opens the form and fills input with corresponding education entry.
+   * Handles a click on the edit icon. Opens the 'edit'-form and fills input with formData.
    */
   function handleEditEducation(e) {
     const targetObject = education.find(entry => entry.id == e.target.closest('li').attributes['data-id'].value);
@@ -137,6 +151,11 @@ function App() {
     setEducationControlStatus({render: 'form', mode:'edit'});
   }
   
+  /**
+   * Handles click on visibility icon from list entries. Toggles 'hidden' property to true or false.
+   * 
+   * @param {*} e 
+   */
   function handleToggleVisibility(e) {
     const targetId = e.target.closest('li').attributes['data-id'].value;
     const newEducation = education.map(entry => {
@@ -148,6 +167,10 @@ function App() {
     setEducation(newEducation);  
   }
 
+  /**
+   * Handles click on return or cancel icon in forms. Lets user return to list view.
+   * When changes were made, user has option to discard them and return, or not discard them and stay in form view.
+   */
   function handleReturn() {
     if(education.includes(formData)) {
       setEducationControlStatus({render: 'list', mode:''});

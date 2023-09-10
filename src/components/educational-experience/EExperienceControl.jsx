@@ -56,7 +56,7 @@ function EEForm({ formData, handleChange, handleReturn, mode, handleSubmit }) {
                 <label>Title of Study</label>
                 <input id="title-of-study" value={formData.titleOfStudy} onChange={handleChange}></input>
             </div>
-            {mode == 'create' && <button type='button'><span className="material-symbols-outlined">close</span></button>}
+            {mode == 'create' && <button type='button' onClick={handleReturn}><span className="material-symbols-outlined">close</span></button>}
             <button type='submit'><span className="material-symbols-outlined">check</span></button>
         </form>
     );
