@@ -1,0 +1,3 @@
+.collapsible + .content.collapsed {
+    display: none;
+}

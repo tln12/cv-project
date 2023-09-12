@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './EExperience.css';
-import { v4 as uuidv4 } from 'uuid';
+import Collapsible from '../collapsible/Collapsible';
 
 function EEListElement({ entry, handleEdit, handleDeleteEntry, handleToggleVisibility }) {
     return(
@@ -77,7 +77,7 @@ export default function EExperienceControl(props) {
     
     // render determines whether EEList or EEForm is rendered
     if(controlStatus.render == 'list') {
-        content = <EEList 
+        content = <EEList
                     education={education}
                     handleEdit={handleEdit} 
                     handleCreateEntry={handleCreateEntry}
@@ -95,12 +95,8 @@ export default function EExperienceControl(props) {
     }
 
     return(
-        <section id="ee-control">
-            <h2 className='section-title'>
-                <span>Education</span>
-                <button className="material-symbols-outlined ">arrow_drop_down</button>
-            </h2>
-            {content}
+        <section id='ee-control'>
+            <Collapsible title='Education' content={content}/>
         </section>
     );
 }

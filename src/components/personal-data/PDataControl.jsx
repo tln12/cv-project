@@ -50,7 +50,7 @@ function PDataForm({ personalData, handleChange }) {
 export default function PDataControl({ personalData, handleChange }) {
     return(
         <section id='pd-control'>
-            <h2 className="section-title">
+            <h2 className="collapsible-title ">
                 <span>Personal Data</span>
                 <button className="material-symbols-outlined ">arrow_drop_down</button>
             </h2>

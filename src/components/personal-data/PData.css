@@ -12,7 +12,7 @@
     border-radius: var(--bar-control);
     border: solid var(--side-font-color);
 }
-#pd-control .section-title{
+#pd-control .collapsible-title {
     padding: 15px var(--padding-lr-control);
     display: flex;
     justify-content: space-between;
