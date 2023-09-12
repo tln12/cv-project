@@ -1,4 +1,5 @@
 import './PData.css';
+import Collapsible from '../collapsible/Collapsible';
 
 function PDataForm({ personalData, handleChange }) {
     return(
@@ -50,13 +51,10 @@ function PDataForm({ personalData, handleChange }) {
 export default function PDataControl({ personalData, handleChange }) {
     return(
         <section id='pd-control'>
-            <h2 className="collapsible-title ">
-                <span>Personal Data</span>
-                <button className="material-symbols-outlined ">arrow_drop_down</button>
-            </h2>
-            <PDataForm 
-                personalData={personalData}
-                handleChange={handleChange}
+            <Collapsible 
+                title='Personal Data' 
+                content={<PDataForm personalData={personalData} handleChange={handleChange}/>}
+                collapsed={false}
             />
         </section>
     );
