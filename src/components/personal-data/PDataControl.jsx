@@ -1,4 +1,3 @@
-import './PData.css';
 import Collapsible from '../collapsible/Collapsible';
 
 function PDataForm({ personalData, handleChange }) {
