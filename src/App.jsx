@@ -54,6 +54,15 @@ function App() {
       description: 'blablibl and I did this to blasd so thats work yay',
       id: uuidv4(),
       hidden: false
+    },
+    {
+      startingDate: '10/2010',
+      endDate: '04/2015',
+      companyName: 'Flaschenpost',
+      positionTitle: 'Driver',
+      description: 'Driving through the city',
+      id: uuidv4(),
+      hidden: false    
     }
   ]);
 
@@ -195,7 +204,17 @@ function App() {
             controlStatus={educationControlStatus}
             handleReturn={handleReturn}
           />
-          <WExperienceControl />
+          <WExperienceControl 
+            work={work}
+            handleChange={handleChangeEducation}
+            handleCreateEntry={() => handleCreateEntry()}
+            handleSubmit={e => handleSubmitEducation(e)}
+            handleEdit={e => handleEditEducation(e)}
+            handleDeleteEntry={e => handleDeleteEntry(e)}
+            handleToggleVisibility={e => handleToggleVisibility(e)}
+            controlStatus={educationControlStatus}
+            handleReturn={handleReturn}
+          />
         </section>
         <section className='display'>
           <aside></aside>
