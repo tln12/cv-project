@@ -4,7 +4,7 @@ import Collapsible from '../collapsible/Collapsible';
 
 function EEListElement({ entry, handleEdit, handleDeleteEntry, handleToggleVisibility }) {
     return(
-        <li className='ee-c-entry' data-id={entry.id}>
+        <li className='ee-c-entry' data-id={entry.id} data-type='education'>
             <div className='ee-c-info'>
                 <h4>{entry.schoolName}</h4>
                 <span>{entry.titleOfStudy}</span>

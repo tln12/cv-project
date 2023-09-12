@@ -4,7 +4,7 @@ import './WExperience.css';
 
 function WEListElement({ entry, handleEdit, handleDeleteEntry, handleToggleVisibility }) {
     return(
-        <li className='we-c-entry' data-id={entry.id}>
+        <li className='we-c-entry' data-id={entry.id} data-type='work'>
             <div className='we-c-info'>
                 <h4>{entry.companyName}</h4>
                 <span>{entry.positionTitle}</span>

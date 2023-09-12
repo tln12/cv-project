@@ -65,6 +65,7 @@ function App() {
       hidden: false    
     }
   ]);
+  const [workControlStatus, setWorkControlStatus] = useState({ render: 'list', mode: ''});
 
   /**************************
    *  PERSONAL DATA
@@ -136,9 +137,18 @@ function App() {
    */
   function handleDeleteEntry(e) {
     const targetId = e.target.closest('li').attributes['data-id'].value;
-    const newEducation = education.filter(entry => entry.id != targetId);
-    setEducation(newEducation);
-    setEducationControlStatus({ render: 'list', mode: ''});
+    const type = e.target.closest('li').attributes['data-type'].value;
+    let newArray;
+    if(type == 'education') {
+      newArray = education.filter(entry => entry.id != targetId);
+      setEducation(newArray);
+      setEducationControlStatus({ render: 'list', mode: ''});
+    } else if(type == 'work') {
+      newArray = work.filter(entry => entry.id != targetId);
+      setWork(newArray);
+      setWorkControlStatus({ render: 'list', mode: ''});
+    }
+
   }
 
   /**
