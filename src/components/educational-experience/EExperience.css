@@ -5,18 +5,6 @@
     /* border all radius */
     --bar-control: 10px;
 }
-#ee-control {
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    border-radius: var(--bar-control);
-    border: solid var(--side-font-color);
-}
-#ee-control .collapsible-title {
-    padding: 15px var(--padding-lr-control);
-    display: flex;
-    justify-content: space-between;
-}
 #ee-control .ee-c-add{
     margin: 10px;
     width: 100px;
@@ -52,27 +40,8 @@
 /**********
 *   FORM
 **********/
-#ee-control .ee-c-form {
-    display: flex;
-    flex-direction: column;
-    padding: var(--padding-tb-form-control) var(--padding-lr-control);
-    gap: 10px;
-    border-top: solid var(--side-font-color);
-}
 #ee-control .ee-c-return {
     text-align: start;
-}
-#ee-control .ee-c-form .ee-c-date {
-    display: flex;
-    gap: 50px;
-}
-#ee-control .ee-c-form label {
-    display: flex;
-    flex-direction: column;
-    flex: 2;
-}
-#ee-control .ee-c-form label>span{
-    color: var(--side-font-color);
 }
 #ee-control .ee-c-form .ee-c-submit {
     align-self: flex-end;

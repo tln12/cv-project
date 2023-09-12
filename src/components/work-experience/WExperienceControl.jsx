@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Collapsible from '../collapsible/Collapsible';
 
 function WExperienceForm() {
     return(
@@ -30,10 +31,9 @@ function WExperienceForm() {
 
 export default function WExperienceControl() {
     return(
-        <div id='we-control'>
-            <h2>Work Experience</h2>
-            <WExperienceForm />
+        <section className='control' id='we-control'>
+            <Collapsible title='Work Experience' content={<WExperienceForm />} />
             <button>Add Entry</button>
-        </div>
+        </section>
     );
 }

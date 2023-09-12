@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-// import './App.css';
+import './App.css';
 import './styles/style.css';
 import PDataControl from './components/personal-data/PDataControl';
 import PDataDisplay from './components/personal-data/PDataDisplay';

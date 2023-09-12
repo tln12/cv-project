@@ -5,34 +5,37 @@
     /* border all radius */
     --bar-control: 10px;
 }
-#pd-control {
+/* ----------
+    CONTROL
+------------ */
+section.control {
     background-color: white;
     display: flex;
     flex-direction: column;
     border-radius: var(--bar-control);
     border: solid var(--side-font-color);
 }
-#pd-control .collapsible-title {
+section.control .collapsible-title {
     padding: 15px var(--padding-lr-control);
     display: flex;
     justify-content: space-between;
 }
-#pd-control #pd-c-form {
+section.control form {
     padding: var(--padding-tb-form-control) var(--padding-lr-control);
     display: flex;
     flex-direction: column;
     gap: 10px;
     border-top: solid var(--side-font-color);
 }
-#pd-control #pd-c-form label>span{
+section.control form label>span{
     color: var(--side-font-color);
 }
-#pd-control #pd-c-form > div{
-    display: flex;
-    justify-content: space-between;
-    gap: 50px;
-}
-#pd-control #pd-c-form div label{
+section.control form label {
     display: flex;
     flex-direction: column;
+    flex: 1;
+}
+section.control form > div{
+    display: flex;
+    gap: 50px;
 }
