@@ -16,7 +16,7 @@ section.control {
     border-radius: var(--bar-control);
     border: solid var(--side-font-color);
 }
-section.control .collapsible-title {
+section.control .collapsible .title {
     padding: 15px var(--padding-lr-control);
     display: flex;
     justify-content: space-between;
