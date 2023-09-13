@@ -254,7 +254,7 @@ function App() {
         <h1>CV Creator</h1>
       </header>
       <main>
-        <section className='form'>
+        <section id='control-panel'>
           <PDataControl
             personalData={personalData}
             handleChange={e => handleChange(e)}

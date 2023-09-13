@@ -5,48 +5,54 @@
     /* border all radius */
     --bar-control: 10px;
 }
+section#control-panel {
+    min-width: 40vw;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
 
 /* ----------
     CONTROL
 ------------ */
-section.control {
+section.control-element {
     background-color: white;
     display: flex;
     flex-direction: column;
     border-radius: var(--bar-control);
     border: solid var(--side-font-color);
 }
-section.control .collapsible .title {
+section.control-element .collapsible .title {
     padding: 15px var(--padding-lr-control);
     display: flex;
     justify-content: space-between;
 }
-section.control .content {
+section.control-element .content {
     display: flex;
     flex-direction: column;
 }
-section.control .content form {
+section.control-element .content form {
     padding: var(--padding-tb-form-control) var(--padding-lr-control);
     display: flex;
     flex-direction: column;
     gap: 10px;
     border-top: solid var(--side-font-color);
 }
-section.control .content form label>span{
+section.control-element .content form label>span{
     color: var(--side-font-color);
 }
-section.control .content form label {
+section.control-element .content form label {
     display: flex;
     flex-direction: column;
     flex: 1;
 }
-section.control .content form > div{
+section.control-element .content form > div{
     display: flex;
     gap: 50px;
 }
 
 /* list view of education and work */
-section.control .content .c-entry {
+section.control-element .content .c-entry {
     padding: var(--padding-tb-list-control) var(--padding-lr-control);
     border: 1px solid var(--side-font-color);
     margin: -1px;
@@ -54,16 +60,16 @@ section.control .content .c-entry {
     justify-content: space-between;
     gap: 10px;
 }
-section.control .content .ee-c-info {
+section.control-element .content .ee-c-info {
     display: flex;
     flex-direction: column;
 }
-section.control .content .c-entry-tools {
+section.control-element .content .c-entry-tools {
     align-self: center;
     display: flex;
     gap: 10px;
 }
-section.control .content .add-entry{
+section.control-element .content .add-entry{
     margin: 10px;
     width: 100px;
     text-align: center;
@@ -72,6 +78,6 @@ section.control .content .add-entry{
     border-radius: var(--bar-control);
     background-color: var(--shadow-color);
 }
-section.control .content .add-entry:hover{
+section.control-element .content .add-entry:hover{
     border: solid var(--side-font-color);
 }

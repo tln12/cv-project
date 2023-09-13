@@ -49,7 +49,7 @@ function PDataForm({ personalData, handleChange }) {
 
 export default function PDataControl({ personalData, handleChange }) {
     return(
-        <section className='control' id='pd-control'>
+        <section className='control-element' id='pd-control'>
             <Collapsible 
                 title='Personal Data' 
                 content={<PDataForm personalData={personalData} handleChange={handleChange}/>}

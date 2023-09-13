@@ -98,7 +98,7 @@ export default function WExperienceControl(props) {
     }
 
     return(
-        <section className='control' id='we-control' data-type='work'>
+        <section className='control-element' id='we-control' data-type='work'>
             <Collapsible title='Work Experience' content={content}/>
         </section>
     );

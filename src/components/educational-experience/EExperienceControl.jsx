@@ -95,7 +95,7 @@ export default function EExperienceControl(props) {
     }
 
     return(
-        <section className='control' id='ee-control' data-type='education'>
+        <section className='control-element' id='ee-control' data-type='education'>
             <Collapsible title='Education' content={content}/>
         </section>
     );
