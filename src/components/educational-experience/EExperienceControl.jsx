@@ -4,12 +4,12 @@ import Collapsible from '../collapsible/Collapsible';
 
 function EEListElement({ entry, handleEdit, handleDeleteEntry, handleToggleVisibility }) {
     return(
-        <li className='ee-c-entry' data-id={entry.id} data-type='education'>
-            <div className='ee-c-info'>
+        <li className='c-entry' data-id={entry.id} data-type='education'>
+            <div className='c-entry-info'>
                 <h4>{entry.schoolName}</h4>
                 <span>{entry.titleOfStudy}</span>
             </div>
-            <div className="ee-c-tools">
+            <div className="c-entry-tools">
                 <button className="material-symbols-outlined" onClick={handleDeleteEntry}>delete</button>
                 <button className="material-symbols-outlined" onClick={handleEdit} >edit</button>
                 <button className="material-symbols-outlined" onClick={handleToggleVisibility}>{entry.hidden? 'visibility_off' : 'visibility'}</button>
@@ -34,7 +34,7 @@ function EEList({ education, handleCreateEntry, handleDeleteEntry, handleEdit, h
     return (
         <>
             <ul>{educationEntries}</ul>
-            <button className='ee-c-add material-symbols-outlined' onClick={handleCreateEntry} >add</button>
+            <button className='add-entry material-symbols-outlined' onClick={handleCreateEntry} >add</button>
         </>
     );
 }

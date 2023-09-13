@@ -1,8 +1,0 @@
-#we-control .we-c-entry {
-    padding: var(--padding-tb-list-control) var(--padding-lr-control);
-    border: 1px solid var(--side-font-color);
-    margin: -1px;
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-}

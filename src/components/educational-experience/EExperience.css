@@ -1,37 +1,4 @@
 /* --------
-*   LIST
----------- */
-#ee-control .ee-c-entry {
-    padding: var(--padding-tb-list-control) var(--padding-lr-control);
-    border: 1px solid var(--side-font-color);
-    margin: -1px;
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-}
-#ee-control .ee-c-info {
-    display: flex;
-    flex-direction: column;
-}
-#ee-control .ee-c-tools {
-    align-self: center;
-    display: flex;
-    gap: 10px;
-}
-#ee-control .ee-c-add{
-    margin: 10px;
-    width: 100px;
-    text-align: center;
-    align-self: center;
-    border: solid transparent;
-    border-radius: var(--bar-control);
-    background-color: var(--shadow-color);
-}
-#ee-control .ee-c-add:hover{
-    border: solid var(--side-font-color);
-}
-
-/* --------
 *   FORM
 ---------- */
 #ee-control .ee-c-return {

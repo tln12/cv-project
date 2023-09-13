@@ -4,12 +4,12 @@ import './WExperience.css';
 
 function WEListElement({ entry, handleEdit, handleDeleteEntry, handleToggleVisibility }) {
     return(
-        <li className='we-c-entry' data-id={entry.id} data-type='work'>
-            <div className='we-c-info'>
+        <li className='c-entry' data-id={entry.id} data-type='work'>
+            <div className='c-entry-info'>
                 <h4>{entry.companyName}</h4>
                 <span>{entry.positionTitle}</span>
             </div>
-            <div className="we-c-tools">
+            <div className="c-entry-tools">
                 <button className="material-symbols-outlined" onClick={handleDeleteEntry}>delete</button>
                 <button className="material-symbols-outlined" onClick={handleEdit} >edit</button>
                 <button className="material-symbols-outlined" onClick={handleToggleVisibility}>{entry.hidden? 'visibility_off' : 'visibility'}</button>
