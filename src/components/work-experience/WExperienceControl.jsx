@@ -4,7 +4,7 @@ import './WExperience.css';
 
 function WEListElement({ entry, handleEdit, handleDeleteEntry, handleToggleVisibility }) {
     return(
-        <li className='c-entry' data-id={entry.id} data-type='work'>
+        <li className='c-entry' data-id={entry.id}>
             <div className='c-entry-info'>
                 <h4>{entry.companyName}</h4>
                 <span>{entry.positionTitle}</span>
@@ -39,31 +39,31 @@ function WEList({ work, handleCreateEntry, handleDeleteEntry, handleEdit, handle
     );
 }
 
-function WEForm({handleReturn, mode } ) {
+function WEForm({ formData, handleChange, handleReturn, mode, handleSubmit }) {
     return(
-        <form className="we-c-form">
+        <form className="we-c-form" data-id={formData.id} onSubmit={handleSubmit}>
             {mode == 'edit' && <button className="we-c-return material-symbols-outlined" onClick={handleReturn}>arrow_back</button>}
             <div className="we-date">
                 <label htmlFor="starting-date">
                     <span>starting date</span>
-                    <input type='date' id='starting date'></input>
+                    <input type='date' id='starting date' value={formData.startingDate} onChange={handleChange}></input>
                 </label>
                 <label htmlFor="end-date">
                     <span>end date</span>
-                    <input type='date' id='end-date'></input>
+                    <input type='date' id='end-date' value={formData.endDate} onChange={handleChange}></input>
                 </label>
             </div>
             <label>
                 <span>company name</span>
-                <input id='company-name'></input>
+                <input id='company-name' value={formData.companyName} onChange={handleChange}></input>
             </label>
             <label htmlFor='position-title'>
                 <span>position title</span>
-                <input id='position-title'></input>
+                <input id='position-title' value={formData.positionTitle} onChange={handleChange}></input>
             </label>
             <label htmlFor='description'>
                 <span>description</span>
-                <textarea id='description' rows='5'></textarea>
+                <textarea id='description' rows='5' value={formData.description} onChange={handleChange}></textarea>
             </label>
             <div className='we-c-submit'>
                 {mode == 'create' && <button className="material-symbols-outlined" type='button' onClick={handleReturn}>close</button>}
@@ -74,15 +74,31 @@ function WEForm({handleReturn, mode } ) {
 }
 
 export default function WExperienceControl(props) {
-    const { work, handleDeleteEntry } = props;
+    const { work, handleEdit, handleCreateEntry, 
+            controlStatus, handleChange, handleReturn,
+            handleSubmit, handleDeleteEntry, handleToggleVisibility, formData } = props;
     let content;
-    content = <WEList
-                work={work}
-                handleDeleteEntry={handleDeleteEntry}
-                 />
+    // render determines whether EEList or EEForm is rendered
+    if(controlStatus.render == 'list') {
+        content = <WEList
+                    work={work}
+                    handleEdit={handleEdit} 
+                    handleCreateEntry={handleCreateEntry}
+                    handleDeleteEntry={handleDeleteEntry}
+                    handleToggleVisibility={handleToggleVisibility}
+                    />;
+    } else if (controlStatus.render == 'form') {
+        content = <WEForm 
+                    formData={formData} 
+                    handleChange={handleChange}
+                    handleReturn={handleReturn}
+                    handleSubmit={handleSubmit}
+                    mode={controlStatus.mode}
+                    />;
+    }
 
     return(
-        <section className='control' id='we-control'>
+        <section className='control' id='we-control' data-type='work'>
             <Collapsible title='Work Experience' content={content}/>
         </section>
     );

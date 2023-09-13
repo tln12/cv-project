@@ -4,7 +4,7 @@ import Collapsible from '../collapsible/Collapsible';
 
 function EEListElement({ entry, handleEdit, handleDeleteEntry, handleToggleVisibility }) {
     return(
-        <li className='c-entry' data-id={entry.id} data-type='education'>
+        <li className='c-entry' data-id={entry.id}>
             <div className='c-entry-info'>
                 <h4>{entry.schoolName}</h4>
                 <span>{entry.titleOfStudy}</span>
@@ -95,7 +95,7 @@ export default function EExperienceControl(props) {
     }
 
     return(
-        <section className='control' id='ee-control'>
+        <section className='control' id='ee-control' data-type='education'>
             <Collapsible title='Education' content={content}/>
         </section>
     );
