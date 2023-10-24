@@ -93,5 +93,5 @@ ul {
     'opsz' 20
 }
 .material-symbols-outlined:hover {
-    background-color: var(--shadow-color);
+    background-color: var(--accent-color);
 }

@@ -42,7 +42,7 @@ function WEList({ work, handleCreateEntry, handleDeleteEntry, handleEdit, handle
 function WEForm({ formData, handleChange, handleReturn, mode, handleSubmit }) {
     return(
         <form className="we-c-form" data-id={formData.id} onSubmit={handleSubmit}>
-            {mode == 'edit' && <button className="we-c-return material-symbols-outlined" onClick={handleReturn}>arrow_back</button>}
+            {mode == 'edit' && <button className="return-btn material-symbols-outlined" onClick={handleReturn}>arrow_back</button>}
             <div className="we-date">
                 <label htmlFor="starting-date">
                     <span>starting date</span>

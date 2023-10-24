@@ -42,7 +42,7 @@ function EEList({ education, handleCreateEntry, handleDeleteEntry, handleEdit, h
 function EEForm({ formData, handleChange, handleReturn, mode, handleSubmit }) {
     return(
         <form className="ee-c-form" data-id={formData.id} onSubmit={handleSubmit}>
-            {mode == 'edit' && <button className="ee-c-return material-symbols-outlined" onClick={handleReturn}>arrow_back</button>}
+            {mode == 'edit' && <button className="return-btn material-symbols-outlined" onClick={handleReturn}>arrow_back</button>}
             <div className="ee-c-date">
                 <label>
                     <span>starting date</span>
@@ -64,7 +64,7 @@ function EEForm({ formData, handleChange, handleReturn, mode, handleSubmit }) {
             <div className='ee-c-submit'>
                 {mode == 'create' && <button className="material-symbols-outlined" type='button' onClick={handleReturn}>close</button>}
                 <button className="material-symbols-outlined" type='submit'>check</button>
-            </div>
+            </div> 
         </form>
     );
 }
