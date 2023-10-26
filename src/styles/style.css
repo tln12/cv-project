@@ -1,17 +1,17 @@
 body {
-    width: 100vw;
-    margin: 0;
-    /* background-color: #F5F3EE; */
-    background-color: white;
-    --side-font-color: rgb(111, 111, 111);
-    --shadow-color: rgb(235, 235, 235);
+  width: 100vw;
+  margin: 0;
+  /* background-color: #F5F3EE; */
+  background-color: white;
+  --side-font-color: rgb(111, 111, 111);
+  --shadow-color: rgb(235, 235, 235);
 }
 #root {
-    font-family: sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 50px;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
 }
 
 /* -------------------*/
@@ -22,44 +22,43 @@ body {
 /*      MAIN          */
 /* ------------------ */
 main {
-    display: flex;
-    width: 100%;
-    gap: 50px;
+  display: flex;
+  width: 100%;
+  gap: 50px;
 }
 
 /*  -- SECTION: DISPLAY --  */
 section.display {
-    width: 60%;
-    height: 60vw;
-    display: flex;
-    box-shadow: 5px 5px 5px var(--shadow-color);
+  width: 60%;
+  height: 60vw;
+  display: flex;
+  box-shadow: 5px 5px 5px var(--shadow-color);
 }
 section.display aside {
-    width: 33%;
-    background-color: #F5F3EE;
+  width: 33%;
+  background-color: #f5f3ee;
 }
 section.display .content {
-    display: flex;
-    flex-direction: column;
-    padding: 30px;
-    gap: 30px;
-    width: 70%;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  gap: 30px;
+  width: 70%;
 }
 /*  -- SECTION: DISPLAY PERSONAL DATA --  */
 section.display #pd-d-header h2 {
-    letter-spacing: 1px;
+  letter-spacing: 1px;
 }
-section.display #pd-d-header h2 span:first-of-type{
-    font-weight: bold;
+section.display #pd-d-header h2 span:first-of-type {
+  font-weight: bold;
 }
 section.display #pd-d-info ul li,
-section.display #ee-d-info ul li
-{
-    display: flex;
+section.display #ee-d-info ul li {
+  display: flex;
 }
 section.display #pd-d-info ul li span,
-section.display #pd-d-info ul li span{
-    flex: 1;
+section.display #pd-d-info ul li span {
+  flex: 1;
 }
 /* -------------------*/
 /*      FOOTER        */
@@ -71,27 +70,27 @@ h1,
 h2,
 h3,
 h4 {
-    margin: 0;
-    font-weight: normal;
+  margin: 0;
+  font-weight: normal;
 }
 ul {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
 }
 .material-symbols-outlined {
-    border: none;
-    background-color: white;
-    padding: 3px;
-    cursor: default;
-    border-radius: var(--bar-control);
-    color: var(--side-color);
-    font-variation-settings:
+  border: none;
+  background-color: white;
+  padding: 3px;
+  cursor: default;
+  border-radius: var(--bar-control);
+  color: var(--side-color);
+  font-variation-settings:
     'FILL' 0,
     'wght' 300,
     'GRAD' -25,
-    'opsz' 20
+    'opsz' 20;
 }
 .material-symbols-outlined:hover {
-    background-color: var(--accent-color);
+  background-color: var(--accent-color);
 }

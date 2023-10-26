@@ -1,99 +1,99 @@
 * {
-    --padding-lr-control: 20px;
-    --padding-tb-list-control: 5px;
-    --padding-tb-form-control: 15px;
-    /* border all radius */
-    --bar-control: 10px;
-    --side-font-color: rgb(111, 111, 111);
-    --shadow-color: rgb(235, 235, 235);
-    --accent-color: rgb(88, 225, 200);
+  --padding-lr-control: 20px;
+  --padding-tb-list-control: 5px;
+  --padding-tb-form-control: 15px;
+  /* border all radius */
+  --bar-control: 10px;
+  --side-font-color: rgb(111, 111, 111);
+  --shadow-color: rgb(235, 235, 235);
+  --accent-color: rgb(88, 225, 200);
 }
 section#control-panel {
-    min-width: 40vw;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  min-width: 40vw;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 input {
-    padding: 10px;
-    border-radius: var(--bar-control);
-    /* border: none; */
-    border: 2px solid var(--shadow-color);
+  padding: 10px;
+  border-radius: var(--bar-control);
+  /* border: none; */
+  border: 2px solid var(--shadow-color);
 }
 
 /* ----------
     CONTROL
 ------------ */
 section.control-element {
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    border-radius: var(--bar-control);
-    border: solid var(--side-font-color);
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--bar-control);
+  border: solid var(--side-font-color);
 }
 section.control-element .collapsible .title {
-    padding: 15px var(--padding-lr-control);
-    display: flex;
-    justify-content: space-between;
+  padding: 15px var(--padding-lr-control);
+  display: flex;
+  justify-content: space-between;
 }
 section.control-element .content {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 section.control-element .content form {
-    padding: var(--padding-tb-form-control) var(--padding-lr-control);
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    border-top: solid var(--side-font-color);
+  padding: var(--padding-tb-form-control) var(--padding-lr-control);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-top: solid var(--side-font-color);
 }
-section.control-element .content form label>span{
-    color: var(--side-font-color);
+section.control-element .content form label > span {
+  color: var(--side-font-color);
 }
 section.control-element .content form label {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
-section.control-element .content form > div{
-    display: flex;
-    gap: 50px;
+section.control-element .content form > div {
+  display: flex;
+  gap: 50px;
 }
 
 /* list view of education and work */
 section.control-element .content .c-entry {
-    padding: var(--padding-tb-list-control) var(--padding-lr-control);
-    border: 1px solid var(--side-font-color);
-    margin: -1px;
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
+  padding: var(--padding-tb-list-control) var(--padding-lr-control);
+  border: 1px solid var(--side-font-color);
+  margin: -1px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
 }
 section.control-element .content .ee-c-info {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 section.control-element .content .c-entry-tools {
-    align-self: center;
-    display: flex;
-    gap: 10px;
+  align-self: center;
+  display: flex;
+  gap: 10px;
 }
-section.control-element .content .add-entry{
-    margin: 10px;
-    width: 100px;
-    text-align: center;
-    align-self: center;
-    border: solid transparent;
-    border-radius: var(--bar-control);
-    background-color: var(--shadow-color);
+section.control-element .content .add-entry {
+  margin: 10px;
+  width: 100px;
+  text-align: center;
+  align-self: center;
+  border: solid transparent;
+  border-radius: var(--bar-control);
+  background-color: var(--shadow-color);
 }
-section.control-element .content .add-entry:hover{
-    border: double white;
-    color: white;
-    background-color: var(--accent-color);
+section.control-element .content .add-entry:hover {
+  border: double white;
+  color: white;
+  background-color: var(--accent-color);
 }
 
 /* form view of education and work */
-section.control-element .content .return-btn{
-    text-align: start;
+section.control-element .content .return-btn {
+  text-align: start;
 }
