@@ -1,71 +1,6 @@
-import { useState } from 'react';
 import Collapsible from '../collapsible/Collapsible';
+import Register from '../Register';
 import './WExperience.css';
-
-function WEListElement({
-  entry,
-  handleEdit,
-  handleDeleteEntry,
-  handleToggleVisibility,
-}) {
-  return (
-    <li className='c-entry' data-id={entry.id}>
-      <div className='c-entry-info'>
-        <h4>{entry.name}</h4>
-        <span>{entry.title}</span>
-      </div>
-      <div className='c-entry-tools'>
-        <button
-          className='material-symbols-outlined'
-          onClick={handleDeleteEntry}
-        >
-          delete
-        </button>
-        <button className='material-symbols-outlined' onClick={handleEdit}>
-          edit
-        </button>
-        <button
-          className='material-symbols-outlined'
-          onClick={handleToggleVisibility}
-        >
-          {entry.hidden ? 'visibility_off' : 'visibility'}
-        </button>
-        <button className='material-symbols-outlined '>drag_handle</button>
-      </div>
-    </li>
-  );
-}
-
-function WEList({
-  work,
-  handleCreateEntry,
-  handleDeleteEntry,
-  handleEdit,
-  handleToggleVisibility,
-}) {
-  let workEntries = work.map((entry) => {
-    return (
-      <WEListElement
-        key={entry.id}
-        entry={entry}
-        handleEdit={handleEdit}
-        handleDeleteEntry={handleDeleteEntry}
-        handleToggleVisibility={handleToggleVisibility}
-      />
-    );
-  });
-  return (
-    <>
-      <ul>{workEntries}</ul>
-      <button
-        className='add-entry material-symbols-outlined'
-        onClick={handleCreateEntry}
-      >
-        add
-      </button>
-    </>
-  );
-}
 
 function WEForm({ formData, handleChange, handleReturn, mode, handleSubmit }) {
   return (
@@ -158,8 +93,8 @@ export default function WExperienceControl(props) {
   // render determines whether EEList or EEForm is rendered
   if (controlStatus.render == 'list') {
     content = (
-      <WEList
-        work={work}
+      <Register
+        data={work}
         handleEdit={handleEdit}
         handleCreateEntry={handleCreateEntry}
         handleDeleteEntry={handleDeleteEntry}
