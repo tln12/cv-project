@@ -7,8 +7,8 @@ export default function WExperienceDisplay({ work }) {
             {entry.startingDate}-{entry.endDate}
           </span>
           <div>
-            <h4>{entry.companyName}</h4>
-            <span>{entry.positionTitle}</span>
+            <h4>{entry.name}</h4>
+            <span>{entry.title}</span>
           </div>
           <div>{entry.description}</div>
         </li>

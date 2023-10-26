@@ -7,8 +7,8 @@ export default function EExperienceDisplay({ education }) {
             {element.startingDate}-{element.endDate}
           </span>
           <div>
-            <h4>{element.schoolName}</h4>
-            <span>{element.titleOfStudy}</span>
+            <h4>{element.name}</h4>
+            <span>{element.title}</span>
           </div>
         </li>
       );

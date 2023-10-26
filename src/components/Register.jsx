@@ -33,8 +33,8 @@ function RegisterEntry({
   return (
     <Li data-id={entry.id}>
       <div>
-        <h4>{entry.schoolName}</h4>
-        <span>{entry.titleOfStudy}</span>
+        <h4>{entry.name}</h4>
+        <span>{entry.title}</span>
       </div>
       <div>
         <button

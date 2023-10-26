@@ -40,7 +40,7 @@ function EEForm({ formData, handleChange, handleReturn, mode, handleSubmit }) {
         <span>school name</span>
         <input
           id='school-name'
-          value={formData.schoolName}
+          value={formData.name}
           onChange={handleChange}
         ></input>
       </label>
@@ -48,7 +48,7 @@ function EEForm({ formData, handleChange, handleReturn, mode, handleSubmit }) {
         <span>title of study</span>
         <input
           id='title-of-study'
-          value={formData.titleOfStudy}
+          value={formData.title}
           onChange={handleChange}
         ></input>
       </label>

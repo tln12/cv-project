@@ -11,8 +11,8 @@ function WEListElement({
   return (
     <li className='c-entry' data-id={entry.id}>
       <div className='c-entry-info'>
-        <h4>{entry.companyName}</h4>
-        <span>{entry.positionTitle}</span>
+        <h4>{entry.name}</h4>
+        <span>{entry.title}</span>
       </div>
       <div className='c-entry-tools'>
         <button
@@ -102,7 +102,7 @@ function WEForm({ formData, handleChange, handleReturn, mode, handleSubmit }) {
         <span>company name</span>
         <input
           id='company-name'
-          value={formData.companyName}
+          value={formData.name}
           onChange={handleChange}
         ></input>
       </label>
@@ -110,7 +110,7 @@ function WEForm({ formData, handleChange, handleReturn, mode, handleSubmit }) {
         <span>position title</span>
         <input
           id='position-title'
-          value={formData.positionTitle}
+          value={formData.title}
           onChange={handleChange}
         ></input>
       </label>
