@@ -1,71 +1,7 @@
 import { useState } from 'react';
 import './EExperience.css';
 import Collapsible from '../collapsible/Collapsible';
-
-function EEListElement({
-  entry,
-  handleEdit,
-  handleDeleteEntry,
-  handleToggleVisibility,
-}) {
-  return (
-    <li className='c-entry' data-id={entry.id}>
-      <div className='c-entry-info'>
-        <h4>{entry.schoolName}</h4>
-        <span>{entry.titleOfStudy}</span>
-      </div>
-      <div className='c-entry-tools'>
-        <button
-          className='material-symbols-outlined'
-          onClick={handleDeleteEntry}
-        >
-          delete
-        </button>
-        <button className='material-symbols-outlined' onClick={handleEdit}>
-          edit
-        </button>
-        <button
-          className='material-symbols-outlined'
-          onClick={handleToggleVisibility}
-        >
-          {entry.hidden ? 'visibility_off' : 'visibility'}
-        </button>
-        <button className='material-symbols-outlined '>drag_handle</button>
-      </div>
-    </li>
-  );
-}
-
-function EEList({
-  education,
-  handleCreateEntry,
-  handleDeleteEntry,
-  handleEdit,
-  handleToggleVisibility,
-}) {
-  let educationEntries = education.map((entry) => {
-    return (
-      <EEListElement
-        key={entry.id}
-        entry={entry}
-        handleEdit={handleEdit}
-        handleDeleteEntry={handleDeleteEntry}
-        handleToggleVisibility={handleToggleVisibility}
-      />
-    );
-  });
-  return (
-    <>
-      <ul>{educationEntries}</ul>
-      <button
-        className='add-entry material-symbols-outlined'
-        onClick={handleCreateEntry}
-      >
-        add
-      </button>
-    </>
-  );
-}
+import Register from '../Register';
 
 function EEForm({ formData, handleChange, handleReturn, mode, handleSubmit }) {
   return (
@@ -152,8 +88,8 @@ export default function EExperienceControl(props) {
   // render determines whether EEList or EEForm is rendered
   if (controlStatus.render == 'list') {
     content = (
-      <EEList
-        education={education}
+      <Register
+        data={education}
         handleEdit={handleEdit}
         handleCreateEntry={handleCreateEntry}
         handleDeleteEntry={handleDeleteEntry}
