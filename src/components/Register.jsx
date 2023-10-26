@@ -24,6 +24,12 @@ const AddEntry = styled.button`
   }
 `;
 
+const Toolbar = styled.div`
+  align-self: center;
+  display: flex;
+  gap: 10px;
+`;
+
 function RegisterEntry({
   entry,
   handleEdit,
@@ -36,7 +42,7 @@ function RegisterEntry({
         <h4>{entry.name}</h4>
         <span>{entry.title}</span>
       </div>
-      <div>
+      <Toolbar>
         <button
           className='material-symbols-outlined'
           onClick={handleDeleteEntry}
@@ -53,7 +59,7 @@ function RegisterEntry({
           {entry.hidden ? 'visibility_off' : 'visibility'}
         </button>
         <button className='material-symbols-outlined '>drag_handle</button>
-      </div>
+      </Toolbar>
     </Li>
   );
 }
