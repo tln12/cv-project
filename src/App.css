@@ -60,39 +60,6 @@ section.control-element .content form > div {
   gap: 50px;
 }
 
-/* list view of education and work */
-section.control-element .content .c-entry {
-  padding: var(--padding-tb-list-control) var(--padding-lr-control);
-  border: 1px solid var(--side-font-color);
-  margin: -1px;
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-}
-section.control-element .content .ee-c-info {
-  display: flex;
-  flex-direction: column;
-}
-section.control-element .content .c-entry-tools {
-  align-self: center;
-  display: flex;
-  gap: 10px;
-}
-section.control-element .content .add-entry {
-  margin: 10px;
-  width: 100px;
-  text-align: center;
-  align-self: center;
-  border: solid transparent;
-  border-radius: var(--bar-control);
-  background-color: var(--shadow-color);
-}
-section.control-element .content .add-entry:hover {
-  border: double white;
-  color: white;
-  background-color: var(--accent-color);
-}
-
 /* form view of education and work */
 section.control-element .content .return-btn {
   text-align: start;
