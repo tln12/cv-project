@@ -2,6 +2,7 @@ import {
   StyledForm,
   StyledLabel,
   StyledSpan,
+  StyledInput,
   StyledInputGroup,
   StyledReturnButton,
   StyledSubmitPanel,
@@ -28,36 +29,40 @@ export default function EExperienceForm({
       <StyledInputGroup>
         <StyledLabel htmlFor='starting-date'>
           <StyledSpan>starting date</StyledSpan>
-          <input
+          <StyledInput
             type='date'
             id='starting-date'
             placeholder='starting date'
             value={formData.startingDate}
             onChange={handleChange}
-          ></input>
+          ></StyledInput>
         </StyledLabel>
         <StyledLabel htmlFor='end-date'>
           <StyledSpan>end date</StyledSpan>
-          <input
+          <StyledInput
             type='date'
             id='end-date'
             placeholder='end date'
             value={formData.endDate}
             onChange={handleChange}
-          ></input>
+          ></StyledInput>
         </StyledLabel>
       </StyledInputGroup>
       <StyledLabel htmlFor='name'>
         <StyledSpan>school name</StyledSpan>
-        <input id='name' value={formData.name} onChange={handleChange}></input>
+        <StyledInput
+          id='name'
+          value={formData.name}
+          onChange={handleChange}
+        ></StyledInput>
       </StyledLabel>
       <StyledLabel htmlFor='title'>
         <StyledSpan>title of study</StyledSpan>
-        <input
+        <StyledInput
           id='title'
           value={formData.title}
           onChange={handleChange}
-        ></input>
+        ></StyledInput>
       </StyledLabel>
       <StyledSubmitPanel>
         {mode == 'create' && (

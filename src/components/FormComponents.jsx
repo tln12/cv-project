@@ -15,6 +15,12 @@ const StyledLabel = styled.label`
 const StyledSpan = styled.span`
   color: var(--side-font-color);
 `;
+const StyledInput = styled.input`
+  padding: 10px;
+  border-radius: var(--bar-control);
+  // border: none;
+  border: 2px solid var(--shadow-color);
+`;
 const StyledInputGroup = styled.div`
   display: flex;
   gap: 50px;
@@ -44,6 +50,7 @@ export {
   StyledForm,
   StyledLabel,
   StyledSpan,
+  StyledInput,
   StyledInputGroup,
   StyledReturnButton,
   StyledSubmitPanel,

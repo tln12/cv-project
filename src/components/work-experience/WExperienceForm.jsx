@@ -2,6 +2,7 @@ import {
   StyledForm,
   StyledLabel,
   StyledSpan,
+  StyledInput,
   StyledInputGroup,
   StyledReturnButton,
   StyledSubmitPanel,
@@ -28,34 +29,38 @@ export default function WExperienceForm({
       <StyledInputGroup>
         <StyledLabel htmlFor='starting-date'>
           <StyledSpan>starting date</StyledSpan>
-          <input
+          <StyledInput
             type='date'
             id='starting date'
             value={formData.startingDate}
             onChange={handleChange}
-          ></input>
+          ></StyledInput>
         </StyledLabel>
         <StyledLabel htmlFor='end-date'>
           <StyledSpan>end date</StyledSpan>
-          <input
+          <StyledInput
             type='date'
             id='end-date'
             value={formData.endDate}
             onChange={handleChange}
-          ></input>
+          ></StyledInput>
         </StyledLabel>
       </StyledInputGroup>
       <StyledLabel htmlFor='name'>
         <StyledSpan>company name</StyledSpan>
-        <input id='name' value={formData.name} onChange={handleChange}></input>
+        <StyledInput
+          id='name'
+          value={formData.name}
+          onChange={handleChange}
+        ></StyledInput>
       </StyledLabel>
       <StyledLabel htmlFor='title'>
         <StyledSpan>position title</StyledSpan>
-        <input
+        <StyledInput
           id='title'
           value={formData.title}
           onChange={handleChange}
-        ></input>
+        ></StyledInput>
       </StyledLabel>
       <StyledLabel htmlFor='description'>
         <StyledSpan>description</StyledSpan>

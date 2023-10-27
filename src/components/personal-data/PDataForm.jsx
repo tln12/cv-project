@@ -2,6 +2,7 @@ import {
   StyledForm,
   StyledLabel,
   StyledSpan,
+  StyledInput,
   StyledInputGroup,
 } from '../FormComponents';
 
@@ -11,73 +12,73 @@ export default function PDataForm({ personalData, handleChange }) {
       <StyledInputGroup>
         <StyledLabel htmlFor='first-name'>
           <StyledSpan>first name</StyledSpan>
-          <input
+          <StyledInput
             id='first-name'
             onChange={handleChange}
             value={personalData.firstName}
-          ></input>
+          ></StyledInput>
         </StyledLabel>
         <StyledLabel htmlFor='last-name'>
           <StyledSpan>last name</StyledSpan>
-          <input
+          <StyledInput
             id='last-name'
             onChange={handleChange}
             value={personalData.lastName}
-          ></input>
+          ></StyledInput>
         </StyledLabel>
       </StyledInputGroup>
       <StyledInputGroup>
         <StyledLabel htmlFor='street'>
           <StyledSpan>street</StyledSpan>
-          <input
+          <StyledInput
             id='street'
             onChange={handleChange}
             value={personalData.street}
-          ></input>
+          ></StyledInput>
         </StyledLabel>
         <StyledLabel htmlFor='house-nr'>
           <StyledSpan>house no.</StyledSpan>
-          <input
+          <StyledInput
             id='house-nr'
             onChange={handleChange}
             value={personalData.houseNr}
-          ></input>
+          ></StyledInput>
         </StyledLabel>
       </StyledInputGroup>
       <StyledInputGroup>
         <StyledLabel htmlFor='postcode'>
           <StyledSpan>postcode</StyledSpan>
-          <input
+          <StyledInput
             id='postcode'
             onChange={handleChange}
             value={personalData.postcode}
-          ></input>
+          ></StyledInput>
         </StyledLabel>
         <StyledLabel htmlFor='city'>
           <StyledSpan>city</StyledSpan>
-          <input
+          <StyledInput
             id='city'
             onChange={handleChange}
             value={personalData.city}
-          ></input>
+          ></StyledInput>
         </StyledLabel>
       </StyledInputGroup>
       <StyledInputGroup>
         <StyledLabel htmlFor='phone'>
           <StyledSpan>phone</StyledSpan>
-          <input
+          <StyledInput
             id='phone'
             onChange={handleChange}
             value={personalData.phone}
-          ></input>
+          ></StyledInput>
         </StyledLabel>
         <StyledLabel htmlFor='email'>
           <StyledSpan>e-mail</StyledSpan>
-          <input
+          <StyledInput
             id='email'
             onChange={handleChange}
             value={personalData.email}
-          ></input>
+          ></StyledInput>
         </StyledLabel>
       </StyledInputGroup>
     </StyledForm>
