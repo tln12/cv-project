@@ -40,27 +40,3 @@ section.control-element .content {
   display: flex;
   flex-direction: column;
 }
-section.control-element .content form {
-  padding: var(--padding-tb-form-control) var(--padding-lr-control);
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  border-top: solid var(--side-font-color);
-}
-section.control-element .content form label > span {
-  color: var(--side-font-color);
-}
-section.control-element .content form label {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-section.control-element .content form > div {
-  display: flex;
-  gap: 50px;
-}
-
-/* form view of education and work */
-section.control-element .content .return-btn {
-  text-align: start;
-}
