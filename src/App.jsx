@@ -134,8 +134,6 @@ function App() {
    * Handles click on create entry icon. Renders view for 'create'-form and fills with formData.
    */
   function handleCreateEntry(e) {
-    console.log('hi');
-    console.log(e);
     const type = e.target.closest('section').attributes['data-type'].value;
     let newEntry;
     if (type == 'education') {

@@ -2,21 +2,20 @@ import Collapsible from '../collapsible/Collapsible';
 import Register from '../Register';
 import WExperienceForm from './WExperienceForm';
 
-export default function WExperienceControl(props) {
-  const {
-    work,
-    handleEdit,
-    handleCreateEntry,
-    controlStatus,
-    handleChange,
-    handleReturn,
-    handleSubmit,
-    handleDeleteEntry,
-    handleToggleVisibility,
-    formData,
-  } = props;
+export default function WExperienceControl({
+  work,
+  handleEdit,
+  handleCreateEntry,
+  controlStatus,
+  handleChange,
+  handleReturn,
+  handleSubmit,
+  handleDeleteEntry,
+  handleToggleVisibility,
+  formData,
+}) {
   let content;
-  // render determines whether EEList or EEForm is rendered
+  // render determines whether Register or Form is rendered
   if (controlStatus.render == 'list') {
     content = (
       <Register
