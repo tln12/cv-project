@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import './EExperience.css';
 import Collapsible from '../collapsible/Collapsible';
 import Register from '../Register';
@@ -15,7 +14,7 @@ function EEForm({ formData, handleChange, handleReturn, mode, handleSubmit }) {
         </button>
       )}
       <div className='ee-c-date'>
-        <label>
+        <label htmlFor='starting-date'>
           <span>starting date</span>
           <input
             type='date'
@@ -25,7 +24,7 @@ function EEForm({ formData, handleChange, handleReturn, mode, handleSubmit }) {
             onChange={handleChange}
           ></input>
         </label>
-        <label>
+        <label htmlFor='end-date'>
           <span>end date</span>
           <input
             type='date'
@@ -36,18 +35,14 @@ function EEForm({ formData, handleChange, handleReturn, mode, handleSubmit }) {
           ></input>
         </label>
       </div>
-      <label>
+      <label htmlFor='name'>
         <span>school name</span>
-        <input
-          id='school-name'
-          value={formData.name}
-          onChange={handleChange}
-        ></input>
+        <input id='name' value={formData.name} onChange={handleChange}></input>
       </label>
-      <label>
+      <label htmlFor='title'>
         <span>title of study</span>
         <input
-          id='title-of-study'
+          id='title'
           value={formData.title}
           onChange={handleChange}
         ></input>

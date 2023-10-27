@@ -33,18 +33,14 @@ function WEForm({ formData, handleChange, handleReturn, mode, handleSubmit }) {
           ></input>
         </label>
       </div>
-      <label>
+      <label htmlFor='name'>
         <span>company name</span>
-        <input
-          id='company-name'
-          value={formData.name}
-          onChange={handleChange}
-        ></input>
+        <input id='name' value={formData.name} onChange={handleChange}></input>
       </label>
-      <label htmlFor='position-title'>
+      <label htmlFor='title'>
         <span>position title</span>
         <input
-          id='position-title'
+          id='title'
           value={formData.title}
           onChange={handleChange}
         ></input>
