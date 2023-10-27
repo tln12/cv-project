@@ -19,7 +19,7 @@ export default function WExperienceForm({
     <StyledForm data-id={formData.id} onSubmit={handleSubmit}>
       {mode == 'edit' && (
         <StyledReturnButton
-          className='return-btn material-symbols-outlined'
+          className='material-symbols-outlined'
           onClick={handleReturn}
         >
           arrow_back
