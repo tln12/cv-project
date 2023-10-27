@@ -1,4 +1,4 @@
-import Collapsible from '../collapsible/Collapsible';
+import Collapsible from '../Collapsible';
 import PDataForm from './PDataForm';
 
 export default function PDataControl({ personalData, handleChange }) {

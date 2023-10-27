@@ -1,4 +1,4 @@
-import Collapsible from '../collapsible/Collapsible';
+import Collapsible from '../Collapsible';
 import Register from '../Register';
 import WExperienceForm from './WExperienceForm';
 
