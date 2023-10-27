@@ -31,12 +31,3 @@ section.control-element {
   border-radius: var(--bar-control);
   border: solid var(--side-font-color);
 }
-section.control-element .collapsible .title {
-  padding: 15px var(--padding-lr-control);
-  display: flex;
-  justify-content: space-between;
-}
-section.control-element .content {
-  display: flex;
-  flex-direction: column;
-}
