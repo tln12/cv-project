@@ -37,5 +37,9 @@ export default function EExperienceControl({
     );
   }
 
-  return <Collapsible title='Education' content={content} />;
+  return (
+    <section data-type='education'>
+      <Collapsible title='Education' content={content} />
+    </section>
+  );
 }

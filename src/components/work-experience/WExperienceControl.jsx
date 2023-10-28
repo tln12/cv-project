@@ -37,5 +37,9 @@ export default function WExperienceControl({
     );
   }
 
-  return <Collapsible title='Work Experience' content={content} />;
+  return (
+    <section data-type='work'>
+      <Collapsible title='Work Experience' content={content} />
+    </section>
+  );
 }

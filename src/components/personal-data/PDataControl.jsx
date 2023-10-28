@@ -6,6 +6,8 @@ export default function PDataControl({ personalData, handleChange }) {
     <PDataForm personalData={personalData} handleChange={handleChange} />
   );
   return (
-    <Collapsible title='Personal Data' content={content} collapsed={false} />
+    <section data-typeof='personal-data'>
+      <Collapsible title='Personal Data' content={content} collapsed={false} />
+    </section>
   );
 }
