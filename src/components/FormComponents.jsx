@@ -14,11 +14,20 @@ const StyledLabel = styled.label`
 `;
 const StyledSpan = styled.span`
   color: var(--side-font-color);
+  &:after {
+    ${(props) =>
+      props.required &&
+      `
+        content: 'required';
+        color: var(--required-color);
+        font-size: 0.8em;
+        margin-left: 5px;
+        font-style: italic;
+    `}
 `;
 const StyledInput = styled.input`
   padding: 10px;
   border-radius: var(--bar-control);
-  // border: none;
   border: 2px solid var(--shadow-color);
 `;
 const StyledInputGroup = styled.div`
@@ -45,6 +54,7 @@ const StyledSubmitPanelButton = styled.button`
     background-color: var(--accent-color);
   }
 `;
+const StyledTextArea = styled(StyledInput).attrs({ as: 'textarea' })``;
 
 export {
   StyledForm,
@@ -55,4 +65,5 @@ export {
   StyledReturnButton,
   StyledSubmitPanel,
   StyledSubmitPanelButton,
+  StyledTextArea,
 };

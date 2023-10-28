@@ -11,16 +11,18 @@ export default function PDataForm({ personalData, handleChange }) {
     <StyledForm>
       <StyledInputGroup>
         <StyledLabel htmlFor='first-name'>
-          <StyledSpan>first name</StyledSpan>
+          <StyledSpan required>first name</StyledSpan>
           <StyledInput
+            required
             id='first-name'
             onChange={handleChange}
             value={personalData.firstName}
           ></StyledInput>
         </StyledLabel>
         <StyledLabel htmlFor='last-name'>
-          <StyledSpan>last name</StyledSpan>
+          <StyledSpan required>last name</StyledSpan>
           <StyledInput
+            required
             id='last-name'
             onChange={handleChange}
             value={personalData.lastName}
@@ -73,8 +75,9 @@ export default function PDataForm({ personalData, handleChange }) {
           ></StyledInput>
         </StyledLabel>
         <StyledLabel htmlFor='email'>
-          <StyledSpan>e-mail</StyledSpan>
+          <StyledSpan required>e-mail</StyledSpan>
           <StyledInput
+            required
             id='email'
             onChange={handleChange}
             value={personalData.email}

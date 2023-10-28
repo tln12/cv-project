@@ -28,8 +28,9 @@ export default function EExperienceForm({
       )}
       <StyledInputGroup>
         <StyledLabel htmlFor='starting-date'>
-          <StyledSpan>starting date</StyledSpan>
+          <StyledSpan required>starting date</StyledSpan>
           <StyledInput
+            required
             type='date'
             id='starting-date'
             placeholder='starting date'
@@ -38,8 +39,9 @@ export default function EExperienceForm({
           ></StyledInput>
         </StyledLabel>
         <StyledLabel htmlFor='end-date'>
-          <StyledSpan>end date</StyledSpan>
+          <StyledSpan required>end date</StyledSpan>
           <StyledInput
+            required
             type='date'
             id='end-date'
             placeholder='end date'
@@ -49,16 +51,18 @@ export default function EExperienceForm({
         </StyledLabel>
       </StyledInputGroup>
       <StyledLabel htmlFor='name'>
-        <StyledSpan>school name</StyledSpan>
+        <StyledSpan required>school name</StyledSpan>
         <StyledInput
+          required
           id='name'
           value={formData.name}
           onChange={handleChange}
         ></StyledInput>
       </StyledLabel>
       <StyledLabel htmlFor='title'>
-        <StyledSpan>title of study</StyledSpan>
+        <StyledSpan required>title of study</StyledSpan>
         <StyledInput
+          required
           id='title'
           value={formData.title}
           onChange={handleChange}

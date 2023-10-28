@@ -7,6 +7,7 @@ import {
   StyledReturnButton,
   StyledSubmitPanel,
   StyledSubmitPanelButton,
+  StyledTextArea,
 } from '../FormComponents';
 
 export default function WExperienceForm({
@@ -28,8 +29,9 @@ export default function WExperienceForm({
       )}
       <StyledInputGroup>
         <StyledLabel htmlFor='starting-date'>
-          <StyledSpan>starting date</StyledSpan>
+          <StyledSpan required>starting date</StyledSpan>
           <StyledInput
+            required
             type='date'
             id='starting-date'
             value={formData.startingDate}
@@ -37,8 +39,9 @@ export default function WExperienceForm({
           ></StyledInput>
         </StyledLabel>
         <StyledLabel htmlFor='end-date'>
-          <StyledSpan>end date</StyledSpan>
+          <StyledSpan required>end date</StyledSpan>
           <StyledInput
+            required
             type='date'
             id='end-date'
             value={formData.endDate}
@@ -47,16 +50,18 @@ export default function WExperienceForm({
         </StyledLabel>
       </StyledInputGroup>
       <StyledLabel htmlFor='name'>
-        <StyledSpan>company name</StyledSpan>
+        <StyledSpan required>company name</StyledSpan>
         <StyledInput
+          required
           id='name'
           value={formData.name}
           onChange={handleChange}
         ></StyledInput>
       </StyledLabel>
       <StyledLabel htmlFor='title'>
-        <StyledSpan>position title</StyledSpan>
+        <StyledSpan required>position title</StyledSpan>
         <StyledInput
+          required
           id='title'
           value={formData.title}
           onChange={handleChange}
@@ -64,12 +69,12 @@ export default function WExperienceForm({
       </StyledLabel>
       <StyledLabel htmlFor='description'>
         <StyledSpan>description</StyledSpan>
-        <textarea
+        <StyledTextArea
           id='description'
           rows='5'
           value={formData.description}
           onChange={handleChange}
-        ></textarea>
+        ></StyledTextArea>
       </StyledLabel>
       <StyledSubmitPanel>
         {mode == 'create' && (
