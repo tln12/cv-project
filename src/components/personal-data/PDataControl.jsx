@@ -2,15 +2,10 @@ import Collapsible from '../Collapsible';
 import PDataForm from './PDataForm';
 
 export default function PDataControl({ personalData, handleChange }) {
+  const content = (
+    <PDataForm personalData={personalData} handleChange={handleChange} />
+  );
   return (
-    <section className='control-element' id='pd-control'>
-      <Collapsible
-        title='Personal Data'
-        content={
-          <PDataForm personalData={personalData} handleChange={handleChange} />
-        }
-        collapsed={false}
-      />
-    </section>
+    <Collapsible title='Personal Data' content={content} collapsed={false} />
   );
 }

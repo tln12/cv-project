@@ -1,3 +1,13 @@
+* {
+  --padding-lr-control: 20px;
+  --padding-tb-list-control: 5px;
+  --padding-tb-form-control: 15px;
+  /* border all radius */
+  --bar-control: 10px;
+  --side-font-color: rgb(111, 111, 111);
+  --shadow-color: rgb(235, 235, 235);
+  --accent-color: rgb(88, 225, 200);
+}
 body {
   width: 100vw;
   margin: 0;

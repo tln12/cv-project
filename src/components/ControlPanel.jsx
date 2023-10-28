@@ -1,6 +1,14 @@
 import EExperienceControl from './educational-experience/EExperienceControl';
 import WExperienceControl from './work-experience/WExperienceControl';
 import PDataControl from './personal-data/PDataControl';
+import styled from 'styled-components';
+
+const StyledPanel = styled.section`
+  min-width: 40vw;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+`;
 
 export default function ControlPanel({
   personalData,
@@ -18,7 +26,7 @@ export default function ControlPanel({
   handleToggleVisibility,
 }) {
   return (
-    <section id='control-panel'>
+    <StyledPanel>
       {' '}
       <PDataControl
         personalData={personalData}
@@ -54,6 +62,6 @@ export default function ControlPanel({
           handleReturn={(e) => handleReturn(e)}
         />
       )}
-    </section>
+    </StyledPanel>
   );
 }

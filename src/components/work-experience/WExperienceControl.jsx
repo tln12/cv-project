@@ -37,9 +37,5 @@ export default function WExperienceControl({
     );
   }
 
-  return (
-    <section className='control-element' id='we-control' data-type='work'>
-      <Collapsible title='Work Experience' content={content} />
-    </section>
-  );
+  return <Collapsible title='Work Experience' content={content} />;
 }

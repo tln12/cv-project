@@ -3,6 +3,11 @@ import styled from 'styled-components';
 
 /** Collapsible Button */
 
+const StyledCollapsible = styled.div`
+  background-color: white;
+  border-radius: var(--bar-control);
+  border: solid var(--side-font-color);
+`;
 const StyledHeader = styled.h2`
   padding: 15px var(--padding-lr-control);
   display: flex;
@@ -22,7 +27,7 @@ export default function Collapsible({ title, content, collapsed = true }) {
   }
 
   return (
-    <div>
+    <StyledCollapsible>
       <StyledHeader>
         <span>{title}</span>
         <button className='material-symbols-outlined' onClick={handleCollapse}>
@@ -30,6 +35,6 @@ export default function Collapsible({ title, content, collapsed = true }) {
         </button>
       </StyledHeader>
       <StyledContent open={open}>{content}</StyledContent>
-    </div>
+    </StyledCollapsible>
   );
 }
