@@ -8,6 +8,7 @@ import EExperienceControl from './components/educational-experience/EExperienceC
 import EExperienceDisplay from './components/educational-experience/EExperienceDisplay';
 import WExperienceControl from './components/work-experience/WExperienceControl.jsx';
 import WExperienceDisplay from './components/work-experience/WExperienceDisplay';
+import { hyphenToCamelCase } from './helperFunctions';
 
 function App() {
   // data: personal, education and work
@@ -78,15 +79,10 @@ function App() {
    *  PERSONAL DATA
    *************************/
   function handleChange(e) {
-    let property = e.target.id;
-    const regex = /-[a-z]/g;
-    const matches = [...new Set(property.match(regex))];
-    // replace hyphen separated ids with camel case, e.g. first-name-test -> firstNameTest
-    matches.forEach((match) => {
-      property = property.replaceAll(match, match[1].toUpperCase());
+    setPersonalData({
+      ...personalData,
+      [hyphenToCamelCase(e.target.id)]: e.target.value,
     });
-
-    setPersonalData({ ...personalData, [property]: e.target.value });
   }
 
   /**************************
@@ -99,14 +95,10 @@ function App() {
    * @param {*} e
    */
   function handleChangeEducation(e) {
-    let property = e.target.id;
-    const regex = /-[a-z]/g;
-    const matches = [...new Set(property.match(regex))];
-    // replace hyphen separated ids with camel case, e.g. first-name-test -> firstNameTest
-    matches.forEach((match) => {
-      property = property.replaceAll(match, match[1].toUpperCase());
+    setFormData({
+      ...formData,
+      [hyphenToCamelCase(e.target.id)]: e.target.value,
     });
-    setFormData({ ...formData, [property]: e.target.value });
   }
 
   /**
