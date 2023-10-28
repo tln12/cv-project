@@ -6,17 +6,16 @@ export default function EExperienceControl({
   education,
   handleEdit,
   handleCreateEntry,
-  controlStatus,
   handleChange,
   handleReturn,
   handleSubmit,
   handleDeleteEntry,
   handleToggleVisibility,
-  formData,
+  formStatus,
 }) {
   let content;
   // render determines whether Register or Form is rendered
-  if (controlStatus.render == 'list') {
+  if (formStatus.activeContext == null) {
     content = (
       <Register
         data={education}
@@ -26,14 +25,14 @@ export default function EExperienceControl({
         handleToggleVisibility={handleToggleVisibility}
       />
     );
-  } else if (controlStatus.render == 'form') {
+  } else if (formStatus.activeContext == 'education') {
     content = (
       <EExperienceForm
-        formData={formData}
+        formData={formStatus.formData}
         handleChange={handleChange}
         handleReturn={handleReturn}
         handleSubmit={handleSubmit}
-        mode={controlStatus.mode}
+        mode={formStatus.mode}
       />
     );
   }

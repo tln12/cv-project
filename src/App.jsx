@@ -62,18 +62,14 @@ function App() {
       hidden: false,
     },
   ]);
-  // control variables to control render
-  const [educationControlStatus, setEducationControlStatus] = useState({
-    render: 'list',
-    mode: '',
-  });
-  const [workControlStatus, setWorkControlStatus] = useState({
-    render: 'list',
-    mode: '',
+  const [formStatus, setFormStatus] = useState({
+    activeContext: null,
+    mode: null,
+    formData: null,
   });
 
   // helper variable to fill forms with copy of corresponding education entry
-  const [formData, setFormData] = useState('empty');
+  // const [formData, setFormData] = useState('empty');
 
   /**************************
    *  PERSONAL DATA
@@ -90,14 +86,17 @@ function App() {
    *************************/
 
   /**
-   * Handles changes in the input field of the forms. Updates formData.
+   * Handles changes in the input field of the forms. Updates formStatus.formData.
    *
    * @param {*} e
    */
-  function handleChangeEducation(e) {
-    setFormData({
-      ...formData,
-      [hyphenToCamelCase(e.target.id)]: e.target.value,
+  function handleChangeFormInput(e) {
+    setFormStatus({
+      ...formStatus,
+      formData: {
+        ...formStatus.formData,
+        [hyphenToCamelCase(e.target.id)]: e.target.value,
+      },
     });
   }
 
@@ -110,25 +109,43 @@ function App() {
     e.preventDefault();
     let newEducation = '';
     // differentiate between 'create' form data and 'edit' form data
-    if (educationControlStatus.mode == 'edit') {
+    if (formStatus.mode == 'edit') {
       newEducation = education.map((entry) =>
-        entry.id == formData.id ? formData : entry,
+        entry.id == formStatus.formData.id ? formStatus.formData : entry,
       );
-    } else if (educationControlStatus.mode == 'create') {
-      newEducation = [...education, formData];
+    } else if (formStatus.mode == 'create') {
+      newEducation = [...education, formStatus.formData];
     }
     setEducation(newEducation);
-    setFormData('empty');
-    setEducationControlStatus({ render: 'list', mode: '' });
+    setFormStatus({ activeContext: null, mode: null, formData: null });
   }
 
+  /**
+   * Handles click on check icon. Replaces corresponding education entry with values of formData.
+   *
+   * @param {*} e
+   */
+  function handleSubmitWork(e) {
+    e.preventDefault();
+    let newWork = '';
+    // differentiate between 'create' form data and 'edit' form data
+    if (formStatus.mode == 'edit') {
+      newWork = work.map((entry) =>
+        entry.id == formStatus.formData.id ? formStatus.formData : entry,
+      );
+    } else if (formStatus.mode == 'create') {
+      newWork = [...work, formStatus.formData];
+    }
+    setWork(newWork);
+    setFormStatus({ activeContext: null, mode: null, formData: null });
+  }
   /**
    * Handles click on create entry icon. Renders view for 'create'-form and fills with formData.
    */
   function handleCreateEntry(e) {
-    const type = e.target.closest('section').attributes['data-type'].value;
+    const context = e.target.closest('section').attributes['data-type'].value;
     let newEntry;
-    if (type == 'education') {
+    if (context == 'education') {
       newEntry = {
         startingDate: '',
         endDate: '',
@@ -137,8 +154,7 @@ function App() {
         id: uuidv4(),
         hidden: false,
       };
-      setEducationControlStatus({ render: 'form', mode: 'create' });
-    } else if (type == 'work') {
+    } else if (context == 'work') {
       newEntry = {
         startingDate: '',
         endDate: '',
@@ -148,9 +164,12 @@ function App() {
         id: uuidv4(),
         hidden: false,
       };
-      setWorkControlStatus({ render: 'form', mode: 'create' });
     }
-    setFormData(newEntry);
+    setFormStatus({
+      activeContext: context,
+      mode: 'create',
+      formData: newEntry,
+    });
   }
 
   /**
@@ -160,16 +179,14 @@ function App() {
    */
   function handleDeleteEntry(e) {
     const targetId = e.target.closest('li').attributes['data-id'].value;
-    const type = e.target.closest('section').attributes['data-type'].value;
+    const context = e.target.closest('section').attributes['data-type'].value;
     let newArray;
-    if (type == 'education') {
+    if (context == 'education') {
       newArray = education.filter((entry) => entry.id != targetId);
       setEducation(newArray);
-      setEducationControlStatus({ render: 'list', mode: '' });
-    } else if (type == 'work') {
+    } else if (context == 'work') {
       newArray = work.filter((entry) => entry.id != targetId);
       setWork(newArray);
-      setWorkControlStatus({ render: 'list', mode: '' });
     }
   }
 
@@ -177,22 +194,24 @@ function App() {
    * Handles a click on the edit icon. Opens the 'edit'-form and fills input with formData.
    */
   function handleEditEducation(e) {
-    const type = e.target.closest('section').attributes['data-type'].value;
+    const context = e.target.closest('section').attributes['data-type'].value;
     let targetObject;
-    if (type == 'education') {
+    if (context == 'education') {
       targetObject = education.find(
         (entry) =>
           entry.id == e.target.closest('li').attributes['data-id'].value,
       );
-      setEducationControlStatus({ render: 'form', mode: 'edit' });
-    } else if (type == 'work') {
+    } else if (context == 'work') {
       targetObject = work.find(
         (entry) =>
           entry.id == e.target.closest('li').attributes['data-id'].value,
       );
-      setWorkControlStatus({ render: 'form', mode: 'edit' });
     }
-    setFormData(targetObject);
+    setFormStatus({
+      activeContext: context,
+      mode: 'edit',
+      formData: targetObject,
+    });
   }
 
   /**
@@ -202,9 +221,9 @@ function App() {
    */
   function handleToggleVisibility(e) {
     const targetId = e.target.closest('li').attributes['data-id'].value;
-    const type = e.target.closest('section').attributes['data-type'].value;
+    const context = e.target.closest('section').attributes['data-type'].value;
     let newData;
-    if (type == 'education') {
+    if (context == 'education') {
       newData = education.map((entry) => {
         if (entry.id == targetId) {
           entry.hidden = !entry.hidden;
@@ -212,7 +231,7 @@ function App() {
         return entry;
       });
       setEducation(newData);
-    } else if (type == 'work') {
+    } else if (context == 'work') {
       newData = work.map((entry) => {
         if (entry.id == targetId) {
           entry.hidden = !entry.hidden;
@@ -228,47 +247,24 @@ function App() {
    * When changes were made, user has option to discard them and return, or not discard them and stay in form view.
    */
   function handleReturn(e) {
-    const type = e.target.closest('section').attributes['data-type'].value;
-    if (type == 'education') {
-      if (education.includes(formData)) {
-        setEducationControlStatus({ render: 'list', mode: '' });
+    const context = e.target.closest('section').attributes['data-type'].value;
+    if (context == 'education') {
+      if (education.includes(formStatus.formData)) {
+        setFormStatus({ activeContext: null, mode: null, formData: null });
       } else {
         if (confirm('Discard changes?')) {
-          setEducationControlStatus({ render: 'list', mode: '' });
-          setFormData('empty');
+          setFormStatus({ activeContext: null, mode: null, formData: null });
         }
       }
-    } else if (type == 'work') {
-      if (work.includes(formData)) {
-        setWorkControlStatus({ render: 'list', mode: '' });
+    } else if (context == 'work') {
+      if (work.includes(formStatus.formData)) {
+        setFormStatus({ activeContext: null, mode: null, formData: null });
       } else {
         if (confirm('Discard changes?')) {
-          setWorkControlStatus({ render: 'list', mode: '' });
-          setFormData('empty');
+          setFormStatus({ activeContext: null, mode: null, formData: null });
         }
       }
     }
-  }
-
-  /**
-   * Handles click on check icon. Replaces corresponding education entry with values of formData.
-   *
-   * @param {*} e
-   */
-  function handleSubmitWork(e) {
-    e.preventDefault();
-    let newWork = '';
-    // differentiate between 'create' form data and 'edit' form data
-    if (workControlStatus.mode == 'edit') {
-      newWork = work.map((entry) =>
-        entry.id == formData.id ? formData : entry,
-      );
-    } else if (workControlStatus.mode == 'create') {
-      newWork = [...work, formData];
-    }
-    setWork(newWork);
-    setFormData('empty');
-    setWorkControlStatus({ render: 'list', mode: '' });
   }
 
   return (
@@ -283,32 +279,32 @@ function App() {
             handleChange={(e) => handleChange(e)}
           />
           {/* since there are ids shared between education and work forms, only open one */}
-          {workControlStatus.render != 'form' && (
+          {(formStatus.activeContext == 'education' ||
+            formStatus.activeContext == null) && (
             <EExperienceControl
               education={education}
-              formData={formData}
-              handleChange={handleChangeEducation}
+              formStatus={formStatus}
+              handleChange={handleChangeFormInput}
               handleCreateEntry={(e) => handleCreateEntry(e)}
               handleSubmit={(e) => handleSubmitEducation(e)}
               handleEdit={(e) => handleEditEducation(e)}
               handleDeleteEntry={(e) => handleDeleteEntry(e)}
               handleToggleVisibility={(e) => handleToggleVisibility(e)}
-              controlStatus={educationControlStatus}
               handleReturn={(e) => handleReturn(e)}
             />
           )}
           {/* since there are ids shared between education and work forms, only open one */}
-          {educationControlStatus.render != 'form' && (
+          {(formStatus.activeContext == 'work' ||
+            formStatus.activeContext == null) && (
             <WExperienceControl
               work={work}
-              formData={formData}
-              handleChange={handleChangeEducation}
+              formStatus={formStatus}
+              handleChange={handleChangeFormInput}
               handleCreateEntry={(e) => handleCreateEntry(e)}
               handleSubmit={(e) => handleSubmitWork(e)}
               handleEdit={(e) => handleEditEducation(e)}
               handleDeleteEntry={(e) => handleDeleteEntry(e)}
               handleToggleVisibility={(e) => handleToggleVisibility(e)}
-              controlStatus={workControlStatus}
               handleReturn={(e) => handleReturn(e)}
             />
           )}
