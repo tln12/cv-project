@@ -22,7 +22,7 @@ const education = [
   },
   {
     startingDate: '2023-10-01',
-    endDate: '2026-04-01',
+    endDate: new Date().toISOString().slice(0, 10),
     name: 'HTW Berlin',
     title: 'Graphic Design',
     description: '',

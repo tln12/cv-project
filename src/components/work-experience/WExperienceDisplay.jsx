@@ -4,7 +4,15 @@ export default function WExperienceDisplay({ work }) {
       return (
         <li key={entry.id}>
           <span>
-            {entry.startingDate}-{entry.endDate}
+            {entry.startingDate.slice(2, 4) +
+              '/' +
+              entry.startingDate.slice(0, 4)}
+          </span>
+          &ndash;
+          <span>
+            {entry.endDate == new Date().toISOString().slice(0, 10)
+              ? 'present'
+              : entry.endDate.slice(2, 4) + '/' + entry.endDate.slice(0, 4)}
           </span>
           <div>
             <h4>{entry.name}</h4>

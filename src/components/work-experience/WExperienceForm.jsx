@@ -31,7 +31,7 @@ export default function WExperienceForm({
           <StyledSpan>starting date</StyledSpan>
           <StyledInput
             type='date'
-            id='starting date'
+            id='starting-date'
             value={formData.startingDate}
             onChange={handleChange}
           ></StyledInput>
