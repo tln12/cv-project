@@ -2,12 +2,8 @@ import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import './App.css';
 import './styles/style.css';
-import PDataControl from './components/personal-data/PDataControl';
-import PDataDisplay from './components/personal-data/PDataDisplay';
-import EExperienceControl from './components/educational-experience/EExperienceControl';
-import EExperienceDisplay from './components/educational-experience/EExperienceDisplay';
-import WExperienceControl from './components/work-experience/WExperienceControl.jsx';
-import WExperienceDisplay from './components/work-experience/WExperienceDisplay';
+import ControlPanel from './components/ControlPanel';
+import CV from './components/CV';
 import { hyphenToCamelCase } from './helperFunctions';
 import * as exampleData from './exampleData.js';
 
@@ -223,50 +219,22 @@ function App() {
         <h1>CV Creator</h1>
       </header>
       <main>
-        <section id='control-panel'>
-          <PDataControl
-            personalData={personalData}
-            handleChange={(e) => handleChange(e)}
-          />
-          {/* since there are ids shared between education and work forms, only open one */}
-          {(formStatus.activeContext == 'education' ||
-            formStatus.activeContext == null) && (
-            <EExperienceControl
-              education={education}
-              formStatus={formStatus}
-              handleChange={handleChangeFormInput}
-              handleCreateEntry={(e) => handleCreateEntry(e)}
-              handleSubmit={(e) => handleSubmitEducation(e)}
-              handleEdit={(e) => handleEdit(e)}
-              handleDeleteEntry={(e) => handleDeleteEntry(e)}
-              handleToggleVisibility={(e) => handleToggleVisibility(e)}
-              handleReturn={(e) => handleReturn(e)}
-            />
-          )}
-          {/* since there are ids shared between education and work forms, only open one */}
-          {(formStatus.activeContext == 'work' ||
-            formStatus.activeContext == null) && (
-            <WExperienceControl
-              work={work}
-              formStatus={formStatus}
-              handleChange={handleChangeFormInput}
-              handleCreateEntry={(e) => handleCreateEntry(e)}
-              handleSubmit={(e) => handleSubmitWork(e)}
-              handleEdit={(e) => handleEdit(e)}
-              handleDeleteEntry={(e) => handleDeleteEntry(e)}
-              handleToggleVisibility={(e) => handleToggleVisibility(e)}
-              handleReturn={(e) => handleReturn(e)}
-            />
-          )}
-        </section>
-        <section className='display'>
-          <aside></aside>
-          <div className='content'>
-            <PDataDisplay personalData={personalData} />
-            <EExperienceDisplay education={education} />
-            <WExperienceDisplay work={work} />
-          </div>
-        </section>
+        <ControlPanel
+          personalData={personalData}
+          education={education}
+          work={work}
+          formStatus={formStatus}
+          handleChange={handleChange}
+          handleChangeFormInput={handleChangeFormInput}
+          handleCreateEntry={handleCreateEntry}
+          handleSubmitEducation={handleSubmitEducation}
+          handleSubmitWork={handleSubmitWork}
+          handleEdit={handleEdit}
+          handleDeleteEntry={handleDeleteEntry}
+          handleReturn={handleReturn}
+          handleToggleVisibility={handleToggleVisibility}
+        />
+        <CV personalData={personalData} education={education} work={work} />
       </main>
       <footer>Copyright &#169; Thanh Le Nguyen</footer>
     </>
