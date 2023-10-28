@@ -31,16 +31,18 @@ export default function PDataForm({ personalData, handleChange }) {
       </StyledInputGroup>
       <StyledInputGroup>
         <StyledLabel htmlFor='street'>
-          <StyledSpan>street</StyledSpan>
+          <StyledSpan required>street</StyledSpan>
           <StyledInput
+            required
             id='street'
             onChange={handleChange}
             value={personalData.street}
           ></StyledInput>
         </StyledLabel>
         <StyledLabel htmlFor='house-nr'>
-          <StyledSpan>house no.</StyledSpan>
+          <StyledSpan required>house no.</StyledSpan>
           <StyledInput
+            required
             id='house-nr'
             onChange={handleChange}
             value={personalData.houseNr}
@@ -49,16 +51,18 @@ export default function PDataForm({ personalData, handleChange }) {
       </StyledInputGroup>
       <StyledInputGroup>
         <StyledLabel htmlFor='postcode'>
-          <StyledSpan>postcode</StyledSpan>
+          <StyledSpan required>postcode</StyledSpan>
           <StyledInput
+            required
             id='postcode'
             onChange={handleChange}
             value={personalData.postcode}
           ></StyledInput>
         </StyledLabel>
         <StyledLabel htmlFor='city'>
-          <StyledSpan>city</StyledSpan>
+          <StyledSpan required>city</StyledSpan>
           <StyledInput
+            required
             id='city'
             onChange={handleChange}
             value={personalData.city}
