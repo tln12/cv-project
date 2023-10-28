@@ -25,10 +25,6 @@ body {
 }
 
 /* -------------------*/
-/*      HEADER        */
-/* ------------------ */
-
-/* -------------------*/
 /*      MAIN          */
 /* ------------------ */
 main {
@@ -37,42 +33,6 @@ main {
   gap: 50px;
 }
 
-/*  -- SECTION: DISPLAY --  */
-section.display {
-  width: 60%;
-  height: 60vw;
-  display: flex;
-  box-shadow: 5px 5px 5px var(--shadow-color);
-}
-section.display aside {
-  width: 33%;
-  background-color: #f5f3ee;
-}
-section.display .content {
-  display: flex;
-  flex-direction: column;
-  padding: 30px;
-  gap: 30px;
-  width: 70%;
-}
-/*  -- SECTION: DISPLAY PERSONAL DATA --  */
-section.display #pd-d-header h2 {
-  letter-spacing: 1px;
-}
-section.display #pd-d-header h2 span:first-of-type {
-  font-weight: bold;
-}
-section.display #pd-d-info ul li,
-section.display #ee-d-info ul li {
-  display: flex;
-}
-section.display #pd-d-info ul li span,
-section.display #pd-d-info ul li span {
-  flex: 1;
-}
-/* -------------------*/
-/*      FOOTER        */
-/* ------------------ */
 /* -------------------*/
 /*      GENERAL        */
 /* ------------------ */

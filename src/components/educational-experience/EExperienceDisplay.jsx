@@ -1,31 +1,37 @@
-export default function EExperienceDisplay({ education }) {
-  const edcuationEntries = education.map((element) => {
-    if (!element.hidden) {
+export default function EExperienceDisplay({
+  education,
+  StyledEntry,
+  StyledTitle,
+  StyledLine,
+}) {
+  const edcuationEntries = education.map((entry) => {
+    if (!entry.hidden) {
       return (
-        <li key={element.id}>
-          <span>
-            {element.startingDate.slice(2, 4) +
-              '/' +
-              element.startingDate.slice(0, 4)}
-          </span>
-          &ndash;
-          <span>
-            {element.endDate == new Date().toISOString().slice(0, 10)
-              ? 'present'
-              : element.endDate.slice(2, 4) + '/' + element.endDate.slice(0, 4)}
-          </span>
+        <StyledEntry key={entry.id}>
+          <StyledTitle>{entry.title}</StyledTitle>
           <div>
-            <h4>{element.name}</h4>
-            <span>{element.title}</span>
+            <span>{entry.name + ' | '}</span>
+            <span>
+              {entry.startingDate.slice(2, 4) +
+                '/' +
+                entry.startingDate.slice(0, 4)}
+            </span>
+            &ndash;
+            <span>
+              {entry.endDate == new Date().toISOString().slice(0, 10)
+                ? 'present'
+                : entry.endDate.slice(2, 4) + '/' + entry.endDate.slice(0, 4)}
+            </span>
           </div>
-        </li>
+        </StyledEntry>
       );
     }
   });
   return (
     <>
-      <section id='ee-d-info'>
-        <h3>Educational Experience</h3>
+      <section>
+        <h3>EDUCATIONAL EXPERIENCE</h3>
+        <StyledLine />
         <ul>{edcuationEntries}</ul>
       </section>
     </>

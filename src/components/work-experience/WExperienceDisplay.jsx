@@ -1,32 +1,38 @@
-export default function WExperienceDisplay({ work }) {
+export default function WExperienceDisplay({
+  work,
+  StyledEntry,
+  StyledTitle,
+  StyledLine,
+}) {
   const workEntries = work.map((entry) => {
     if (!entry.hidden) {
       return (
-        <li key={entry.id}>
-          <span>
-            {entry.startingDate.slice(2, 4) +
-              '/' +
-              entry.startingDate.slice(0, 4)}
-          </span>
-          &ndash;
-          <span>
-            {entry.endDate == new Date().toISOString().slice(0, 10)
-              ? 'present'
-              : entry.endDate.slice(2, 4) + '/' + entry.endDate.slice(0, 4)}
-          </span>
+        <StyledEntry key={entry.id}>
+          <StyledTitle>{entry.title}</StyledTitle>
           <div>
-            <h4>{entry.name}</h4>
-            <span>{entry.title}</span>
+            <span>{entry.name + ' | '}</span>
+            <span>
+              {entry.startingDate.slice(2, 4) +
+                '/' +
+                entry.startingDate.slice(0, 4)}
+            </span>
+            &ndash;
+            <span>
+              {entry.endDate == new Date().toISOString().slice(0, 10)
+                ? 'present'
+                : entry.endDate.slice(2, 4) + '/' + entry.endDate.slice(0, 4)}
+            </span>
           </div>
           <div>{entry.description}</div>
-        </li>
+        </StyledEntry>
       );
     }
   });
   return (
     <>
-      <section id='ee-d-info'>
-        <h3>Work Experience</h3>
+      <section>
+        <h3>WORK EXPERIENCE</h3>
+        <StyledLine />
         <ul>{workEntries}</ul>
       </section>
     </>
