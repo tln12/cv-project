@@ -9,70 +9,20 @@ import EExperienceDisplay from './components/educational-experience/EExperienceD
 import WExperienceControl from './components/work-experience/WExperienceControl.jsx';
 import WExperienceDisplay from './components/work-experience/WExperienceDisplay';
 import { hyphenToCamelCase } from './helperFunctions';
+import * as exampleData from './exampleData.js';
 
 function App() {
-  // data: personal, education and work
-  const [personalData, setPersonalData] = useState({
-    firstName: 'Max',
-    lastName: 'Mustermann',
-    street: 'Musterstr.',
-    houseNr: '1',
-    postcode: '12345',
-    city: 'Leipzig',
-    phone: '0123456789',
-    email: 'email@example.com',
-  });
-  const [education, setEducation] = useState([
-    {
-      startingDate: '10/2010',
-      endDate: '04/2015',
-      name: 'RWTH Aachen University',
-      title: 'Mechanical Engineering',
-      description: '',
-      id: uuidv4(),
-      hidden: false,
-    },
-    {
-      startingDate: '10/2023',
-      endDate: '04/2026',
-      name: 'HTW Berlin',
-      title: 'Graphic Design',
-      description: '',
-      id: uuidv4(),
-      hidden: false,
-    },
-  ]);
-  const [work, setWork] = useState([
-    {
-      startingDate: '10/2010',
-      endDate: '04/2015',
-      name: 'Panda Delivery',
-      title: 'Warehouse Support',
-      description: 'blablibl and I did this to blasd so thats work yay',
-      id: uuidv4(),
-      hidden: false,
-    },
-    {
-      startingDate: '10/2010',
-      endDate: '04/2015',
-      name: 'Flaschenpost',
-      title: 'Driver',
-      description: 'Driving through the city',
-      id: uuidv4(),
-      hidden: false,
-    },
-  ]);
+  const [personalData, setPersonalData] = useState(exampleData.personal);
+  const [education, setEducation] = useState(exampleData.education);
+  const [work, setWork] = useState(exampleData.work);
   const [formStatus, setFormStatus] = useState({
     activeContext: null,
     mode: null,
     formData: null,
   });
 
-  // helper variable to fill forms with copy of corresponding education entry
-  // const [formData, setFormData] = useState('empty');
-
   /**************************
-   *  PERSONAL DATA
+   *  Personal Data
    *************************/
   function handleChange(e) {
     setPersonalData({
@@ -81,9 +31,9 @@ function App() {
     });
   }
 
-  /**************************
-   *  EDUCATIONAL EXPERIENCE
-   *************************/
+  /************************************
+   *  Educational and work experience
+   ***********************************/
 
   /**
    * Handles changes in the input field of the forms. Updates formStatus.formData.
@@ -193,7 +143,7 @@ function App() {
   /**
    * Handles a click on the edit icon. Opens the 'edit'-form and fills input with formData.
    */
-  function handleEditEducation(e) {
+  function handleEdit(e) {
     const context = e.target.closest('section').attributes['data-type'].value;
     let targetObject;
     if (context == 'education') {
@@ -287,7 +237,7 @@ function App() {
               handleChange={handleChangeFormInput}
               handleCreateEntry={(e) => handleCreateEntry(e)}
               handleSubmit={(e) => handleSubmitEducation(e)}
-              handleEdit={(e) => handleEditEducation(e)}
+              handleEdit={(e) => handleEdit(e)}
               handleDeleteEntry={(e) => handleDeleteEntry(e)}
               handleToggleVisibility={(e) => handleToggleVisibility(e)}
               handleReturn={(e) => handleReturn(e)}
@@ -302,7 +252,7 @@ function App() {
               handleChange={handleChangeFormInput}
               handleCreateEntry={(e) => handleCreateEntry(e)}
               handleSubmit={(e) => handleSubmitWork(e)}
-              handleEdit={(e) => handleEditEducation(e)}
+              handleEdit={(e) => handleEdit(e)}
               handleDeleteEntry={(e) => handleDeleteEntry(e)}
               handleToggleVisibility={(e) => handleToggleVisibility(e)}
               handleReturn={(e) => handleReturn(e)}
