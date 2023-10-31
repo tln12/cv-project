@@ -34,9 +34,17 @@ export default function SideNavigation({ handleNavigation }) {
     <StyledSideNav>
       <StyledList>
         <li>
+          <StyledButton className='material-symbols-outlined'>
+            keyboard_double_arrow_left
+          </StyledButton>
+        </li>
+        <li>
+          <hr />
+        </li>
+        <li>
           <StyledButton
             className='material-symbols-outlined'
-            data-nav='control-panel'
+            data-nav='data-manager'
             onClick={handleNavigation}
           >
             description

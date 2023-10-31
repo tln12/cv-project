@@ -2,20 +2,17 @@ import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import './styles/style.css';
 import ControlPanel from './components/ControlPanel';
-import SideNavigation from './components/SideNavigation';
 import CV from './components/CV';
-import Customizer from './components/Customizer';
 import { hyphenToCamelCase } from './helperFunctions';
 import * as exampleData from './exampleData.js';
 import styled from 'styled-components';
 
 const StyledApp = styled.div`
   display: flex;
+  justify-content: space-between;
+  gap: 20px;
   width: 100vw;
   heigth: 100vh;
-`;
-const StyledMain = styled.main`
-  padding: 50px;
 `;
 
 function App() {
@@ -28,7 +25,6 @@ function App() {
     formData: null,
   });
   const [cvColor, setCVColor] = useState('#FFB900');
-  const [navTab, setNavTab] = useState('control-panel');
 
   /**************************
    *  Personal Data
@@ -226,41 +222,31 @@ function App() {
     }
   }
 
-  function handleNavigation(e) {
-    setNavTab(e.target.attributes['data-nav'].value);
-  }
-
   return (
     <StyledApp>
-      <SideNavigation handleNavigation={(e) => handleNavigation(e)} />
-      <StyledMain>
-        {navTab === 'control-panel' && (
-          <ControlPanel
-            personalData={personalData}
-            education={education}
-            work={work}
-            formStatus={formStatus}
-            handleChange={handleChange}
-            handleChangeFormInput={handleChangeFormInput}
-            handleCreateEntry={handleCreateEntry}
-            handleSubmitEducation={handleSubmitEducation}
-            handleSubmitWork={handleSubmitWork}
-            handleEdit={handleEdit}
-            handleDeleteEntry={handleDeleteEntry}
-            handleReturn={handleReturn}
-            handleToggleVisibility={handleToggleVisibility}
-          />
-        )}
-        {navTab === 'customize' && (
-          <Customizer color={cvColor} setColor={setCVColor} />
-        )}
-        <CV
-          color={cvColor}
-          personalData={personalData}
-          education={education}
-          work={work}
-        />
-      </StyledMain>
+      <ControlPanel
+        personalData={personalData}
+        education={education}
+        work={work}
+        formStatus={formStatus}
+        handleChange={handleChange}
+        handleChangeFormInput={handleChangeFormInput}
+        handleCreateEntry={handleCreateEntry}
+        handleSubmitEducation={handleSubmitEducation}
+        handleSubmitWork={handleSubmitWork}
+        handleEdit={handleEdit}
+        handleDeleteEntry={handleDeleteEntry}
+        handleReturn={handleReturn}
+        handleToggleVisibility={handleToggleVisibility}
+        setCVColor={setCVColor}
+        cvColor={cvColor}
+      />
+      <CV
+        color={cvColor}
+        personalData={personalData}
+        education={education}
+        work={work}
+      />
     </StyledApp>
   );
 }

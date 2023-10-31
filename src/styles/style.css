@@ -8,6 +8,7 @@
   --shadow-color: rgb(235, 235, 235);
   --accent-color: rgb(88, 225, 200);
   --required-color: rgb(223, 40, 40);
+  --section-padding: 50px;
 }
 body {
   width: 100vw;

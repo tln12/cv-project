@@ -8,6 +8,7 @@ const StyledCV = styled.section`
   height: 60vw;
   display: flex;
   box-shadow: 5px 5px 5px var(--shadow-color);
+  margin: var(--section-padding);
 `;
 const StyledEntry = styled.li`
   display: flex;
