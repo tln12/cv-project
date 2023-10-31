@@ -2,9 +2,20 @@ import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import './styles/style.css';
 import ControlPanel from './components/ControlPanel';
+import SideNavigation from './components/SideNavigation';
 import CV from './components/CV';
 import { hyphenToCamelCase } from './helperFunctions';
 import * as exampleData from './exampleData.js';
+import styled from 'styled-components';
+
+const StyledApp = styled.div`
+  display: flex;
+  width: 100vw;
+  heigth: 100vh;
+`;
+const StyledMain = styled.main`
+  padding: 50px;
+`;
 
 function App() {
   const [personalData, setPersonalData] = useState(exampleData.personal);
@@ -213,11 +224,9 @@ function App() {
   }
 
   return (
-    <>
-      <header>
-        <h1>CV Creator</h1>
-      </header>
-      <main>
+    <StyledApp>
+      <SideNavigation />
+      <StyledMain>
         <ControlPanel
           personalData={personalData}
           education={education}
@@ -234,9 +243,8 @@ function App() {
           handleToggleVisibility={handleToggleVisibility}
         />
         <CV personalData={personalData} education={education} work={work} />
-      </main>
-      <footer>Copyright &#169; Thanh Le Nguyen</footer>
-    </>
+      </StyledMain>
+    </StyledApp>
   );
 }
 
