@@ -4,6 +4,7 @@ import './styles/style.css';
 import ControlPanel from './components/ControlPanel';
 import SideNavigation from './components/SideNavigation';
 import CV from './components/CV';
+import Customizer from './components/Customizer';
 import { hyphenToCamelCase } from './helperFunctions';
 import * as exampleData from './exampleData.js';
 import styled from 'styled-components';
@@ -26,6 +27,8 @@ function App() {
     mode: null,
     formData: null,
   });
+  const [cvColor, setCVColor] = useState('#FFB900');
+  const [navTab, setNavTab] = useState('control-panel');
 
   /**************************
    *  Personal Data
@@ -223,26 +226,40 @@ function App() {
     }
   }
 
+  function handleNavigation(e) {
+    setNavTab(e.target.attributes['data-nav'].value);
+  }
+
   return (
     <StyledApp>
-      <SideNavigation />
+      <SideNavigation handleNavigation={(e) => handleNavigation(e)} />
       <StyledMain>
-        <ControlPanel
+        {navTab === 'control-panel' && (
+          <ControlPanel
+            personalData={personalData}
+            education={education}
+            work={work}
+            formStatus={formStatus}
+            handleChange={handleChange}
+            handleChangeFormInput={handleChangeFormInput}
+            handleCreateEntry={handleCreateEntry}
+            handleSubmitEducation={handleSubmitEducation}
+            handleSubmitWork={handleSubmitWork}
+            handleEdit={handleEdit}
+            handleDeleteEntry={handleDeleteEntry}
+            handleReturn={handleReturn}
+            handleToggleVisibility={handleToggleVisibility}
+          />
+        )}
+        {navTab === 'customize' && (
+          <Customizer color={cvColor} setColor={setCVColor} />
+        )}
+        <CV
+          color={cvColor}
           personalData={personalData}
           education={education}
           work={work}
-          formStatus={formStatus}
-          handleChange={handleChange}
-          handleChangeFormInput={handleChangeFormInput}
-          handleCreateEntry={handleCreateEntry}
-          handleSubmitEducation={handleSubmitEducation}
-          handleSubmitWork={handleSubmitWork}
-          handleEdit={handleEdit}
-          handleDeleteEntry={handleDeleteEntry}
-          handleReturn={handleReturn}
-          handleToggleVisibility={handleToggleVisibility}
         />
-        <CV personalData={personalData} education={education} work={work} />
       </StyledMain>
     </StyledApp>
   );

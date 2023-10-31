@@ -23,7 +23,7 @@ const StyledLine = styled.hr`
 `;
 const StyledAside = styled.aside`
   width: 33%;
-  background-color: #f5f3ee;
+  background-color: ${(props) => props.color};
 `;
 const StyledContent = styled.div`
   display: flex;
@@ -33,10 +33,10 @@ const StyledContent = styled.div`
   width: 70%;
 `;
 
-export default function CV({ personalData, education, work }) {
+export default function CV({ color, personalData, education, work }) {
   return (
     <StyledCV>
-      <StyledAside></StyledAside>
+      <StyledAside color={color}></StyledAside>
       <StyledContent>
         <PDataDisplay personalData={personalData} StyledLine={StyledLine} />
         <EExperienceDisplay

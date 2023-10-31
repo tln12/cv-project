@@ -29,17 +29,25 @@ const StyledList = styled.ul`
   gap: 10px;
 `;
 
-export default function SideNavigation() {
+export default function SideNavigation({ handleNavigation }) {
   return (
     <StyledSideNav>
       <StyledList>
         <li>
-          <StyledButton className='material-symbols-outlined'>
+          <StyledButton
+            className='material-symbols-outlined'
+            data-nav='control-panel'
+            onClick={handleNavigation}
+          >
             description
           </StyledButton>
         </li>
         <li>
-          <StyledButton className='material-symbols-outlined'>
+          <StyledButton
+            className='material-symbols-outlined'
+            data-nav='customize'
+            onClick={handleNavigation}
+          >
             palette
           </StyledButton>
         </li>
