@@ -3,11 +3,13 @@ import EExperienceDisplay from './educational-experience/EExperienceDisplay';
 import PDataDisplay from './personal-data/PDataDisplay';
 import styled from 'styled-components';
 
+const StyledPanel = styled.div`
+  margin: var(--section-padding);
+`;
 const StyledCV = styled.div`
   aspect-ratio: 1/1.4142135623730950488016887242097; // DIN A4
   display: flex;
   box-shadow: 5px 5px 5px var(--shadow-color);
-  margin: var(--section-padding);
 `;
 const StyledEntry = styled.li`
   display: flex;
@@ -34,23 +36,25 @@ const StyledContent = styled.div`
 
 export default function CV({ color, personalData, education, work }) {
   return (
-    <StyledCV>
-      <StyledAside color={color}></StyledAside>
-      <StyledContent>
-        <PDataDisplay personalData={personalData} StyledLine={StyledLine} />
-        <EExperienceDisplay
-          education={education}
-          StyledEntry={StyledEntry}
-          StyledTitle={StyledTitle}
-          StyledLine={StyledLine}
-        />
-        <WExperienceDisplay
-          work={work}
-          StyledEntry={StyledEntry}
-          StyledTitle={StyledTitle}
-          StyledLine={StyledLine}
-        />
-      </StyledContent>
-    </StyledCV>
+    <StyledPanel>
+      <StyledCV id='cv'>
+        <StyledAside color={color}></StyledAside>
+        <StyledContent>
+          <PDataDisplay personalData={personalData} StyledLine={StyledLine} />
+          <EExperienceDisplay
+            education={education}
+            StyledEntry={StyledEntry}
+            StyledTitle={StyledTitle}
+            StyledLine={StyledLine}
+          />
+          <WExperienceDisplay
+            work={work}
+            StyledEntry={StyledEntry}
+            StyledTitle={StyledTitle}
+            StyledLine={StyledLine}
+          />
+        </StyledContent>
+      </StyledCV>
+    </StyledPanel>
   );
 }

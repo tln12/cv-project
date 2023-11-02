@@ -1,5 +1,6 @@
 import DataManager from './DataManager';
 import Customizer from './Customizer';
+import DownloadPanel from './DownloadPanel';
 import CollapsibleSideNavigation from './CollapsibleSideNavigation';
 import styled from 'styled-components';
 import { useState } from 'react';
@@ -59,8 +60,10 @@ export default function ControlPanel({
               handleReturn={handleReturn}
               handleToggleVisibility={handleToggleVisibility}
             />
-          ) : (
+          ) : navTab === 'customize' ? (
             <Customizer color={cvColor} setCVColor={setCVColor} />
+          ) : (
+            <DownloadPanel />
           )}
         </StyledMain>
       </CollapsibleSideNavigation>

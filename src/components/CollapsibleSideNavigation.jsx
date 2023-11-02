@@ -75,6 +75,16 @@ export default function CollapsibleSideNavigation({
               palette
             </StyledButton>
           </li>
+          <li>
+            {' '}
+            <StyledButton
+              className='material-symbols-outlined'
+              data-nav='download'
+              onClick={handleNavigation}
+            >
+              download
+            </StyledButton>
+          </li>
         </StyledList>
         <a
           href='https://github.com/tln12/cv-project'
