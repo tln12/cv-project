@@ -81,7 +81,7 @@ export default function CollapsibleSideNavigation({
           target='_blank'
           rel='noreferrer'
         >
-          <StyledGithubImg src='/public/github.svg'></StyledGithubImg>
+          <StyledGithubImg src='/github.svg'></StyledGithubImg>
         </a>
       </StyledSideNav>
       {open && children}
