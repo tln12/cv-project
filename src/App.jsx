@@ -9,8 +9,6 @@ import styled from 'styled-components';
 
 const StyledApp = styled.div`
   display: flex;
-  justify-content: space-between;
-  gap: 20px;
   width: 100vw;
   heigth: 100vh;
 `;

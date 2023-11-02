@@ -1,6 +1,6 @@
 import DataManager from './DataManager';
 import Customizer from './Customizer';
-import SideNavigation from './SideNavigation';
+import CollapsibleSideNavigation from './CollapsibleSideNavigation';
 import styled from 'styled-components';
 import { useState } from 'react';
 
@@ -41,28 +41,29 @@ export default function ControlPanel({
 
   return (
     <StyledPanel>
-      <SideNavigation handleNavigation={(e) => handleNavigation(e)} />
-      <StyledMain>
-        {navTab === 'data-manager' ? (
-          <DataManager
-            personalData={personalData}
-            education={education}
-            work={work}
-            formStatus={formStatus}
-            handleChange={handleChange}
-            handleChangeFormInput={handleChangeFormInput}
-            handleCreateEntry={handleCreateEntry}
-            handleSubmitEducation={handleSubmitEducation}
-            handleSubmitWork={handleSubmitWork}
-            handleEdit={handleEdit}
-            handleDeleteEntry={handleDeleteEntry}
-            handleReturn={handleReturn}
-            handleToggleVisibility={handleToggleVisibility}
-          />
-        ) : (
-          <Customizer color={cvColor} setCVColor={setCVColor} />
-        )}
-      </StyledMain>
+      <CollapsibleSideNavigation handleNavigation={(e) => handleNavigation(e)}>
+        <StyledMain>
+          {navTab === 'data-manager' ? (
+            <DataManager
+              personalData={personalData}
+              education={education}
+              work={work}
+              formStatus={formStatus}
+              handleChange={handleChange}
+              handleChangeFormInput={handleChangeFormInput}
+              handleCreateEntry={handleCreateEntry}
+              handleSubmitEducation={handleSubmitEducation}
+              handleSubmitWork={handleSubmitWork}
+              handleEdit={handleEdit}
+              handleDeleteEntry={handleDeleteEntry}
+              handleReturn={handleReturn}
+              handleToggleVisibility={handleToggleVisibility}
+            />
+          ) : (
+            <Customizer color={cvColor} setCVColor={setCVColor} />
+          )}
+        </StyledMain>
+      </CollapsibleSideNavigation>
     </StyledPanel>
   );
 }
