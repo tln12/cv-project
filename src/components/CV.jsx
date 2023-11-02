@@ -37,7 +37,7 @@ const StyledContent = styled.div`
 export default function CV({ color, personalData, education, work }) {
   return (
     <StyledPanel>
-      <StyledCV id='cv'>
+      <StyledCV id='cv' style={{ fontFamily: 'helvetica' }}>
         <StyledAside color={color}></StyledAside>
         <StyledContent>
           <PDataDisplay personalData={personalData} StyledLine={StyledLine} />
