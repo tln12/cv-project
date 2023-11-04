@@ -13,13 +13,13 @@
 }
 body {
   margin: 0;
+  background-color: var(--shadow-color);
 }
 #root {
   width: 100vw;
   height: 100vh;
+  background-color: white;
   font-family: sans-serif;
-  display: flex;
-  flex-direction: column;
 }
 h1,
 h2,
