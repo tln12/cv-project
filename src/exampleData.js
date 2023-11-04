@@ -1,5 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
 
+const today = new Date().toISOString().slice(0, 10);
+
 const personal = {
   firstName: 'Max',
   lastName: 'Mustermann',
@@ -12,19 +14,19 @@ const personal = {
 };
 const education = [
   {
-    startingDate: '2010-10-01',
-    endDate: '2015-04-01',
+    startingDate: '2022-10-01',
+    endDate: today,
     name: 'RWTH Aachen University',
-    title: 'Mechanical Engineering',
+    title: 'Environmental Engineering (B.Sc.)',
     description: '',
     id: uuidv4(),
     hidden: false,
   },
   {
-    startingDate: '2023-10-01',
-    endDate: new Date().toISOString().slice(0, 10),
+    startingDate: '2018-10-01',
+    endDate: '2021-10-01',
     name: 'HTW Berlin',
-    title: 'Graphic Design',
+    title: 'Communication Design (B.A.)',
     description: '',
     id: uuidv4(),
     hidden: false,
@@ -32,20 +34,29 @@ const education = [
 ];
 const work = [
   {
-    startingDate: '2010-10-01',
-    endDate: '2015-04-01',
-    name: 'Panda Delivery',
-    title: 'Warehouse Support',
-    description: 'blablibl and I did this to blasd so thats work yay',
+    startingDate: '2023-12-01',
+    endDate: today,
+    name: 'Clean Waters GmbH',
+    title: 'Working Student',
+    description: '',
     id: uuidv4(),
     hidden: false,
   },
   {
-    startingDate: '2010-10-01',
-    endDate: '2015-04-01',
-    name: 'Flaschenpost',
-    title: 'Driver',
-    description: 'Driving through the city',
+    startingDate: '2019-02-01',
+    endDate: '2023-12-01',
+    name: "Johnny's Hand Pulled Noodles",
+    title: 'Waiter',
+    description: '',
+    id: uuidv4(),
+    hidden: false,
+  },
+  {
+    startingDate: '2018-10-01',
+    endDate: '2021-05-01',
+    name: 'Panda Delivery',
+    title: 'Delivery Driver',
+    description: 'Delivered groceries to customers.',
     id: uuidv4(),
     hidden: false,
   },
