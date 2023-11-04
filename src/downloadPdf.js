@@ -11,6 +11,6 @@ export default function downloadHTMLAsPDF({ fontFamily }) {
       doc.save(`CV_${date}`);
     },
     width: 210, //target width in the PDF document
-    windowWidth: 750, //window width in CSS pixels
+    windowWidth: 500, //window width in CSS pixels
   });
 }

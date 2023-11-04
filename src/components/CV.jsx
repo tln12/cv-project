@@ -7,6 +7,8 @@ const StyledPanel = styled.div`
   margin: var(--section-padding);
 `;
 const StyledCV = styled.div`
+  font-size: 11px;
+  width: 500px;
   aspect-ratio: 1/1.4142135623730950488016887242097; // DIN A4
   display: flex;
   box-shadow: 5px 5px 5px var(--shadow-color);
@@ -30,7 +32,7 @@ const StyledContent = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 30px;
+  padding: 15px;
   gap: 30px;
 `;
 
