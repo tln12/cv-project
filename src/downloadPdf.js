@@ -1,10 +1,10 @@
 import jsPDF from 'jspdf';
 
-export default function downloadHTMLAsPDF() {
+export default function downloadHTMLAsPDF({ fontFamily }) {
   let target = document.getElementById('cv');
   const date = new Date().toISOString().slice(0, 10).replace(/-/g, '');
   const doc = new jsPDF();
-  doc.setFont('helvetica');
+  doc.setFont(fontFamily);
   doc.html(target, {
     callback: function (doc) {
       doc.deletePage(2);

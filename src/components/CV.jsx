@@ -34,10 +34,10 @@ const StyledContent = styled.div`
   gap: 30px;
 `;
 
-export default function CV({ color, personalData, education, work }) {
+export default function CV({ color, font, personalData, education, work }) {
   return (
     <StyledPanel>
-      <StyledCV id='cv' style={{ fontFamily: 'helvetica' }}>
+      <StyledCV id='cv' style={{ fontFamily: font }}>
         <StyledAside color={color}></StyledAside>
         <StyledContent>
           <PDataDisplay personalData={personalData} StyledLine={StyledLine} />

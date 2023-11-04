@@ -32,7 +32,9 @@ export default function ControlPanel({
   handleReturn,
   handleToggleVisibility,
   setCVColor,
+  setCVFont,
   cvColor,
+  cvFont,
 }) {
   const [navTab, setNavTab] = useState('data-manager');
 
@@ -61,9 +63,14 @@ export default function ControlPanel({
               handleToggleVisibility={handleToggleVisibility}
             />
           ) : navTab === 'customize' ? (
-            <Customizer color={cvColor} setCVColor={setCVColor} />
+            <Customizer
+              cvColor={cvColor}
+              cvFont={cvFont}
+              setCVColor={setCVColor}
+              setCVFont={setCVFont}
+            />
           ) : (
-            <DownloadPanel />
+            <DownloadPanel fontFamily={cvFont} />
           )}
         </StyledMain>
       </CollapsibleSideNavigation>

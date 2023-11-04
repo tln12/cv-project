@@ -23,6 +23,7 @@ function App() {
     formData: null,
   });
   const [cvColor, setCVColor] = useState('#FFB900');
+  const [cvFont, setCVFont] = useState('helvetica');
 
   /**************************
    *  Personal Data
@@ -237,10 +238,13 @@ function App() {
         handleReturn={handleReturn}
         handleToggleVisibility={handleToggleVisibility}
         setCVColor={setCVColor}
+        setCVFont={setCVFont}
         cvColor={cvColor}
+        cvFont={cvFont}
       />
       <CV
         color={cvColor}
+        font={cvFont}
         personalData={personalData}
         education={education}
         work={work}
