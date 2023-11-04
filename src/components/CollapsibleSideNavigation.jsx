@@ -11,14 +11,8 @@ const StyledSideNav = styled.nav`
   padding: 20px 8px;
 `;
 const StyledButton = styled.button`
-  background-color: transparent;
-  border: none;
   font-size: 40px;
-  padding: 0px;
-  &:hover {
-    background-color: transparent;
-    cursor: pointer;
-  }
+  color: white;
 `;
 const StyledGithubImg = styled.img`
   width: 30px;

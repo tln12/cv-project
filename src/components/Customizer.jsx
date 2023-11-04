@@ -11,11 +11,6 @@ const StyledContent = styled.div`
 const Styledbutton = styled.button`
   width: 100px;
   height: 80px;
-  border-radius: var(--bar-control);
-  background-color: transparent;
-  &:hover {
-    cursor: pointer;
-  }
   border: ${(props) => props.$primary && '3px solid var(--accent-color)'};
 `;
 const StyledColorInput = styled.input.attrs({ type: 'color' })`

@@ -8,16 +8,10 @@ const Styledheader = styled.div`
   justify-content: center;
 `;
 const StyledButton = styled.button`
-  border: none;
-  background-color: transparent;
   flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 `;
 const StyledLeftButton = styled(StyledButton)`
   border-radius: var(--bar-control) 0px 0px var(--bar-control);
-  border: 1px solid var(--side-font-color);
   border-right: none;
 `;
 const StyledRightButton = styled(StyledButton)`
@@ -25,7 +19,7 @@ const StyledRightButton = styled(StyledButton)`
   opacity: 0.95;
   color: white;
   border-radius: 0px var(--bar-control) var(--bar-control) 0px;
-  border-left: none;
+  border: none;
 `;
 
 export default function ControlPanel({

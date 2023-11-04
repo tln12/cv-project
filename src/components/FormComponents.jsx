@@ -44,9 +44,7 @@ const StyledSubmitPanel = styled.div`
 `;
 const StyledSubmitPanelButton = styled.button`
   align-self: flex-end;
-  text-align: center;
   width: 50px;
-  border: solid transparent;
   background-color: var(--shadow-color);
   &:hover {
     border: double white;

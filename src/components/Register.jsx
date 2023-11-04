@@ -12,10 +12,7 @@ const Li = styled.li`
 const AddEntry = styled.button`
   margin: 10px;
   width: 100px;
-  text-align: center;
   align-self: center;
-  border: solid transparent;
-  border-radius: var(--bar-control);
   background-color: var(--shadow-color);
 
   &:hover {
