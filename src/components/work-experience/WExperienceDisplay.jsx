@@ -12,7 +12,7 @@ export default function WExperienceDisplay({
           <div>
             <span>{entry.name + ' | '}</span>
             <span>
-              {entry.startingDate.slice(2, 4) +
+              {entry.startingDate.slice(5, 7) +
                 '/' +
                 entry.startingDate.slice(0, 4)}
             </span>
@@ -20,7 +20,7 @@ export default function WExperienceDisplay({
             <span>
               {entry.endDate == new Date().toISOString().slice(0, 10)
                 ? 'present'
-                : entry.endDate.slice(2, 4) + '/' + entry.endDate.slice(0, 4)}
+                : entry.endDate.slice(5, 7) + '/' + entry.endDate.slice(0, 4)}
             </span>
           </div>
           <div>{entry.description}</div>
