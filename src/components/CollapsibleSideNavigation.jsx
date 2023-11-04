@@ -6,7 +6,7 @@ const StyledSideNav = styled.nav`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background-color: #2f4858;
+  background-color: var(--side-nav-color);
   color: white;
   padding: 20px 8px;
 `;
