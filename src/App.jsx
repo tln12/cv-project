@@ -8,9 +8,9 @@ import * as exampleData from './exampleData.js';
 import styled from 'styled-components';
 
 const StyledApp = styled.div`
-  flex: 1;
   display: flex;
-  width: 100vw;
+  width: 100%;
+  height: 100%;
 `;
 
 function App() {
