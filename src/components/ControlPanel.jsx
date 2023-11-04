@@ -35,6 +35,8 @@ export default function ControlPanel({
   setCVFont,
   cvColor,
   cvFont,
+  handleLoadExample,
+  handleClearCV,
 }) {
   const [navTab, setNavTab] = useState('data-manager');
 
@@ -61,6 +63,8 @@ export default function ControlPanel({
               handleDeleteEntry={handleDeleteEntry}
               handleReturn={handleReturn}
               handleToggleVisibility={handleToggleVisibility}
+              handleLoadExample={handleLoadExample}
+              handleClearCV={handleClearCV}
             />
           ) : navTab === 'customize' ? (
             <Customizer

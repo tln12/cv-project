@@ -221,6 +221,46 @@ function App() {
     }
   }
 
+  /**
+   * Handles click on "Load Example". Overwrites current cv data (personal,
+   * education, work) with example data. If there is already data, user is asked to confirm.
+   */
+  function handleLoadExample() {
+    const emptyData =
+      Object.values(personalData).every((val) => val === '') &&
+      education.length === 0 &&
+      work.length === 0;
+    if (emptyData) {
+      setPersonalData(exampleData.personal);
+      setEducation(exampleData.education);
+      setWork(exampleData.work);
+    } else if (confirm('Overwrite with example data?')) {
+      setPersonalData(exampleData.personal);
+      setEducation(exampleData.education);
+      setWork(exampleData.work);
+    }
+  }
+
+  /**
+   * Handles click on "Clear Resume". Clears all data from cv. User is asked to confirm.
+   */
+  function handleClearCV() {
+    if (confirm('Delete data?')) {
+      setPersonalData({
+        firstName: '',
+        lastName: '',
+        street: '',
+        houseNr: '',
+        postcode: '',
+        city: '',
+        phone: '',
+        email: '',
+      });
+      setEducation([]);
+      setWork([]);
+    }
+  }
+
   return (
     <StyledApp>
       <ControlPanel
@@ -241,6 +281,8 @@ function App() {
         setCVFont={setCVFont}
         cvColor={cvColor}
         cvFont={cvFont}
+        handleLoadExample={handleLoadExample}
+        handleClearCV={handleClearCV}
       />
       <CV
         color={cvColor}
