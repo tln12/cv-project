@@ -20,7 +20,10 @@ const AddEntry = styled.button`
     color: white;
   }
 `;
-
+const StyledEntryName = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 const Toolbar = styled.div`
   align-self: center;
   display: flex;
@@ -35,10 +38,10 @@ function RegisterEntry({
 }) {
   return (
     <Li data-id={entry.id}>
-      <div>
-        <h4>{entry.name}</h4>
+      <StyledEntryName>
+        <span>{entry.name}</span>
         <span>{entry.title}</span>
-      </div>
+      </StyledEntryName>
       <Toolbar>
         <button
           className='material-symbols-outlined'
