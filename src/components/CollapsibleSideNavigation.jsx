@@ -30,8 +30,9 @@ export default function CollapsibleSideNavigation({
 }) {
   const [open, setOpen] = useState(true);
 
-  function handleCollapse() {
-    setOpen(!open);
+  function handleClick(e) {
+    setOpen(true); // always open side nav when navigating
+    handleNavigation(e);
   }
 
   return (
@@ -41,7 +42,7 @@ export default function CollapsibleSideNavigation({
           <li>
             <StyledButton
               className='material-symbols-outlined'
-              onClick={handleCollapse}
+              onClick={() => setOpen(!open)}
             >
               {open
                 ? 'keyboard_double_arrow_left'
@@ -55,7 +56,7 @@ export default function CollapsibleSideNavigation({
             <StyledButton
               className='material-symbols-outlined'
               data-nav='data-manager'
-              onClick={handleNavigation}
+              onClick={handleClick}
             >
               description
             </StyledButton>
@@ -64,7 +65,7 @@ export default function CollapsibleSideNavigation({
             <StyledButton
               className='material-symbols-outlined'
               data-nav='customize'
-              onClick={handleNavigation}
+              onClick={handleClick}
             >
               palette
             </StyledButton>
@@ -74,7 +75,7 @@ export default function CollapsibleSideNavigation({
             <StyledButton
               className='material-symbols-outlined'
               data-nav='download'
-              onClick={handleNavigation}
+              onClick={handleClick}
             >
               download
             </StyledButton>
