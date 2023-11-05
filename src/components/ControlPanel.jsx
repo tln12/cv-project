@@ -52,7 +52,10 @@ export default function ControlPanel({
 
   return (
     <StyledPanel>
-      <CollapsibleSideNavigation handleNavigation={(e) => handleNavigation(e)}>
+      <CollapsibleSideNavigation
+        navTab={navTab}
+        handleNavigation={(e) => handleNavigation(e)}
+      >
         <StyledScrollContainer>
           <StyledMain>
             {navTab === 'data-manager' ? (

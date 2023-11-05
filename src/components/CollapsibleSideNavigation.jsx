@@ -13,6 +13,7 @@ const StyledSideNav = styled.nav`
 const StyledButton = styled.button`
   font-size: 40px;
   color: white;
+  ${(props) => props.$navTab && 'background-color: var(--accent-color);'}
 `;
 const StyledGithubImg = styled.img`
   width: 30px;
@@ -26,6 +27,7 @@ const StyledList = styled.ul`
 
 export default function CollapsibleSideNavigation({
   handleNavigation,
+  navTab,
   children,
 }) {
   const [open, setOpen] = useState(true);
@@ -56,6 +58,7 @@ export default function CollapsibleSideNavigation({
             <StyledButton
               className='material-symbols-outlined'
               data-nav='data-manager'
+              $navTab={navTab === 'data-manager'}
               onClick={handleClick}
             >
               description
@@ -65,6 +68,7 @@ export default function CollapsibleSideNavigation({
             <StyledButton
               className='material-symbols-outlined'
               data-nav='customize'
+              $navTab={navTab === 'customize'}
               onClick={handleClick}
             >
               palette
@@ -75,6 +79,7 @@ export default function CollapsibleSideNavigation({
             <StyledButton
               className='material-symbols-outlined'
               data-nav='download'
+              $navTab={navTab === 'download'}
               onClick={handleClick}
             >
               download
