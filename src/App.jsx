@@ -290,6 +290,7 @@ function App() {
       <CV
         color={cvColor}
         font={cvFont}
+        pattern={cvPattern}
         personalData={personalData}
         education={education}
         work={work}
