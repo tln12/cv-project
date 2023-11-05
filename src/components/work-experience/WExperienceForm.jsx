@@ -29,7 +29,7 @@ export default function WExperienceForm({
       )}
       <StyledInputGroup>
         <StyledLabel htmlFor='starting-date'>
-          <StyledSpan required>starting date</StyledSpan>
+          <StyledSpan $required>starting date</StyledSpan>
           <StyledInput
             required
             type='date'
@@ -39,7 +39,7 @@ export default function WExperienceForm({
           ></StyledInput>
         </StyledLabel>
         <StyledLabel htmlFor='end-date'>
-          <StyledSpan required>end date</StyledSpan>
+          <StyledSpan $required>end date</StyledSpan>
           <StyledInput
             required
             type='date'
@@ -50,7 +50,7 @@ export default function WExperienceForm({
         </StyledLabel>
       </StyledInputGroup>
       <StyledLabel htmlFor='name'>
-        <StyledSpan required>company name</StyledSpan>
+        <StyledSpan $required>company name</StyledSpan>
         <StyledInput
           required
           id='name'
@@ -59,7 +59,7 @@ export default function WExperienceForm({
         ></StyledInput>
       </StyledLabel>
       <StyledLabel htmlFor='title'>
-        <StyledSpan required>position title</StyledSpan>
+        <StyledSpan $required>position title</StyledSpan>
         <StyledInput
           required
           id='title'

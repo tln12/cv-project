@@ -250,10 +250,7 @@ function App() {
       setPersonalData({
         firstName: '',
         lastName: '',
-        street: '',
-        houseNr: '',
-        postcode: '',
-        city: '',
+        address: '',
         phone: '',
         email: '',
       });

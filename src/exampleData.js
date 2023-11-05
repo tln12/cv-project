@@ -5,10 +5,7 @@ const today = new Date().toISOString().slice(0, 10);
 const personal = {
   firstName: 'Max',
   lastName: 'Mustermann',
-  street: 'Musterstr.',
-  houseNr: '1',
-  postcode: '12345',
-  city: 'Leipzig',
+  address: 'Musterstr. 1, 12345 Leipzig',
   phone: '0123456789',
   email: 'email@example.com',
 };

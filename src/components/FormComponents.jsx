@@ -15,15 +15,23 @@ const StyledLabel = styled.label`
 const StyledSpan = styled.span`
   color: var(--side-font-color);
   &:after {
-    ${(props) =>
-      props.required &&
-      `
+    font-size: 0.8em;
+    margin-left: 5px;
+    font-style: italic;
+    ${(props) => {
+      if (props.$required) {
+        return `
         content: 'required';
         color: var(--required-color);
-        font-size: 0.8em;
-        margin-left: 5px;
-        font-style: italic;
-    `}
+
+      `;
+      } else if (props.$recommended) {
+        return `
+        content: 'recommended';
+        color: var(--recommended-font-color);
+      `;
+      }
+    }}
 `;
 const StyledInput = styled.input`
   padding: 10px;

@@ -8,26 +8,30 @@ const StyledSpan = styled.span`
 `;
 
 export default function PDataDisplay({ personalData, StyledLine }) {
-  const { street, houseNr, postcode, city, phone, email } = personalData;
+  const { address, phone, email } = personalData;
   return (
     <section>
       <h3>PERSONAL DETAILS</h3>
       <StyledLine />
       <ul>
-        <StyledEntry>
-          <StyledSpan>Address</StyledSpan>
-          <StyledSpan>
-            {street} {houseNr}, {postcode} {city}
-          </StyledSpan>
-        </StyledEntry>
-        <StyledEntry>
-          <StyledSpan>Tel.</StyledSpan>
-          <StyledSpan>{phone}</StyledSpan>
-        </StyledEntry>
-        <StyledEntry>
-          <StyledSpan>Email</StyledSpan>
-          <StyledSpan>{email}</StyledSpan>
-        </StyledEntry>
+        {address !== '' && (
+          <StyledEntry>
+            <StyledSpan>Address</StyledSpan>
+            <StyledSpan>{address}</StyledSpan>
+          </StyledEntry>
+        )}
+        {phone !== '' && (
+          <StyledEntry>
+            <StyledSpan>Tel.</StyledSpan>
+            <StyledSpan>{phone}</StyledSpan>
+          </StyledEntry>
+        )}
+        {email !== '' && (
+          <StyledEntry>
+            <StyledSpan>Email</StyledSpan>
+            <StyledSpan>{email}</StyledSpan>
+          </StyledEntry>
+        )}
       </ul>
     </section>
   );
