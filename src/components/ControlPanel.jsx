@@ -37,8 +37,10 @@ export default function ControlPanel({
   handleToggleVisibility,
   setCVColor,
   setCVFont,
+  setCVPattern,
   cvColor,
   cvFont,
+  cvPattern,
   handleLoadExample,
   handleClearCV,
 }) {
@@ -75,8 +77,10 @@ export default function ControlPanel({
               <Customizer
                 cvColor={cvColor}
                 cvFont={cvFont}
+                cvPattern={cvPattern}
                 setCVColor={setCVColor}
                 setCVFont={setCVFont}
+                setCVPattern={setCVPattern}
               />
             ) : (
               <DownloadPanel fontFamily={cvFont} />

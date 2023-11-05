@@ -24,6 +24,7 @@ function App() {
   });
   const [cvColor, setCVColor] = useState('#FFB900');
   const [cvFont, setCVFont] = useState('helvetica');
+  const [cvPattern, setCVPattern] = useState('pattern-1');
 
   /**************************
    *  Personal Data
@@ -279,8 +280,10 @@ function App() {
         handleToggleVisibility={handleToggleVisibility}
         setCVColor={setCVColor}
         setCVFont={setCVFont}
+        setCVPattern={setCVPattern}
         cvColor={cvColor}
         cvFont={cvFont}
+        cvPattern={cvPattern}
         handleLoadExample={handleLoadExample}
         handleClearCV={handleClearCV}
       />

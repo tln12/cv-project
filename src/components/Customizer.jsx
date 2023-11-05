@@ -11,6 +11,27 @@ const Styledbutton = styled.button`
   height: 80px;
   border: ${(props) => props.$primary && '3px solid var(--accent-color)'};
 `;
+const StyledPatternButton = styled(Styledbutton)`
+  width: 60px;
+  height: 60px;
+  padding: 0;
+  overflow: hidden;
+`;
+const StyledPattern = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  overflow: hidden;
+`;
+const StyledPatternOne = styled.div`
+  width: 40%;
+  background-color: ${(props) => props.$color};
+`;
+const StyledPatternTwo = styled.div`
+  height: 40%;
+  width: 100%;
+  background-color: ${(props) => props.$color};
+`;
 const StyledColorInput = styled.input.attrs({ type: 'color' })`
   padding: 0px;
   height: 40px;
@@ -68,11 +89,59 @@ function FontPick({ cvFont, setCVFont }) {
   );
 }
 
-export default function Customizer({ cvColor, cvFont, setCVColor, setCVFont }) {
+function PatternPick({ cvColor, cvPattern, setCVPattern }) {
+  return (
+    <StyledBox>
+      <h2>Pattern</h2>
+      <StyledList>
+        <li>
+          <StyledPatternButton
+            onClick={() => setCVPattern('pattern-1')}
+            $primary={cvPattern === 'pattern-1'}
+          >
+            <StyledPattern>
+              <StyledPatternOne $color={cvColor}></StyledPatternOne>
+            </StyledPattern>
+          </StyledPatternButton>
+        </li>
+        <li>
+          <StyledPatternButton
+            onClick={() => setCVPattern('pattern-2')}
+            $primary={cvPattern === 'pattern-2'}
+          >
+            <StyledPattern>
+              <StyledPatternTwo $color={cvColor}></StyledPatternTwo>
+            </StyledPattern>
+          </StyledPatternButton>
+        </li>
+        <li>
+          <StyledPatternButton
+            onClick={() => setCVPattern('pattern-3')}
+            $primary={cvPattern === 'pattern-3'}
+          ></StyledPatternButton>
+        </li>
+      </StyledList>
+    </StyledBox>
+  );
+}
+
+export default function Customizer({
+  cvColor,
+  cvFont,
+  cvPattern,
+  setCVColor,
+  setCVFont,
+  setCVPattern,
+}) {
   return (
     <>
       <ColorPick cvColor={cvColor} setCVColor={setCVColor} />
       <FontPick cvFont={cvFont} setCVFont={setCVFont} />
+      <PatternPick
+        cvColor={cvColor}
+        cvPattern={cvPattern}
+        setCVPattern={setCVPattern}
+      />
     </>
   );
 }
