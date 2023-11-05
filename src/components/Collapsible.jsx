@@ -28,7 +28,7 @@ export default function Collapsible({ title, content, collapsed = true }) {
 
   return (
     <StyledCollapsible>
-      <StyledHeader>
+      <StyledHeader onClick={handleCollapse}>
         <span>{title}</span>
         <button className='material-symbols-outlined' onClick={handleCollapse}>
           {open ? 'arrow_drop_down' : 'arrow_right'}
