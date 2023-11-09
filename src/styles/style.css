@@ -4,22 +4,27 @@
   --padding-tb-form-control: 25px;
   /* border all radius */
   --bar-control: 10px;
+  --bar-section: 15px;
   --side-font-color: rgb(111, 111, 111);
   --shadow-color: rgb(235, 235, 235);
+  --background-color: #c5c5c5;
   --accent-color: rgb(88, 225, 200);
   --required-color: rgb(223, 40, 40);
   --recommended-font-color: rgb(164, 164, 164);
-  --side-nav-color: #2f4858;
+  --side-nav-color: #1d1d1d;
   --section-padding: 50px;
+  --root-margin: 20px;
+  box-sizing: border-box;
 }
 body {
   margin: 0;
-  background-color: var(--shadow-color);
+  background-color: var(--background-color);
 }
 #root {
-  width: 100vw;
-  height: 100vh;
-  background-color: white;
+  margin: var(--root-margin);
+  width: calc(100vw - 2 * var(--root-margin));
+  height: calc(100vh - 2 * var(--root-margin));
+  background-color: var(--background-color);
   font-family: sans-serif;
 }
 h1,
