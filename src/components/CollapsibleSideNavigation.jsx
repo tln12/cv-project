@@ -9,6 +9,7 @@ const StyledSideNav = styled.nav`
   background-color: var(--side-nav-color);
   color: white;
   padding: 20px 8px;
+  border-radius: var(--bar-section);
 `;
 const StyledButton = styled.button`
   font-size: 40px;
