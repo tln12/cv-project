@@ -5,14 +5,14 @@ import styled from 'styled-components';
 
 const StyledPanel = styled.section`
   display: flex;
-  border-right: 2px double var(--side-nav-color);
-  box-shadow: 0 0 10px var(--side-nav-color);
+  background-color: var(--bgc-panel);
+  border-radius: var(--bar-panel);
+  padding: var(--section-padding);
 `;
 const StyledScrollContainer = styled.div`
   overflow: scroll;
 `;
 const StyledMain = styled.div`
-  margin: var(--section-padding);
   width: 500px;
   display: flex;
   flex-direction: column;

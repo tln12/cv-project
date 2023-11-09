@@ -4,9 +4,12 @@ import CVPatternThree from './cv-patterns/CVPatternThree';
 import styled from 'styled-components';
 
 const StyledPanel = styled.div`
-  margin: var(--section-padding);
+  padding: var(--section-padding);
+  background-color: var(--bgc-panel);
+  border-radius: var(--bar-panel);
 `;
 const StyledCV = styled.div`
+  background-color: white;
   font-size: 11px;
   width: 500px;
   aspect-ratio: 1/1.4142135623730950488016887242097; // DIN A4
