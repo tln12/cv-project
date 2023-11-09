@@ -14,7 +14,8 @@
   --recommended-font-color: rgb(164, 164, 164);
   --side-nav-color: #1d1d1d;
   --section-padding: 50px;
-  --root-margin: 20px;
+  --root-margin-lr: 30px;
+  --root-margin-tb: 50px;
   box-sizing: border-box;
 }
 body {
@@ -22,9 +23,9 @@ body {
   background-color: var(--bgc-body);
 }
 #root {
-  margin: var(--root-margin);
-  width: calc(100vw - 2 * var(--root-margin));
-  height: calc(100vh - 2 * var(--root-margin));
+  margin: var(--root-margin-tb) var(--root-margin-lr);
+  width: calc(100vw - 2 * var(--root-margin-lr));
+  height: calc(100vh - 2 * var(--root-margin-tb));
   background-color: var(--background-color);
   font-family: sans-serif;
 }
