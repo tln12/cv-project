@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import './styles/style.css';
+import CollapsibleSideNavigation from './components/CollapsibleSideNavigation.jsx';
 import ControlPanel from './components/ControlPanel';
 import CV from './components/CV';
 import { hyphenToCamelCase } from './helperFunctions';
@@ -22,6 +23,7 @@ function App() {
     mode: null,
     formData: null,
   });
+  const [navTab, setNavTab] = useState('data-manager');
   const [cvColor, setCVColor] = useState('#FFB900');
   const [cvFont, setCVFont] = useState('helvetica');
   const [cvPattern, setCVPattern] = useState('pattern-1');
@@ -258,9 +260,16 @@ function App() {
       setWork([]);
     }
   }
+  function handleNavigation(e) {
+    setNavTab(e.target.attributes['data-nav'].value);
+  }
 
   return (
     <StyledApp>
+      <CollapsibleSideNavigation
+        navTab={navTab}
+        handleNavigation={(e) => handleNavigation(e)}
+      />
       <ControlPanel
         personalData={personalData}
         education={education}
@@ -283,6 +292,7 @@ function App() {
         cvPattern={cvPattern}
         handleLoadExample={handleLoadExample}
         handleClearCV={handleClearCV}
+        navTab={navTab}
       />
       <CV
         color={cvColor}

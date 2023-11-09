@@ -1,9 +1,7 @@
 import DataManager from './DataManager';
 import Customizer from './Customizer';
 import DownloadPanel from './DownloadPanel';
-import CollapsibleSideNavigation from './CollapsibleSideNavigation';
 import styled from 'styled-components';
-import { useState } from 'react';
 
 const StyledPanel = styled.section`
   display: flex;
@@ -43,54 +41,44 @@ export default function ControlPanel({
   cvPattern,
   handleLoadExample,
   handleClearCV,
+  navTab,
 }) {
-  const [navTab, setNavTab] = useState('data-manager');
-
-  function handleNavigation(e) {
-    setNavTab(e.target.attributes['data-nav'].value);
-  }
-
   return (
     <StyledPanel>
-      <CollapsibleSideNavigation
-        navTab={navTab}
-        handleNavigation={(e) => handleNavigation(e)}
-      >
-        <StyledScrollContainer>
-          <StyledMain>
-            {navTab === 'data-manager' ? (
-              <DataManager
-                personalData={personalData}
-                education={education}
-                work={work}
-                formStatus={formStatus}
-                handleChange={handleChange}
-                handleChangeFormInput={handleChangeFormInput}
-                handleCreateEntry={handleCreateEntry}
-                handleSubmitEducation={handleSubmitEducation}
-                handleSubmitWork={handleSubmitWork}
-                handleEdit={handleEdit}
-                handleDeleteEntry={handleDeleteEntry}
-                handleReturn={handleReturn}
-                handleToggleVisibility={handleToggleVisibility}
-                handleLoadExample={handleLoadExample}
-                handleClearCV={handleClearCV}
-              />
-            ) : navTab === 'customize' ? (
-              <Customizer
-                cvColor={cvColor}
-                cvFont={cvFont}
-                cvPattern={cvPattern}
-                setCVColor={setCVColor}
-                setCVFont={setCVFont}
-                setCVPattern={setCVPattern}
-              />
-            ) : (
-              <DownloadPanel fontFamily={cvFont} />
-            )}
-          </StyledMain>
-        </StyledScrollContainer>
-      </CollapsibleSideNavigation>
+      <StyledScrollContainer>
+        <StyledMain>
+          {navTab === 'data-manager' ? (
+            <DataManager
+              personalData={personalData}
+              education={education}
+              work={work}
+              formStatus={formStatus}
+              handleChange={handleChange}
+              handleChangeFormInput={handleChangeFormInput}
+              handleCreateEntry={handleCreateEntry}
+              handleSubmitEducation={handleSubmitEducation}
+              handleSubmitWork={handleSubmitWork}
+              handleEdit={handleEdit}
+              handleDeleteEntry={handleDeleteEntry}
+              handleReturn={handleReturn}
+              handleToggleVisibility={handleToggleVisibility}
+              handleLoadExample={handleLoadExample}
+              handleClearCV={handleClearCV}
+            />
+          ) : navTab === 'customize' ? (
+            <Customizer
+              cvColor={cvColor}
+              cvFont={cvFont}
+              cvPattern={cvPattern}
+              setCVColor={setCVColor}
+              setCVFont={setCVFont}
+              setCVPattern={setCVPattern}
+            />
+          ) : (
+            <DownloadPanel fontFamily={cvFont} />
+          )}
+        </StyledMain>
+      </StyledScrollContainer>
     </StyledPanel>
   );
 }
