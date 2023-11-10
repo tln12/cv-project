@@ -5,10 +5,15 @@ import styled from 'styled-components';
 
 const StyledCollapsible = styled.div`
   background-color: white;
-  border-radius: var(--bar-control);
-  border: solid var(--side-font-color);
+  border-left: 7px solid var(--side-nav-color);
+  box-shadow:
+    0px 2px 10px var(--shadow-color),
+    0px -2px 10px var(--shadow-color),
+    2px 0px 10px var(--shadow-color);
+  margin-right: 10px;
 `;
 const StyledHeader = styled.h2`
+  background-color: white;
   padding: 15px var(--padding-lr-control);
   display: flex;
   justify-content: space-between;

@@ -7,18 +7,36 @@ const StyledSideNav = styled.nav`
   justify-content: space-between;
   align-items: center;
   background-color: var(--side-nav-color);
-  color: white;
-  padding: 20px 8px;
+  padding: 20px 0px;
   border-radius: var(--bar-panel);
 `;
 const StyledButton = styled.button`
-  font-size: 40px;
-  color: white;
-  ${(props) => props.$navTab && 'background-color: var(--accent-color);'}
+  &&& {
+    font-size: 40px;
+    color: white;
+    border-radius: 0px;
+    padding: 4px 8px;
+    &:hover {
+      color: var(--accent-color);
+      background-color: transparent;
+    }
+    ${(props) =>
+      props.$navTab &&
+      `
+        border-left: 4px solid var(--accent-color); 
+        background: linear-gradient(to right, var(--accent-color-opaque), var(--side-nav-color));
+        padding-left: 4px;
+        &:hover {
+        color: white;
+        }
+      `};
+    }
+  }
 `;
 const StyledGithubImg = styled.img`
   width: 30px;
   filter: invert(100%);
+  margin: 0px 8px;
 `;
 const StyledList = styled.ul`
   display: flex;

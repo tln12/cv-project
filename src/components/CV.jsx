@@ -5,8 +5,8 @@ import styled from 'styled-components';
 
 const StyledPanel = styled.div`
   padding: var(--section-padding);
-  background-color: var(--bgc-panel);
   border-radius: var(--bar-panel);
+  overflow: scroll;
 `;
 const StyledCV = styled.div`
   background-color: white;

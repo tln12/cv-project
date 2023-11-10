@@ -10,6 +10,7 @@
   --bgc-body: #c5c5c5;
   --bgc-panel: white;
   --accent-color: rgb(88, 225, 200);
+  --accent-color-opaque: rgba(88, 225, 200, 0.7);
   --required-color: rgb(223, 40, 40);
   --recommended-font-color: rgb(164, 164, 164);
   --side-nav-color: #1d1d1d;
@@ -60,7 +61,7 @@ span.material-symbols-outlined {
   border: none;
   font-variation-settings:
     'FILL' 0,
-    'wght' 300,
+    'wght' 250,
     'GRAD' -25,
     'opsz' 20;
 }
