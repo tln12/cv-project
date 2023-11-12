@@ -10,7 +10,6 @@ import styled from 'styled-components';
 
 const StyledApp = styled.div`
   display: flex;
-  gap: 20px;
   width: 100%;
   height: 100%;
 `;
