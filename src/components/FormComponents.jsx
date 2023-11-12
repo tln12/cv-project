@@ -5,7 +5,6 @@ const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
   gap: 10px;
-  border-top: solid var(--side-font-color);
 `;
 const StyledLabel = styled.label`
   display: flex;

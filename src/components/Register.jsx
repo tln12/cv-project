@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const Li = styled.li`
   padding: var(--padding-tb-list-control) var(--padding-lr-control);
-  border: 1px solid var(--side-font-color);
+  border-bottom: 1.5px solid var(--bgc-body);
   margin: -1px;
   display: flex;
   justify-content: space-between;

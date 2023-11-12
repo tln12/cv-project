@@ -13,6 +13,7 @@ const StyledHeader = styled.h2`
   padding: 15px var(--padding-lr-control);
   display: flex;
   justify-content: space-between;
+  border-bottom: 1.5px solid var(--bgc-body);
 `;
 const StyledWrapper = styled.div`
   display: grid;
