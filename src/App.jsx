@@ -24,7 +24,7 @@ function App() {
     formData: null,
   });
   const [navTab, setNavTab] = useState('data-manager');
-  const [cvColor, setCVColor] = useState('#CE5D12');
+  const [cvColor, setCVColor] = useState('#FD9A58');
   const [cvFont, setCVFont] = useState('helvetica');
   const [cvPattern, setCVPattern] = useState('pattern-1');
 
