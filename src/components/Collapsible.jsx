@@ -15,7 +15,6 @@ const StyledHeader = styled.h3`
   justify-content: space-between;
   font-weight: bold;
   align-items: center;
-  border-bottom: 1.5px solid var(--bgc-body);
 `;
 const StyledWrapper = styled.div`
   display: grid;
@@ -42,7 +41,7 @@ export default function Collapsible({ title, content, collapsed = true }) {
         </button>
       </StyledHeader>
       <StyledWrapper open={open}>
-        <StyledContent>{content}</StyledContent>
+        <StyledContent open={open}>{content}</StyledContent>
       </StyledWrapper>
     </StyledCollapsible>
   );
