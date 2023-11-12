@@ -9,10 +9,12 @@ const StyledCollapsible = styled.div`
   border-radius: var(--bar-control);
   margin-right: 10px;
 `;
-const StyledHeader = styled.h2`
-  padding: 15px var(--padding-lr-control);
+const StyledHeader = styled.h3`
+  padding: 10px var(--padding-lr-control);
   display: flex;
   justify-content: space-between;
+  font-weight: bold;
+  align-items: center;
   border-bottom: 1.5px solid var(--bgc-body);
 `;
 const StyledWrapper = styled.div`
