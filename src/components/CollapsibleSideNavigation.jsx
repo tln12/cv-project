@@ -16,22 +16,45 @@ const StyledButton = styled.button`
     color: white;
     border-radius: 0px;
     padding: 4px 8px;
-    &:hover {
-      color: var(--accent-color);
-      background-color: transparent;
+    position: relative;
+    &:after {
+      background: linear-gradient(
+        to bottom,
+        transparent,
+        var(--accent-color),
+        transparent
+      );
+      content: '';
+      width: 2px;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
     }
-    ${(props) =>
-      props.$navTab &&
-      `
-        border-left: 4px solid var(--accent-color); 
-        background: linear-gradient(to right, var(--accent-color-opaque), var(--side-nav-color));
-        padding-left: 4px;
-        &:hover {
-        color: white;
-        }
-      `};
-    }
-  }
+    ${(props) => {
+      if (props.$navTab) {
+        return `
+          background: linear-gradient(to right, var(--accent-color-opaque), transparent);
+        `;
+      } else {
+        return `
+          &:hover {
+            color: var(--accent-color-opaque);
+            background-color: transparent;
+          }
+          &:after {
+            height: 70%;
+            opacity: 0;
+            top: 50%;
+            transition: top 400ms ease, opacity 400ms ease;
+          }
+          &:hover:after {
+            top: 10%;
+            opacity: 1;
+          }
+        `;
+      }
+    }}
 `;
 const StyledGithubImg = styled.img`
   width: 30px;
@@ -41,6 +64,7 @@ const StyledGithubImg = styled.img`
 const StyledList = styled.ul`
   display: flex;
   flex-direction: column;
+  width: 100%;
   gap: 10px;
 `;
 
