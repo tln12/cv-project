@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 const StyledPanel = styled.section`
   display: flex;
-  padding: var(--section-padding);
+  padding: 0px var(--section-padding);
 `;
 const StyledScrollContainer = styled.div`
   overflow: scroll;
