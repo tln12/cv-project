@@ -14,9 +14,11 @@
   --required-color: rgb(223, 40, 40);
   --recommended-font-color: rgb(164, 164, 164);
   --side-nav-color: #1d1d1d;
-  --section-padding: 50px;
+  --section-padding: 20px;
   --root-margin-lr: 30px;
-  --root-margin-tb: 50px;
+  --root-margin-tb: 30px;
+  --transition-time-fast: 250ms;
+  --transition-time-slow: 500ms;
   box-sizing: border-box;
 }
 body {
@@ -64,6 +66,7 @@ span.material-symbols-outlined {
     'wght' 250,
     'GRAD' -25,
     'opsz' 20;
+  transition: background-color var(--transition-time-fast) ease-out;
 }
 button.material-symbols-outlined:hover {
   background-color: var(--accent-color);
