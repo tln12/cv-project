@@ -1,17 +1,6 @@
+import ContentBox from './ContentBox';
 import styled from 'styled-components';
 
-const StyledBox = styled.div`
-  background-color: white;
-  border: none;
-  border-radius: var(--bar-control);
-`;
-const StyledHeading = styled.h3`
-  font-weight: bold;
-  padding: 10px var(--padding-lr-control);
-`;
-const StyledContent = styled.div`
-  padding: 10px var(--padding-lr-control);
-`;
 const Styledbutton = styled.button`
   width: 100px;
   height: 80px;
@@ -49,91 +38,76 @@ const StyledList = styled.ul`
 
 function ColorPick({ cvColor, setCVColor }) {
   return (
-    <>
-      <StyledHeading>Theme Color</StyledHeading>
-      <StyledContent>
-        <StyledColorInput
-          value={cvColor}
-          onChange={(e) => setCVColor(e.target.value)}
-        ></StyledColorInput>
-      </StyledContent>
-    </>
+    <StyledColorInput
+      value={cvColor}
+      onChange={(e) => setCVColor(e.target.value)}
+    ></StyledColorInput>
   );
 }
 function FontPick({ cvFont, setCVFont }) {
   return (
-    <>
-      <StyledHeading>Font</StyledHeading>
-      <StyledContent>
-        <StyledList>
-          <li>
-            <Styledbutton
-              style={{ fontFamily: 'helvetica' }}
-              onClick={() => setCVFont('helvetica')}
-              $primary={cvFont === 'helvetica'}
-            >
-              Helvetica
-            </Styledbutton>
-          </li>
-          <li>
-            <Styledbutton
-              style={{ fontFamily: 'courier' }}
-              onClick={() => setCVFont('courier')}
-              $primary={cvFont === 'courier'}
-            >
-              Courier
-            </Styledbutton>
-          </li>
-          <li>
-            <Styledbutton
-              style={{ fontFamily: 'times' }}
-              onClick={() => setCVFont('times')}
-              $primary={cvFont === 'times'}
-            >
-              Times New Roman
-            </Styledbutton>
-          </li>
-        </StyledList>
-      </StyledContent>
-    </>
+    <StyledList>
+      <li>
+        <Styledbutton
+          style={{ fontFamily: 'helvetica' }}
+          onClick={() => setCVFont('helvetica')}
+          $primary={cvFont === 'helvetica'}
+        >
+          Helvetica
+        </Styledbutton>
+      </li>
+      <li>
+        <Styledbutton
+          style={{ fontFamily: 'courier' }}
+          onClick={() => setCVFont('courier')}
+          $primary={cvFont === 'courier'}
+        >
+          Courier
+        </Styledbutton>
+      </li>
+      <li>
+        <Styledbutton
+          style={{ fontFamily: 'times' }}
+          onClick={() => setCVFont('times')}
+          $primary={cvFont === 'times'}
+        >
+          Times New Roman
+        </Styledbutton>
+      </li>
+    </StyledList>
   );
 }
 
 function PatternPick({ cvColor, cvPattern, setCVPattern }) {
   return (
-    <>
-      <StyledHeading>Pattern</StyledHeading>
-      <StyledContent>
-        <StyledList>
-          <li>
-            <StyledPatternButton
-              onClick={() => setCVPattern('pattern-1')}
-              $primary={cvPattern === 'pattern-1'}
-            >
-              <StyledPattern>
-                <StyledPatternOne $color={cvColor}></StyledPatternOne>
-              </StyledPattern>
-            </StyledPatternButton>
-          </li>
-          <li>
-            <StyledPatternButton
-              onClick={() => setCVPattern('pattern-2')}
-              $primary={cvPattern === 'pattern-2'}
-            >
-              <StyledPattern>
-                <StyledPatternTwo $color={cvColor}></StyledPatternTwo>
-              </StyledPattern>
-            </StyledPatternButton>
-          </li>
-          <li>
-            <StyledPatternButton
-              onClick={() => setCVPattern('pattern-3')}
-              $primary={cvPattern === 'pattern-3'}
-            ></StyledPatternButton>
-          </li>
-        </StyledList>
-      </StyledContent>
-    </>
+    <StyledList>
+      <li>
+        <StyledPatternButton
+          onClick={() => setCVPattern('pattern-1')}
+          $primary={cvPattern === 'pattern-1'}
+        >
+          <StyledPattern>
+            <StyledPatternOne $color={cvColor}></StyledPatternOne>
+          </StyledPattern>
+        </StyledPatternButton>
+      </li>
+      <li>
+        <StyledPatternButton
+          onClick={() => setCVPattern('pattern-2')}
+          $primary={cvPattern === 'pattern-2'}
+        >
+          <StyledPattern>
+            <StyledPatternTwo $color={cvColor}></StyledPatternTwo>
+          </StyledPattern>
+        </StyledPatternButton>
+      </li>
+      <li>
+        <StyledPatternButton
+          onClick={() => setCVPattern('pattern-3')}
+          $primary={cvPattern === 'pattern-3'}
+        ></StyledPatternButton>
+      </li>
+    </StyledList>
   );
 }
 
@@ -147,19 +121,19 @@ export default function Customizer({
 }) {
   return (
     <>
-      <StyledBox>
+      <ContentBox title='Theme Color'>
         <ColorPick cvColor={cvColor} setCVColor={setCVColor} />
-      </StyledBox>
-      <StyledBox>
+      </ContentBox>
+      <ContentBox title='Font'>
         <FontPick cvFont={cvFont} setCVFont={setCVFont} />
-      </StyledBox>
-      <StyledBox>
+      </ContentBox>
+      <ContentBox title='Pattern'>
         <PatternPick
           cvColor={cvColor}
           cvPattern={cvPattern}
           setCVPattern={setCVPattern}
         />
-      </StyledBox>
+      </ContentBox>
     </>
   );
 }
