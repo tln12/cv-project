@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+const StyledRegister = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 const Li = styled.li`
   padding: var(--padding-tb-list-control) var(--padding-lr-control);
   border-bottom: 1.5px solid var(--bgc-body);
@@ -8,7 +12,6 @@ const Li = styled.li`
   justify-content: space-between;
   gap: 10px;
 `;
-
 const AddEntry = styled.button`
   margin: 10px;
   width: 100px;
@@ -16,7 +19,6 @@ const AddEntry = styled.button`
   background-color: var(--shadow-color);
 
   &:hover {
-    border: double white;
     color: white;
   }
 `;
@@ -83,7 +85,7 @@ export default function Register({
     );
   });
   return (
-    <>
+    <StyledRegister>
       <ul>{entries}</ul>
       <AddEntry
         className='material-symbols-outlined'
@@ -91,6 +93,6 @@ export default function Register({
       >
         add
       </AddEntry>
-    </>
+    </StyledRegister>
   );
 }
