@@ -7,7 +7,6 @@ const StyledCollapsible = styled.div`
   background-color: white;
   border: none;
   border-radius: var(--bar-control);
-  margin-right: 10px;
 `;
 const StyledHeader = styled.h3`
   padding: 10px var(--padding-lr-control);
