@@ -71,7 +71,6 @@ const StyledList = styled.ul`
 export default function CollapsibleSideNavigation({
   handleNavigation,
   navTab,
-  children,
 }) {
   const [open, setOpen] = useState(true);
 
@@ -137,7 +136,6 @@ export default function CollapsibleSideNavigation({
           <StyledGithubImg src='/github.svg'></StyledGithubImg>
         </a>
       </StyledSideNav>
-      {open && children}
     </>
   );
 }
