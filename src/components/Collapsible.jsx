@@ -18,7 +18,7 @@ const StyledHeader = styled.h3`
 const StyledWrapper = styled.div`
   display: grid;
   grid-template-rows: ${(props) => (props.open ? '1fr' : '0fr')};
-  transition: grid-template-rows 400ms ease;
+  transition: grid-template-rows var(--transition-time-slow) ease;
 `;
 const StyledContent = styled.div`
   overflow: hidden;
