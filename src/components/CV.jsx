@@ -4,7 +4,7 @@ import CVPatternThree from './cv-patterns/CVPatternThree';
 import styled from 'styled-components';
 
 const StyledPanel = styled.div`
-  padding: var(--section-padding);
+  padding: 0px var(--section-padding);
   border-radius: var(--bar-panel);
   overflow: scroll;
 `;
