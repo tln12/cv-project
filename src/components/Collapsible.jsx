@@ -5,23 +5,22 @@ import styled from 'styled-components';
 
 const StyledCollapsible = styled.div`
   background-color: white;
-  border-left: 7px solid var(--side-nav-color);
-  box-shadow:
-    0px 2px 10px var(--shadow-color),
-    0px -2px 10px var(--shadow-color),
-    2px 0px 10px var(--shadow-color);
+  border: none;
+  border-radius: var(--bar-control);
   margin-right: 10px;
 `;
 const StyledHeader = styled.h2`
-  background-color: white;
   padding: 15px var(--padding-lr-control);
   display: flex;
   justify-content: space-between;
 `;
+const StyledWrapper = styled.div`
+  display: grid;
+  grid-template-rows: ${(props) => (props.open ? '1fr' : '0fr')};
+  transition: grid-template-rows 400ms ease;
+`;
 const StyledContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  display: ${(props) => !props.open && 'none'};
+  overflow: hidden;
 `;
 
 export default function Collapsible({ title, content, collapsed = true }) {
@@ -39,7 +38,9 @@ export default function Collapsible({ title, content, collapsed = true }) {
           {open ? 'arrow_drop_down' : 'arrow_right'}
         </button>
       </StyledHeader>
-      <StyledContent open={open}>{content}</StyledContent>
+      <StyledWrapper open={open}>
+        <StyledContent>{content}</StyledContent>
+      </StyledWrapper>
     </StyledCollapsible>
   );
 }
