@@ -5,8 +5,6 @@ import styled from 'styled-components';
 
 const StyledPanel = styled.section`
   display: flex;
-  background-color: var(--bgc-panel);
-  border-radius: var(--bar-panel);
   padding: var(--section-padding);
 `;
 const StyledScrollContainer = styled.div`
