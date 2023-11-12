@@ -12,7 +12,8 @@ const StyledButton = styled.button`
 `;
 const StyledLeftButton = styled(StyledButton)`
   border-radius: var(--bar-control) 0px 0px var(--bar-control);
-  border-right: none;
+  border: none;
+  background-color: var(--shadow-color);
 `;
 const StyledRightButton = styled(StyledButton)`
   background-color: var(--required-color);
