@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import './styles/style.css';
-import CollapsibleSideNavigation from './components/CollapsibleSideNavigation.jsx';
+import SideNavigation from './components/SideNavigation.jsx';
 import ControlPanel from './components/ControlPanel';
 import CV from './components/CV';
 import { hyphenToCamelCase } from './helperFunctions';
@@ -262,12 +262,12 @@ function App() {
     }
   }
   function handleNavigation(e) {
-    setNavTab(e.target.attributes['data-nav'].value);
+    setNavTab(e.target.closest('button').attributes['data-nav'].value);
   }
 
   return (
     <StyledApp>
-      <CollapsibleSideNavigation
+      <SideNavigation
         navTab={navTab}
         handleNavigation={(e) => handleNavigation(e)}
       />

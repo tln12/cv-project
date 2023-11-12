@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { useState } from 'react';
 
 const StyledSideNav = styled.nav`
   display: flex;
@@ -68,17 +67,7 @@ const StyledList = styled.ul`
   gap: 10px;
 `;
 
-export default function CollapsibleSideNavigation({
-  handleNavigation,
-  navTab,
-}) {
-  const [open, setOpen] = useState(true);
-
-  function handleClick(e) {
-    setOpen(true); // always open side nav when navigating
-    handleNavigation(e);
-  }
-
+export default function SideNavigation({ handleNavigation, navTab }) {
   return (
     <>
       <StyledSideNav>
@@ -86,22 +75,9 @@ export default function CollapsibleSideNavigation({
           <li>
             <StyledButton
               className='material-symbols-outlined'
-              onClick={() => setOpen(!open)}
-            >
-              {open
-                ? 'keyboard_double_arrow_left'
-                : 'keyboard_double_arrow_right'}
-            </StyledButton>
-          </li>
-          <li>
-            <hr />
-          </li>
-          <li>
-            <StyledButton
-              className='material-symbols-outlined'
               data-nav='data-manager'
               $navTab={navTab === 'data-manager'}
-              onClick={handleClick}
+              onClick={handleNavigation}
             >
               description
             </StyledButton>
@@ -111,7 +87,7 @@ export default function CollapsibleSideNavigation({
               className='material-symbols-outlined'
               data-nav='customize'
               $navTab={navTab === 'customize'}
-              onClick={handleClick}
+              onClick={handleNavigation}
             >
               palette
             </StyledButton>
@@ -122,7 +98,7 @@ export default function CollapsibleSideNavigation({
               className='material-symbols-outlined'
               data-nav='download'
               $navTab={navTab === 'download'}
-              onClick={handleClick}
+              onClick={handleNavigation}
             >
               download
             </StyledButton>
